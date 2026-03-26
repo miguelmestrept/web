@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Prácticas restaurativas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Pompiere&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Pompiere', sans-serif; background: #FBF7E9; color: #5a6b5a; }
+        h1, h2, .page-title, .menu-item > a, .dropdown li a { font-family: 'Amatic SC', cursive; }
+        nav { background: #c5e4dc; padding: 1.3rem 2rem; box-shadow: 0 3px 10px rgba(197,228,220,0.4); position: relative; }
+        .menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #4a7c6f; cursor: pointer; padding: 0.5rem; }
+        .menu { display: flex; gap: 2.5rem; list-style: none; }
+        .menu-item { position: relative; }
+        .menu-item > a { text-decoration: none; color: #4a7c6f; padding: 0.6rem 1.2rem; display: block; transition: all 0.3s; font-weight: 700; font-size: 1.4rem; border-radius: 5px; }
+        .menu-item:hover > a { background: #a8d5c8; transform: translateY(-2px); }
+        .dropdown { position: absolute; top: 100%; left: 0; background: #c5e4dc; min-width: 170px; box-shadow: 0 6px 20px rgba(197,228,220,0.5); opacity: 0; visibility: hidden; transition: all 0.3s; list-style: none; padding: 0.5rem 0; border-radius: 0 0 10px 10px; z-index: 1000; margin-top: 5px; }
+        .menu-item:hover .dropdown:not(.sub-dropdown), .dropdown:not(.sub-dropdown):hover { opacity: 1; visibility: visible; }
+        .menu-item.active .dropdown { opacity: 1; visibility: visible; }
+        .dropdown li a { display: block; padding: 0.7rem 1.3rem; color: #4a7c6f; text-decoration: none; transition: all 0.3s; }
+        .dropdown li a:hover { background: #a8d5c8; padding-left: 1.8rem; }
+        nav .dropdown a[href="pdi1.html"] { background-color: #c7e2c0; }
+        nav .dropdown a[href="pdi2.html"] { background-color: #A0B9DE; }
+        .dropdown li.has-submenu { position: relative; }
+        .dropdown li.has-submenu > a::after { content: ' ▼'; font-size: 0.7em; margin-left: 0.3rem; }
+        .sub-dropdown { position: absolute; left: 100%; top: 0; margin-top: 0; margin-left: 0; min-width: 220px; border-radius: 0 10px 10px 0; opacity: 0; visibility: hidden; display: none; }
+        .dropdown li.has-submenu.active .sub-dropdown { opacity: 1; visibility: visible; display: block; }
+        .container { max-width: 1200px; margin: 3rem auto; padding: 0 2rem; }
+        .page-title { text-align: center; font-size: 2.5rem; color: #5a8a7a; margin-bottom: 2rem; font-weight: bold; }
+        .content-section { max-width: 720px; margin: 0 auto; }
+        .content-section p { line-height: 1.75; color: #4a5a4a; font-size: 1.05rem; margin-bottom: 1rem; text-align: justify; }
+        .content-section { max-width: 720px; margin: 0 auto; }
+        .practicas-imaxe { width: 100%; max-width: 680px; margin: 0 auto 1rem; }
+        .practicas-imaxe img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; object-fit: contain; }
+        .practicas-imaxe img.practicas-imaxe-verde { filter: hue-rotate(133deg) saturate(0.22); }
+        .practicas-imaxe--proceso { margin: 1.5rem auto; }
+        .practicas-imaxe--proceso img { filter: none; }
+        .practicas-subtitulo { text-align: center; font-family: 'Amatic SC', cursive; font-size: 1.75rem; color: #5a8a7a; font-weight: bold; margin: 1.5rem 0 0.75rem; }
+        .practicas-subtitulo:not(:first-of-type) { margin-top: 2.25rem; }
+        .circulos-texto-block { overflow: auto; margin-bottom: 1rem; }
+        .circulos-texto-block .circulos-imaxe { float: left; width: 180px; margin-right: 1.25rem; margin-bottom: 0.5rem; }
+        .circulos-texto-block .circulos-imaxe img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; }
+        .circulos-texto-block .circulos-texto { line-height: 1.75; color: #4a5a4a; font-size: 1.05rem; text-align: justify; }
+        .circulos-texto-block .circulos-texto p { margin-bottom: 0.75rem; }
+        .obxecto-palabra-icon { width: 2.2em; height: auto; vertical-align: middle; mix-blend-mode: multiply; }
+        .reunion-espontanea-block { overflow: auto; margin: 1rem 0; }
+        .reunion-espontanea-block .reunion-imaxe { float: left; width: 85px; margin-right: 1rem; margin-bottom: 0.5rem; }
+        .reunion-espontanea-block .reunion-imaxe img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; }
+        .reunion-espontanea-block .reunion-texto { line-height: 1.75; color: #4a5a4a; font-size: 1.05rem; text-align: justify; }
+        .tanque-titulo { font-family: 'Amatic SC', cursive; font-size: 1.35rem; color: #5a8a7a; margin: 1rem 0 0.5rem; text-align: left; }
+        .tanque-list { line-height: 1.75; color: #4a5a4a; font-size: 1.05rem; margin: 0; padding-left: 1.25em; }
+        .tanque-list li { margin-bottom: 0.35rem; }
+        .doc-link { display: inline-block; margin-top: 0.75rem; padding: 0.6rem 1.2rem; background: #c5e4dc; color: #4a7c6f; text-decoration: none; border-radius: 8px; font-size: 1.15rem; font-weight: bold; border: 2px solid #a8d5c8; transition: all 0.3s; box-shadow: 0 2px 8px rgba(74, 124, 111, 0.15); }
+        .doc-link:hover { background: #a8d5c8; color: #3d6b5f; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(74, 124, 111, 0.25); }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .menu { display: none; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: #c5e4dc; box-shadow: 0 6px 20px rgba(197,228,220,0.5); padding: 1rem 0; z-index: 1000; }
+            .menu.active { display: flex; }
+            .menu-item { width: 100%; }
+            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.35rem; }
+            .dropdown { position: static; opacity: 1; visibility: visible; display: none; box-shadow: none; border-radius: 0; background: #a8d5c8; margin-left: 1rem; }
+            .menu-item.active .dropdown { display: block; }
+            .has-submenu .sub-dropdown { display: none; position: static; margin-left: 1rem; opacity: 1; visibility: visible; }
+            .has-submenu.active .sub-dropdown { display: block; }
+            nav { display: flex; justify-content: flex-end; align-items: center; padding: 0.75rem; }
+            .container { margin: 1rem auto; padding: 0 1rem; }
+            .page-title { font-size: 1.4rem; margin-bottom: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="menu" id="menu">
+            <li class="menu-item"><a href="index.html">Inicio</a></li>
+            <li class="menu-item">
+                <a href="#">O centro</a>
+                <ul class="dropdown">
+                    <li><a href="con-ollos-admiracion.html">Con ollos de admiración</a></li>
+                    <li><a href="ambitos-aprendizaxe-inclusivos.html">Ámbitos de aprendizaxe inclusivos</a></li>
+                    <li><a href="aprendizaxe-cooperativo.html">Aprendizaxe cooperativa</a></li>
+                    <li><a href="practicas-restaurativas.html">Prácticas restaurativas</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Programas de intervención</a>
+                <ul class="dropdown">
+                    <li><a href="pdi1.html">PDI 1</a></li>
+                    <li><a href="pdi2.html">PDI 2</a></li>
+                    <li><a href="pdi3.html">PDI 3</a></li>
+                    <li><a href="pdi4.html">PDI 4</a></li>
+                    <li><a href="pdi5.html">PDI 5</a></li>
+                    <li><a href="pdi6.html">PDI 6</a></li>
+                </ul>
+            </li>
+            <li class="menu-item"><a href="#">Avaliación</a></li>
+            <li class="menu-item">
+                <a href="#">Recursos</a>
+                <ul class="dropdown">
+                    <li class="has-submenu">
+                        <a href="#">Ámbitos de traballo</a>
+                        <ul class="dropdown sub-dropdown">
+                            <li><a href="area-emocional.html">Área Emocional</a></li>
+                            <li><a href="funciones-ejecutivas.html">Funciones Ejecutivas</a></li>
+                            <li><a href="area-linguistica.html">Área Lingüística</a></li>
+                            <li><a href="area-logico-matematica.html">Área lógico matemática</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">LIBROS</a>
+                        <ul class="dropdown sub-dropdown">
+                            <li><a href="album-ilustrado.html">Álbum ilustrado</a></li>
+                            <li><a href="#">Libros informativos</a></li>
+                            <li><a href="#">Lectura Fácil</a></li>
+                            <li><a href="#">Cómic</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item"><a href="#">Familia-escola</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1 class="page-title">Prácticas restaurativas</h1>
+        <div class="content">
+            <div class="content-section">
+                <div class="practicas-imaxe">
+                    <img src="practicas-restaurativas.png" alt="Prácticas restaurativas: espectro de informal a formal, prevención e restauración" class="practicas-imaxe-verde">
+                </div>
+                <h2 class="practicas-subtitulo">Círculos proactivos</h2>
+                <div class="circulos-texto-block">
+                    <div class="circulos-imaxe">
+                        <img src="circulos-nenos.png" alt="Nenos en círculo">
+                    </div>
+                    <div class="circulos-texto">
+                        <p>Realízanse ao comezo de cada sesión de proxectos nos que se formulan preguntas restaurativas que favorecen a cohesión do grupo.</p>
+                        <p>Lévase a cabo en círculos secuenciais, empregando un obxecto da palabra como recurso que favorece a regulación para os turnos. Só pode falar o que ten o obxecto da palabra<img src="obxecto-palabra.png" alt="" class="obxecto-palabra-icon" aria-hidden="true">.</p>
+                        <p style="margin-top: 0.5rem;"><a href="Preguntas%20para%20c%C3%ADrculos.pdf" class="doc-link" target="_blank" rel="noopener">Abrir: Preguntas para círculos (PDF)</a></p>
+                    </div>
+                </div>
+                <h2 class="practicas-subtitulo">Pequena reunión espontánea</h2>
+                <div class="reunion-espontanea-block">
+                    <div class="reunion-imaxe">
+                        <img src="boca-orella.png" alt="Zona Orella-Boca">
+                    </div>
+                    <div class="reunion-texto">
+                        <p>No noso centro materialízase na zona Orella-Boca incluida no recuncho da calma. Este é un espazo do aula para practicar escoitar e falar con calma. Inclúe apoios visuais (turnos, volume, «escoítote / agora&nbsp;falo»).</p>
+                    </div>
+                </div>
+                <h2 class="practicas-subtitulo">Círculos restaurativos espontáneos</h2>
+                <p>Un espazo de diálogo que se realiza cando xorde un conflicto ou unha situación que afecta ao grupo. Participa todo o grupo aula nun círculo secuencial ou non secuencial utilizando o obxecto da palabra para expresar como se sente e escoitar aos demais.</p>
+                <h2 class="practicas-subtitulo">Reunións restaurativas organizadas</h2>
+                <div class="practicas-imaxe practicas-imaxe--proceso">
+                    <img src="reunion-restaurativa-organizada.png" alt="Proceso de reunión restaurativa organizada">
+                </div>
+                <h3 class="tanque-titulo">Tanque de peixes</h3>
+                <div class="circulos-texto-block">
+                    <div class="circulos-imaxe" style="width: 200px;">
+                        <img src="tanque-peixes.png" alt="Tanque de peixes">
+                    </div>
+                    <div class="circulos-texto">
+                        <p><strong>Unha persoa X comparte un problema</strong></p>
+                        <ul class="tanque-list">
+                            <li>5 minutos sin interrupcións para describilo e dar a coñecer o caso ás persoas participantes</li>
+                            <li>5 minutos para preguntas aclaratorias</li>
+                            <li>10 minutos para dialogar. A persoa X só escoita e toma notas</li>
+                            <li>2 minutos para que a persoa X reflexione en alto e mencione 2 accións</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleMenu() { document.getElementById('menu').classList.toggle('active'); }
+        document.querySelectorAll('.menu-item').forEach(item => {
+            if (item.querySelector('.dropdown')) {
+                const link = item.querySelector(':scope > a');
+                if (link) link.addEventListener('click', function(e) { e.preventDefault(); document.querySelectorAll('.menu-item').forEach(o => { if (o !== item) o.classList.remove('active'); }); item.classList.toggle('active'); });
+            }
+        });
+        document.querySelectorAll('.has-submenu').forEach(item => {
+            const link = item.querySelector(':scope > a');
+            if (link) link.addEventListener('click', function(e) { e.preventDefault(); const parent = item.closest('.dropdown'); if (parent) parent.querySelectorAll('.has-submenu').forEach(o => { if (o !== item) o.classList.remove('active'); }); item.classList.toggle('active'); });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Funciones Ejecutivas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Pompiere&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Pompiere', sans-serif;
+            background: #FBF7E9;
+            color: #5a6b5a;
+        }
+        h1, h2, .page-title, .section-title, .menu-item > a, .dropdown li a {
+            font-family: 'Amatic SC', cursive;
+        }
+        nav {
+            background: #c5e4dc;
+            padding: 1.3rem 2rem;
+            box-shadow: 0 3px 10px rgba(197,228,220,0.4);
+            position: relative;
+        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #4a7c6f;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .menu-item {
+            position: relative;
+        }
+        .menu-item > a {
+            text-decoration: none;
+            color: #4a7c6f;
+            padding: 0.6rem 1.2rem;
+            display: block;
+            transition: all 0.3s;
+            font-weight: 700;
+            font-size: 1.4rem;
+            border-radius: 5px;
+        }
+        .menu-item:hover > a {
+            background: #a8d5c8;
+            transform: translateY(-2px);
+        }
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #c5e4dc;
+            min-width: 170px;
+            box-shadow: 0 6px 20px rgba(197,228,220,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            list-style: none;
+            padding: 0.5rem 0;
+            border-radius: 0 0 10px 10px;
+            z-index: 1000;
+            margin-top: 5px;
+        }
+        .menu-item:hover .dropdown:not(.sub-dropdown),
+        .dropdown:not(.sub-dropdown):hover {
+            opacity: 1;
+            visibility: visible;
+        }
+        .menu-item.active .dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+        .dropdown li a {
+            display: block;
+            padding: 0.7rem 1.3rem;
+            color: #4a7c6f;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .dropdown li a:hover {
+            background: #a8d5c8;
+            padding-left: 1.8rem;
+        }
+        .dropdown li.has-submenu {
+            position: relative;
+        }
+        .dropdown li.has-submenu > a::after {
+            content: ' ▼';
+            font-size: 0.7em;
+            margin-left: 0.3rem;
+        }
+        .sub-dropdown {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            margin-top: 0;
+            margin-left: 0;
+            min-width: 220px;
+            border-radius: 0 10px 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+        }
+        .dropdown li.has-submenu.active .sub-dropdown {
+            opacity: 1;
+            visibility: visible;
+            display: block;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #5a8a7a;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+        .apartado-xogos {
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .apartado-xogos .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 1.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+        .apartado-xogos .section-title::after {
+            width: 64px;
+            height: 4px;
+            margin-top: 0.75rem;
+        }
+        .apartado-franja {
+            background: linear-gradient(165deg, #e8f5f2 0%, #dceee9 100%);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(197,220,232,0.6);
+            box-shadow: 0 8px 24px rgba(90,138,122,0.12), 0 2px 8px rgba(90,138,122,0.08);
+            -webkit-tap-highlight-color: transparent;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #4a7c6f;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+            line-height: 1.35;
+            letter-spacing: 0.02em;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 48px;
+            height: 3px;
+            background: linear-gradient(90deg, #5a8a7a, #a8d5c8);
+            margin: 0.75rem auto 0;
+            border-radius: 2px;
+        }
+        .img-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 0.75rem;
+            justify-items: center;
+            align-content: start;
+            margin-top: 0;
+        }
+        .img-grid img {
+            max-width: 100%;
+            width: 75px;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(197,220,232,0.5);
+            box-shadow: 0 4px 12px rgba(90,138,122,0.1);
+            object-fit: contain;
+            display: block;
+            mix-blend-mode: multiply;
+        }
+        .img-grid .img-item:nth-child(4) {
+            grid-column: 2;
+        }
+        .img-grid .img-item:nth-child(5) {
+            grid-column: 3;
+        }
+        .img-grid-4 {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, auto);
+        }
+        .img-grid-4 .img-item:nth-child(4),
+        .img-grid-4 .img-item:nth-child(5) {
+            grid-column: auto;
+        }
+        .img-grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .menu {
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #c5e4dc;
+                box-shadow: 0 6px 20px rgba(197,228,220,0.5);
+                padding: 1rem 0;
+                z-index: 1000;
+            }
+            .menu.active { display: flex; }
+            .menu-item { width: 100%; }
+            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.35rem; }
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                box-shadow: none;
+                border-radius: 0;
+                background: #a8d5c8;
+                margin-left: 1rem;
+            }
+            .menu-item.active .dropdown { display: block; }
+            .has-submenu .sub-dropdown {
+                display: none;
+                position: static;
+                margin-left: 1rem;
+                opacity: 1;
+                visibility: visible;
+            }
+            .has-submenu.active .sub-dropdown { display: block; }
+            nav {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                padding: 0.75rem;
+            }
+            .container { margin: 1rem auto; padding: 0 1rem; max-width: 100%; }
+            .page-title { font-size: 1.4rem; margin-bottom: 0.75rem; line-height: 1.2; }
+            .apartado-xogos { padding: 1.25rem 0; margin-bottom: 1rem; }
+            .apartado-xogos .section-title { font-size: 1.6rem; letter-spacing: 0.05em; }
+            .apartado-franja {
+                padding: 1rem 0.75rem;
+                margin-bottom: 0.75rem;
+                border-radius: 16px;
+                box-shadow: 0 4px 12px rgba(90,138,122,0.08), 0 1px 4px rgba(90,138,122,0.04);
+            }
+            .section-title {
+                font-size: 1.05rem;
+                margin-bottom: 0.6rem;
+                line-height: 1.3;
+                padding: 0;
+            }
+            .section-title::after { width: 32px; margin-top: 0.4rem; height: 2px; }
+            .img-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+            }
+            .img-grid .img-item:nth-child(4) { grid-column: 2; }
+            .img-grid .img-item:nth-child(5) { grid-column: 3; }
+            .img-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+            .img-grid-4 .img-item:nth-child(4),
+            .img-grid-4 .img-item:nth-child(5) { grid-column: auto; }
+            .img-grid-3 { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+            .img-grid img {
+                width: 100%;
+                max-width: 65px;
+                border-radius: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="menu" id="menu">
+            <li class="menu-item"><a href="index.html">Inicio</a></li>
+            <li class="menu-item">
+                <a href="#">O centro</a>
+                <ul class="dropdown">
+                    <li><a href="con-ollos-admiracion.html">Con ollos de admiración</a></li>
+                    <li><a href="ambitos-aprendizaxe-inclusivos.html">Ámbitos de aprendizaxe inclusivos</a></li>
+                    <li><a href="aprendizaxe-cooperativo.html">Aprendizaxe cooperativa</a></li>
+                    <li><a href="practicas-restaurativas.html">Prácticas restaurativas</a></li>
+                </ul>
+            </li>
+            <li class="menu-item"><a href="proxecto-de-centro.html">Proxecto de centro</a></li>
+            <li class="menu-item">
+                <a href="#">Programa de intervención</a>
+                <ul class="dropdown">
+                    <li><a href="pdi1.html">PDI 1</a></li>
+                    <li><a href="pdi2.html">PDI 2</a></li>
+                    <li><a href="pdi3.html">PDI 3</a></li>
+                    <li><a href="pdi4.html">PDI 4</a></li>
+                    <li><a href="pdi5.html">PDI 5</a></li>
+                    <li><a href="pdi6.html">PDI 6</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Evaluación</a>
+                <ul class="dropdown">
+                    <li><a href="#">Primero</a></li>
+                    <li><a href="#">Segundo</a></li>
+                    <li><a href="#">Tercero</a></li>
+                    <li><a href="#">Cuarto</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Recursos</a>
+                <ul class="dropdown">
+                    <li class="has-submenu">
+                        <a href="#">Ámbitos de traballo</a>
+                        <ul class="dropdown sub-dropdown">
+                            <li><a href="area-emocional.html">Área Emocional</a></li>
+                            <li><a href="funciones-ejecutivas.html">Funciones Ejecutivas</a></li>
+                            <li><a href="area-linguistica.html">Área Lingüística</a></li>
+                            <li><a href="area-logico-matematica.html">Área lógico matemática</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">LIBROS</a>
+                        <ul class="dropdown sub-dropdown">
+                            <li><a href="album-ilustrado.html">Álbum ilustrado</a></li>
+                            <li><a href="#">Libros informativos</a></li>
+                            <li><a href="#">Lectura Fácil</a></li>
+                            <li><a href="#">Cómic</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Familia-escola</a>
+                <ul class="dropdown">
+                    <li><a href="#">Primero</a></li>
+                    <li><a href="#">Segundo</a></li>
+                    <li><a href="#">Tercero</a></li>
+                    <li><a href="#">Cuarto</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1 class="page-title">Funciones Ejecutivas</h1>
+        <section class="apartado-xogos">
+            <h2 class="section-title">Xogos</h2>
+        <div class="apartado-franja">
+            <h3 class="section-title">Atención y velocidad de procesamiento</h3>
+            <div class="img-grid">
+            <div class="img-item">
+                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.49.54.png" alt="Funciones ejecutivas 1">
+            </div>
+            <div class="img-item">
+                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.50.34.png" alt="Funciones ejecutivas 2">
+            </div>
+            <div class="img-item">
+                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.51.24.png" alt="Funciones ejecutivas 3">
+            </div>
+            <div class="img-item">
+                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.51.53.png" alt="Funciones ejecutivas 4">
+            </div>
+            <div class="img-item">
+                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.52.28.png" alt="Funciones ejecutivas 5">
+            </div>
+            </div>
+        </div>
+        <div class="apartado-franja">
+            <h3 class="section-title">Control Inhibitorio</h3>
+            <div class="img-grid img-grid-4">
+                <div class="img-item">
+                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.56.29.png" alt="Control inhibitorio 1">
+                </div>
+                <div class="img-item">
+                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.57.11.png" alt="Control inhibitorio 2">
+                </div>
+                <div class="img-item">
+                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.57.39.png" alt="Control inhibitorio 3">
+                </div>
+                <div class="img-item">
+                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.58.26.png" alt="Control inhibitorio 4">
+                </div>
+            </div>
+        </div>
+        <div class="apartado-franja">
+            <h3 class="section-title">Planificación</h3>
+            <div class="img-grid img-grid-3">
+                <div class="img-item">
+                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2012.15.51.png" alt="Planificación 1">
+                </div>
+                <div class="img-item">
+                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2012.16.54.png" alt="Planificación 2">
+                </div>
+                <div class="img-item">
+                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2012.17.58.png" alt="Planificación 3">
+                </div>
+            </div>
+        </div>
+        <div class="apartado-franja">
+            <h3 class="section-title">Memoria</h3>
+            <div class="img-grid img-grid-3">
+                <div class="img-item">
+                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2012.25.00.png" alt="Memoria 1">
+                </div>
+                <div class="img-item">
+                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2012.25.51.png" alt="Memoria 2">
+                </div>
+                <div class="img-item">
+                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2012.26.47.png" alt="Memoria 3">
+                </div>
+            </div>
+        </div>
+        </section>
+    </div>
+    <script>
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('active');
+        }
+        // Toggle dropdowns on click (both desktop and mobile)
+        document.querySelectorAll('.menu-item').forEach(item => {
+            if (item.querySelector('.dropdown')) {
+                const link = item.querySelector(':scope > a');
+                if (link) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        // Close other menu items
+                        document.querySelectorAll('.menu-item').forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
+                        item.classList.toggle('active');
+                    });
+                }
+            }
+        });
+        document.querySelectorAll('.has-submenu').forEach(item => {
+            const link = item.querySelector(':scope > a');
+            if (link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Close other submenus in the same dropdown
+                    const parentDropdown = item.closest('.dropdown');
+                    if (parentDropdown) {
+                        parentDropdown.querySelectorAll('.has-submenu').forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
+                    }
+                    item.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

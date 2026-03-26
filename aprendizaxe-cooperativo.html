@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Aprendizaxe cooperativa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Pompiere&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Pompiere', sans-serif; background: #FBF7E9; color: #5a6b5a; }
+        h1, h2, .page-title, .menu-item > a, .dropdown li a { font-family: 'Amatic SC', cursive; }
+        nav { background: #c5e4dc; padding: 1.3rem 2rem; box-shadow: 0 3px 10px rgba(197,228,220,0.4); position: relative; }
+        .menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #4a7c6f; cursor: pointer; padding: 0.5rem; }
+        .menu { display: flex; gap: 2.5rem; list-style: none; }
+        .menu-item { position: relative; }
+        .menu-item > a { text-decoration: none; color: #4a7c6f; padding: 0.6rem 1.2rem; display: block; transition: all 0.3s; font-weight: 700; font-size: 1.4rem; border-radius: 5px; }
+        .menu-item:hover > a { background: #a8d5c8; transform: translateY(-2px); }
+        .dropdown { position: absolute; top: 100%; left: 0; background: #c5e4dc; min-width: 170px; box-shadow: 0 6px 20px rgba(197,228,220,0.5); opacity: 0; visibility: hidden; transition: all 0.3s; list-style: none; padding: 0.5rem 0; border-radius: 0 0 10px 10px; z-index: 1000; margin-top: 5px; }
+        .menu-item:hover .dropdown:not(.sub-dropdown), .dropdown:not(.sub-dropdown):hover { opacity: 1; visibility: visible; }
+        .menu-item.active .dropdown { opacity: 1; visibility: visible; }
+        .dropdown li a { display: block; padding: 0.7rem 1.3rem; color: #4a7c6f; text-decoration: none; transition: all 0.3s; }
+        .dropdown li a:hover { background: #a8d5c8; padding-left: 1.8rem; }
+        nav .dropdown a[href="pdi1.html"] { background-color: #c7e2c0; }
+        nav .dropdown a[href="pdi2.html"] { background-color: #A0B9DE; }
+        .dropdown li.has-submenu { position: relative; }
+        .dropdown li.has-submenu > a::after { content: ' ▼'; font-size: 0.7em; margin-left: 0.3rem; }
+        .sub-dropdown { position: absolute; left: 100%; top: 0; margin-top: 0; margin-left: 0; min-width: 220px; border-radius: 0 10px 10px 0; opacity: 0; visibility: hidden; display: none; }
+        .dropdown li.has-submenu.active .sub-dropdown { opacity: 1; visibility: visible; display: block; }
+        .container { max-width: 1200px; margin: 3rem auto; padding: 0 2rem; }
+        .page-title { text-align: center; font-size: 2.5rem; color: #5a8a7a; margin-bottom: 0.5rem; font-weight: bold; }
+        .page-subtitle { text-align: center; font-size: 1.25rem; color: #5a6b5a; margin-bottom: 2rem; font-style: italic; }
+        .ruleta-block { overflow: auto; margin-bottom: 2rem; }
+        .ruleta-block .ruleta-imaxe { float: left; width: 220px; margin-left: -1rem; margin-right: 0.5rem; margin-bottom: 0.75rem; }
+        .ruleta-block .ruleta-imaxe img { width: 100%; height: auto; object-fit: contain; display: block; mix-blend-mode: multiply; }
+        .ruleta-block .ruleta-texto { line-height: 1.75; color: #4a5a4a; font-size: 1.05rem; text-align: justify; }
+        .content-section { max-width: 720px; margin: 0 auto; }
+        .content-section h2 { font-size: 1.75rem; color: #5a8a7a; margin-bottom: 1rem; text-align: center; }
+        .ambito { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(74, 124, 111, 0.2); }
+        .ambito:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+        .ambito-titulo { font-family: 'Amatic SC', cursive; font-size: 1.6rem; color: #5a8a7a; margin-bottom: 1rem; text-align: left; }
+        .ambito h3 { font-size: 1.35rem; color: #5a8a7a; margin: 1.25rem 0 0.5rem; }
+        .ambito h3:first-of-type { margin-top: 0; }
+        .cohesion-mundo-block { overflow: auto; margin: 1rem 0; }
+        .cohesion-mundo-imaxe { float: left; width: 95px; margin-right: 1rem; margin-bottom: 0.5rem; margin-top: -0.25rem; }
+        .cohesion-mundo-imaxe img { width: 100%; height: auto; object-fit: contain; display: block; mix-blend-mode: multiply; }
+        .caderno-equipo-block { display: grid; grid-template-columns: 200px 1fr; gap: 1.25rem; align-items: start; margin: 1rem 0; }
+        .caderno-equipo-block .caderno-equipo-imaxe { width: 200px; }
+        .caderno-equipo-block .caderno-equipo-imaxe img { width: 100%; height: auto; object-fit: contain; display: block; mix-blend-mode: normal; }
+        .caderno-equipo-block .caderno-equipo-lista { line-height: 1.75; color: #4a5a4a; font-size: 1.05rem; min-width: 0; }
+        .caderno-equipo-block .caderno-equipo-lista ol { margin: 0; padding-left: 1.5em; list-style-position: outside; }
+        .caderno-equipo-block .caderno-equipo-lista li { margin-bottom: 0.4rem; }
+        .caderno-equipo-block .caderno-equipo-imaxe .caderno-equipo-enlace { display: block; margin-top: 0.75rem; padding: 0.6rem 1rem; background: #c5e4dc; color: #4a7c6f; text-align: center; font-weight: bold; font-size: 1rem; text-decoration: none; border-radius: 8px; border: 2px solid #a8d5c8; transition: all 0.3s; box-shadow: 0 2px 8px rgba(74, 124, 111, 0.15); }
+        .caderno-equipo-block .caderno-equipo-imaxe .caderno-equipo-enlace:hover { background: #a8d5c8; color: #3d6b5f; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(74, 124, 111, 0.25); }
+        .caderno-equipo-block .caderno-equipo-imaxe .caderno-equipo-enlace::before { content: "📄 "; }
+        .equipos-heteroxeneos-block { margin: 1rem 0; }
+        .equipos-heteroxeneos-block p { margin-bottom: 0; }
+        .equipos-heteroxeneos-block .equipos-heteroxeneos-imaxe { width: 100%; max-width: 680px; margin: 0.15rem auto 0; }
+        .equipos-heteroxeneos-block .equipos-heteroxeneos-imaxe img { width: 100%; height: auto; object-fit: contain; display: block; mix-blend-mode: multiply; }
+        .cohesion-mundo-texto { line-height: 1.75; color: #4a5a4a; font-size: 1.05rem; text-align: justify; }
+        .icono-aprender-xuntos { width: 2.6em; height: 2.6em; vertical-align: -0.6em; margin-left: 0.35em; margin-bottom: -0.5em; mix-blend-mode: multiply; display: inline-block; }
+        .content-section p { line-height: 1.75; color: #4a5a4a; font-size: 1.05rem; margin-bottom: 1rem; text-align: justify; }
+        .content-subsection { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(74, 124, 111, 0.2); }
+        .content-subsection:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+        .estruturas-list { max-width: 900px; margin: 2rem auto 0; padding-top: 0; border-top: none; }
+        .estrutura-bloco { margin-bottom: 2rem; overflow: auto; }
+        .estrutura-bloco:last-child { margin-bottom: 0; }
+        .estrutura-bloco h3 { font-family: 'Amatic SC', cursive; font-size: 1.5rem; color: #5a8a7a; margin-bottom: 0.75rem; }
+        .estrutura-imaxe { float: left; width: 160px; margin-right: 1.25rem; margin-bottom: 0.5rem; padding: 4px; box-sizing: border-box; }
+        .estrutura-imaxe img { width: 100%; height: auto; border-radius: 0; box-shadow: 0 4px 16px rgba(74, 124, 111, 0.15); object-fit: contain; display: block; }
+        .estrutura-texto { line-height: 1.7; color: #4a5a4a; font-size: 1.05rem; text-align: justify; }
+        .estrutura-texto p { margin-bottom: 0.5rem; }
+        .estrutura-texto p.estrutura-pergunta { margin-top: 1.25rem; text-align: left; clear: left; font-weight: bold; font-size: 1.2rem; color: #4a6a5a; }
+        .estrutura-texto .lista-icon { height: 1.7em; width: auto; vertical-align: -0.2em; display: inline; margin-left: 0.75rem; border-radius: 50%; object-fit: cover; }
+        .estrutura-texto .lista-icon--cerca { margin-left: 0.35rem; }
+        .estrutura-texto .lista-icon--maior { height: 1.95em; }
+        .estrutura-texto ul { list-style: none; padding-left: 0; }
+        .estrutura-texto ul li { padding-left: 0; }
+        .estrutura-texto ul li::before { content: "— "; color: #5a8a7a; font-weight: bold; }
+        .estrutura-texto p:last-child { margin-bottom: 0; }
+        .lapis-centro-frase { text-align: center; margin: 1rem 0; font-size: 1.15rem; line-height: 1.8; color: #4a5a4a; }
+        .lapis-centro-frase p { margin-bottom: 0.5rem; }
+        .lapis-centro-frase p:last-child { margin-bottom: 0; }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .menu { display: none; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: #c5e4dc; box-shadow: 0 6px 20px rgba(197,228,220,0.5); padding: 1rem 0; z-index: 1000; }
+            .menu.active { display: flex; }
+            .menu-item { width: 100%; }
+            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.35rem; }
+            .dropdown { position: static; opacity: 1; visibility: visible; display: none; box-shadow: none; border-radius: 0; background: #a8d5c8; margin-left: 1rem; }
+            .menu-item.active .dropdown { display: block; }
+            .has-submenu .sub-dropdown { display: none; position: static; margin-left: 1rem; opacity: 1; visibility: visible; }
+            .has-submenu.active .sub-dropdown { display: block; }
+            nav { display: flex; justify-content: flex-end; align-items: center; padding: 0.75rem; }
+            .container { margin: 1rem auto; padding: 0 1rem; }
+            .page-title { font-size: 1.4rem; margin-bottom: 0.35rem; }
+            .page-subtitle { font-size: 1.05rem; margin-bottom: 1.25rem; }
+            .estrutura-imaxe { width: 100px; margin-right: 1rem; padding: 3px; }
+            .ruleta-block .ruleta-imaxe { width: 140px; margin-left: 0; margin-right: 0.5rem; }
+            .ambito { margin-top: 2rem; padding-top: 1.25rem; }
+            .ambito-titulo { font-size: 1.4rem; }
+            .cohesion-mundo-imaxe { width: 75px; margin-right: 0.75rem; margin-top: -0.2rem; }
+            .caderno-equipo-block { grid-template-columns: 140px 1fr; gap: 1rem; }
+            .caderno-equipo-block .caderno-equipo-imaxe { width: 140px; }
+            .equipos-heteroxeneos-block .equipos-heteroxeneos-imaxe { max-width: 100%; margin-top: 0.15rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="menu" id="menu">
+            <li class="menu-item"><a href="index.html">Inicio</a></li>
+            <li class="menu-item">
+                <a href="#">O centro</a>
+                <ul class="dropdown">
+                    <li><a href="con-ollos-admiracion.html">Con ollos de admiración</a></li>
+                    <li><a href="ambitos-aprendizaxe-inclusivos.html">Ámbitos de aprendizaxe inclusivos</a></li>
+                    <li><a href="aprendizaxe-cooperativo.html">Aprendizaxe cooperativa</a></li>
+                    <li><a href="practicas-restaurativas.html">Prácticas restaurativas</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Programas de intervención</a>
+                <ul class="dropdown">
+                    <li><a href="pdi1.html">PDI 1</a></li>
+                    <li><a href="pdi2.html">PDI 2</a></li>
+                    <li><a href="pdi3.html">PDI 3</a></li>
+                    <li><a href="pdi4.html">PDI 4</a></li>
+                    <li><a href="pdi5.html">PDI 5</a></li>
+                    <li><a href="pdi6.html">PDI 6</a></li>
+                </ul>
+            </li>
+            <li class="menu-item"><a href="#">Avaliación</a></li>
+            <li class="menu-item">
+                <a href="#">Recursos</a>
+                <ul class="dropdown">
+                    <li class="has-submenu">
+                        <a href="#">Ámbitos de traballo</a>
+                        <ul class="dropdown sub-dropdown">
+                            <li><a href="area-emocional.html">Área Emocional</a></li>
+                            <li><a href="funciones-ejecutivas.html">Funciones Ejecutivas</a></li>
+                            <li><a href="area-linguistica.html">Área Lingüística</a></li>
+                            <li><a href="area-logico-matematica.html">Área lógico matemática</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">LIBROS</a>
+                        <ul class="dropdown sub-dropdown">
+                            <li><a href="album-ilustrado.html">Álbum ilustrado</a></li>
+                            <li><a href="#">Libros informativos</a></li>
+                            <li><a href="#">Lectura Fácil</a></li>
+                            <li><a href="#">Cómic</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item"><a href="#">Familia-escola</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1 class="page-title">A aprendizaxe cooperativa como recurso para a inclusión.</h1>
+        <p class="page-subtitle">O alumnado aprende CO seu equipo e DO seu equipo.</p>
+        <div class="content-section">
+            <div class="ruleta-block">
+                <div class="ruleta-imaxe">
+                    <img src="Ruleta cooperativo.png" alt="Ruleta da cooperación">
+                </div>
+                <div class="ruleta-texto">
+                    <p>A nivel centro seguimos o Manual <em>Cooperar para Aprender / Aprender a Cooperar</em> de Pere Pujolàs e José Ramón Lago (2011), aplicando os tres ámbitos da ruleta da cooperación para estructurar o traballo en equipo na aula.</p>
+                    <p>No meu papel como PT traballo coa tutoría para garantizar a presenza e participación dos meus alumnos no seus equipos correspondentes. Para isto, é imprescindible seguir os tres ámbitos.</p>
+                </div>
+            </div>
+            <div class="ambito">
+                <h2 class="ambito-titulo">Ámbito A: Cohesión dos equipos</h2>
+                <p>Antes de aprender en equipo é necesario construir cohesión de grupo. É importante que o alumnado confíe e se sinta parte do grupo para logo axudarse e aprender xuntos. <img src="icono-aprender-xuntos.png" alt="" class="icono-aprender-xuntos" aria-hidden="true"></p>
+                <p>No noso centro, a cohesión realízase no mes de setembro onde dedicamos as horas de proxectos a realizar dinámicas de cohesión.</p>
+                <div class="cohesion-mundo-block">
+                    <div class="cohesion-mundo-imaxe">
+                        <img src="mundo-das-cores.png" alt="Mundo das Cores">
+                    </div>
+                    <div class="cohesion-mundo-texto">
+                        <p>Un exemplo é <strong>Mundo das Cores</strong>, unha dinámica que axuda ao alumnado a reflexionar e empatizar sobre como se sente unha persoa cando non é aceptada nun grupo.</p>
+                    </div>
+                </div>
+                <p>Ao longo do curso, a cohesión segue presente mediante os círculos da palabra ao inicio e final das sesións.</p>
+            </div>
+            <div class="ambito">
+                <h2 class="ambito-titulo">Ámbito B: Estructuras Cooperativas</h2>
+            <p>As estruturas cooperativas son un recurso para garantir a accesibilidade do alumnado, tendo en conta os diferentes ritmos e capacidades. Ao organizar a tarefa con estruturas claras, a actividade multinivélase, permitindo que todo o alumnado participe e acceda á aprendizaxe segundo as súas posibilidades.</p>
+            <p>A continuación expoñemos as principais estructuras utilizadas dentro dos proxectos no meu centro educativo.</p>
+            <div class="estruturas-list">
+                <div class="estrutura-bloco">
+                    <h3>Folio xiratorio</h3>
+                    <div class="estrutura-imaxe">
+                        <img src="folio-xiratorio.png" alt="Folio xiratorio">
+                    </div>
+                    <div class="estrutura-texto">
+                        <p>O equipo constrúe unha resposta nun mesmo folio por quendas: cada persoa achega unha parte e pásao á seguinte ata completar a tarefa.</p>
+                    </div>
+                </div>
+                <div class="estrutura-bloco">
+                    <h3>Lápis ó centro</h3>
+                    <div class="estrutura-imaxe">
+                        <img src="lapis-centro.png" alt="Lápis ó centro">
+                    </div>
+                    <div class="estrutura-texto">
+                        <div class="lapis-centro-frase">
+                            <p>1º. Constrúese o significado en equipo, pensando de maneira compartida.</p>
+                            <p>2º Cada membro produce a súa resposta.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="estrutura-bloco">
+                    <h3>1-2-4</h3>
+                    <div class="estrutura-imaxe">
+                        <img src="estrutura-1-2-4.png" alt="1-2-4">
+                    </div>
+                    <div class="estrutura-texto">
+                        <p><strong>Organización da tarefa en 3 momentos:</strong></p>
+                        <p><strong>Momento 1.</strong> Cada alumno reflexiona de maneira individual, e damos resposta de forma multimodal.</p>
+                        <p><strong>Momento 2.</strong> Compartese a reflexión coa parella, chegando a un consenso.</p>
+                        <p><strong>Momento 3.</strong> Ponse en común todas as respostas, constrúese unha resposta común.</p>
+                    </div>
+                </div>
+                <div class="estrutura-bloco">
+                    <h3>Lectura compartida</h3>
+                    <div class="estrutura-imaxe">
+                        <img src="lectura-compartida.png" alt="Lectura compartida">
+                    </div>
+                    <div class="estrutura-texto">
+                        <p>Repártese a carga cognitiva que supón a comprensión lectora da seguinte maneira:</p>
+                        <p>O alumnado le o texto en equipo e asume distintos roles: ler, resumir, identificar palabras clave e elaborar unha conclusión. Cada parágrafo trabállase seguindo esta secuencia, mentres un le un parágrafo o seguinte resume, o seguinte identifica palabra clave e o seguinte encárgase da conclusión. De esta maneira constrúese a comprensión do texto entre todo o equipo.</p>
+                        <p>Algúns alumnos/as non poderían acceder á lectura do texto de maneira individual, polo que esta estrutura favorece moito a accesibilidade comunicativa.</p>
+                    </div>
+                </div>
+                <div class="estrutura-bloco">
+                    <div class="estrutura-texto" style="margin-left: 0;">
+                        <p class="estrutura-pergunta"><strong>Por que estas estruturas forman parte da miña intervención como PT?</strong></p>
+                        <ul>
+                            <li>Aseguramos a participación de todo o alumnado. <img src="mans-equipo.png" class="lista-icon" alt="Equipo" role="img"></li>
+                            <li>Fomenta a interdependencia positiva: o resultado final é do equipo.</li>
+                            <li>Axuda a organizar ideas, obtendo moitos puntos de vista. <img src="vista-icon.png" class="lista-icon lista-icon--cerca" alt="Puntos de vista" role="img"></li>
+                            <li>Cada quen contribúe de distintas maneiras (unha palabra, unha frase, unha idea, un exemplo, unha revisión, un debuxo…). <img src="debuxo-icon.png" class="lista-icon lista-icon--cerca lista-icon--maior" alt="Debuxo" role="img"></li>
+                            <li>Accesibilidade comunicativa: permitimos ditar a un compañeiro, sinalar opción, usar teclado, comunicador… <img src="equipo-icon.png" class="lista-icon lista-icon--cerca" alt="Accesibilidade" role="img"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="ambito">
+                <h2 class="ambito-titulo">Ámbito C: Conciencia, Autoregulación e Avaliación</h2>
+                <h3>Equipos heteroxéneos</h3>
+                <div class="equipos-heteroxeneos-block">
+                    <p>En traballo cooperativo coa tutora da aula, como PT participo creando os equipos de maneira heteroxénea.</p>
+                    <div class="equipos-heteroxeneos-imaxe">
+                        <img src="equipos-heteroxeneos.png" alt="Diagrama de formación de equipos heteroxéneos: os máis capaces de dar axuda, o resto do grupo e os máis necesitados de axuda">
+                    </div>
+                </div>
+                <h3>Caderno de equipo</h3>
+                <p>Axuda ao alumnado a aprender a traballar en equipo de forma consciente e organizada.</p>
+                <p style="margin-bottom: 0.5rem;">Un caderno de equipo en cada trimestre, coas seguintes partes:</p>
+                <div class="caderno-equipo-block" style="margin-top: 0.5rem;">
+                    <div class="caderno-equipo-imaxe">
+                        <img src="cuaderno-equipo.png" alt="Caderno de equipo">
+                        <a href="Caderno de equipo.pdf" class="caderno-equipo-enlace" target="_blank" rel="noopener">Caderno de equipo completo</a>
+                    </div>
+                    <div class="caderno-equipo-lista">
+                        <ol>
+                            <li>Nome e logo</li>
+                            <li>Membros do equipo e firma.</li>
+                            <li>Cargos ou roles</li>
+                            <li>Diario de sesión: Podendo anexarse as necesarias segundo o proxecto.</li>
+                            <li>Obxectivos de equipo</li>
+                            <li>Compromisos individuais para o traballo en equipo.</li>
+                            <li>Avaliación dos obxectivos do equipo, compromisos individuais</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleMenu() { document.getElementById('menu').classList.toggle('active'); }
+        document.querySelectorAll('.menu-item').forEach(item => {
+            if (item.querySelector('.dropdown')) {
+                const link = item.querySelector(':scope > a');
+                if (link) link.addEventListener('click', function(e) { e.preventDefault(); document.querySelectorAll('.menu-item').forEach(o => { if (o !== item) o.classList.remove('active'); }); item.classList.toggle('active'); });
+            }
+        });
+        document.querySelectorAll('.has-submenu').forEach(item => {
+            const link = item.querySelector(':scope > a');
+            if (link) link.addEventListener('click', function(e) { e.preventDefault(); const parent = item.closest('.dropdown'); if (parent) parent.querySelectorAll('.has-submenu').forEach(o => { if (o !== item) o.classList.remove('active'); }); item.classList.toggle('active'); });
+        });
+    </script>
+</body>
+</html>

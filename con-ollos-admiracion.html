@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Con ollos de admiración</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Pompiere&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Pompiere', sans-serif;
+            background: #FBF7E9;
+            color: #5a6b5a;
+        }
+        h1, h2, .page-title, .section-title, .menu-item > a, .dropdown li a {
+            font-family: 'Amatic SC', cursive;
+        }
+        nav {
+            background: #c5e4dc;
+            padding: 1.3rem 2rem;
+            box-shadow: 0 3px 10px rgba(197,228,220,0.4);
+            position: relative;
+        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #4a7c6f;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .menu-item {
+            position: relative;
+        }
+        .menu-item > a {
+            text-decoration: none;
+            color: #4a7c6f;
+            padding: 0.6rem 1.2rem;
+            display: block;
+            transition: all 0.3s;
+            font-weight: 700;
+            font-size: 1.4rem;
+            border-radius: 5px;
+        }
+        .menu-item:hover > a {
+            background: #a8d5c8;
+            transform: translateY(-2px);
+        }
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #c5e4dc;
+            min-width: 170px;
+            box-shadow: 0 6px 20px rgba(197,228,220,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            list-style: none;
+            padding: 0.5rem 0;
+            border-radius: 0 0 10px 10px;
+            z-index: 1000;
+            margin-top: 5px;
+        }
+        .menu-item:hover .dropdown:not(.sub-dropdown),
+        .dropdown:not(.sub-dropdown):hover {
+            opacity: 1;
+            visibility: visible;
+        }
+        .menu-item.active .dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+        .dropdown li a {
+            display: block;
+            padding: 0.7rem 1.3rem;
+            color: #4a7c6f;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .dropdown li a:hover {
+            background: #a8d5c8;
+            padding-left: 1.8rem;
+        }
+        nav .dropdown a[href="pdi1.html"] {
+            background-color: #c7e2c0;
+        }
+        nav .dropdown a[href="pdi2.html"] {
+            background-color: #A0B9DE;
+        }
+        .dropdown li.has-submenu {
+            position: relative;
+        }
+        .dropdown li.has-submenu > a::after {
+            content: ' ▼';
+            font-size: 0.7em;
+            margin-left: 0.3rem;
+        }
+        .sub-dropdown {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            margin-top: 0;
+            margin-left: 0;
+            min-width: 220px;
+            border-radius: 0 10px 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+        }
+        .dropdown li.has-submenu.active .sub-dropdown {
+            opacity: 1;
+            visibility: visible;
+            display: block;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        .page-title-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #5a8a7a;
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+        .btn-audio-lectura {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.25rem;
+            height: 2.25rem;
+            padding: 0;
+            border: 1px solid rgba(74, 124, 111, 0.4);
+            border-radius: 50%;
+            background: rgba(197, 228, 220, 0.5);
+            color: #5a8a7a;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-audio-lectura img {
+            width: 28px;
+            height: 28px;
+            display: block;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+        .btn-audio-lectura:hover {
+            background: rgba(168, 213, 200, 0.8);
+        }
+        .btn-audio-lectura:active {
+            transform: scale(0.95);
+        }
+        .audio-lectura-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .explicacion-block {
+            max-width: 720px;
+            margin: 0 auto 0.75rem;
+            padding: 2.5rem 2rem;
+            text-align: justify;
+            line-height: 1.75;
+            font-size: 1.15rem;
+            color: #4a5a4a;
+            background: rgba(197, 228, 220, 0.2);
+            border-radius: 16px;
+            border: 1px solid rgba(74, 124, 111, 0.15);
+            box-shadow: 0 4px 20px rgba(74, 124, 111, 0.08);
+        }
+        .explicacion-lema {
+            text-align: center;
+            font-size: 1.35rem;
+            line-height: 1.5;
+            color: #4a5a4a;
+            margin: 1.25rem 0 1.75rem 0;
+            padding: 0;
+        }
+        .explicacion-block p {
+            margin-bottom: 1.25rem;
+        }
+        .explicacion-block p:last-child {
+            margin-bottom: 0;
+        }
+        .actividades-section {
+            margin-top: 0;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(74, 124, 111, 0.2);
+        }
+        .actividade-item {
+            margin-bottom: 2.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: auto;
+        }
+        .actividade-item:last-child {
+            margin-bottom: 0;
+        }
+        .actividade-imaxe {
+            float: left;
+            width: 260px;
+            margin-right: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .actividade-imaxe img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(74, 124, 111, 0.15);
+            object-fit: cover;
+        }
+        .actividade-imaxe.vertical {
+            width: 180px;
+        }
+        .actividade-texto {
+            line-height: 1.7;
+            color: #4a5a4a;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+        .actividade-texto p {
+            margin-bottom: 0.75rem;
+        }
+        .actividade-texto p:last-child {
+            margin-bottom: 0;
+        }
+        .actividade-titulo {
+            font-size: 1.75rem;
+            color: #5a8a7a;
+            margin-bottom: 1.25rem;
+            text-align: center;
+            width: 100%;
+        }
+        .ambitos-inclusivos-section {
+            max-width: 900px;
+            margin: 2rem auto 0;
+            padding-top: 0;
+            border-top: none;
+        }
+        .ambitos-inclusivos-section .ambitos-intro {
+            text-align: justify;
+            line-height: 1.75;
+            color: #4a5a4a;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+        .ambitos-inclusivos-section .ambitos-subtitulo {
+            font-family: 'Amatic SC', cursive;
+            font-size: 1.5rem;
+            color: #5a8a7a;
+            margin: 1.5rem 0 0.75rem;
+        }
+        .ambitos-inclusivos-section .ambitos-subtitulo:first-of-type {
+            margin-top: 0;
+        }
+        .ambitos-inclusivos-section p {
+            line-height: 1.7;
+            color: #4a5a4a;
+            font-size: 1.05rem;
+            margin-bottom: 0.75rem;
+            text-align: justify;
+        }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .menu {
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #c5e4dc;
+                box-shadow: 0 6px 20px rgba(197,228,220,0.5);
+                padding: 1rem 0;
+                z-index: 1000;
+            }
+            .menu.active { display: flex; }
+            .menu-item { width: 100%; }
+            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.35rem; }
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                box-shadow: none;
+                border-radius: 0;
+                background: #a8d5c8;
+                margin-left: 1rem;
+            }
+            .menu-item.active .dropdown { display: block; }
+            .has-submenu .sub-dropdown {
+                display: none;
+                position: static;
+                margin-left: 1rem;
+                opacity: 1;
+                visibility: visible;
+            }
+            .has-submenu.active .sub-dropdown { display: block; }
+            nav { display: flex; justify-content: flex-end; align-items: center; padding: 0.75rem; }
+            .container { margin: 1rem auto; padding: 0 1rem; }
+            .page-title-wrap { margin-bottom: 1rem; gap: 0.5rem; }
+            .page-title { font-size: 1.4rem; margin-bottom: 0; }
+            .btn-audio-lectura { width: 2rem; height: 2rem; }
+            .btn-audio-lectura img { width: 24px; height: 24px; }
+            .explicacion-block { padding: 1.5rem 1.25rem; font-size: 1.05rem; }
+            .explicacion-lema { font-size: 1.2rem; margin: 1rem 0 1.5rem 0; }
+            .actividade-item { overflow: visible; }
+            .actividade-imaxe { float: left; width: 140px; margin-right: 1rem; margin-bottom: 0.5rem; }
+            .actividade-imaxe.vertical { width: 110px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="menu" id="menu">
+            <li class="menu-item">
+                <a href="index.html">Inicio</a>
+            </li>
+            <li class="menu-item">
+                <a href="#">O centro</a>
+                <ul class="dropdown">
+                    <li><a href="con-ollos-admiracion.html">Con ollos de admiración</a></li>
+                    <li><a href="ambitos-aprendizaxe-inclusivos.html">Ámbitos de aprendizaxe inclusivos</a></li>
+                    <li><a href="aprendizaxe-cooperativo.html">Aprendizaxe cooperativa</a></li>
+                    <li><a href="practicas-restaurativas.html">Prácticas restaurativas</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Programas de intervención</a>
+                <ul class="dropdown">
+                    <li><a href="pdi1.html">PDI 1</a></li>
+                    <li><a href="pdi2.html">PDI 2</a></li>
+                    <li><a href="pdi3.html">PDI 3</a></li>
+                    <li><a href="pdi4.html">PDI 4</a></li>
+                    <li><a href="pdi5.html">PDI 5</a></li>
+                    <li><a href="pdi6.html">PDI 6</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Avaliación</a>
+            </li>
+            <li class="menu-item">
+                <a href="#">Recursos</a>
+                <ul class="dropdown">
+                    <li class="has-submenu">
+                        <a href="#">Ámbitos de traballo</a>
+                        <ul class="dropdown sub-dropdown">
+                            <li><a href="area-emocional.html">Área Emocional</a></li>
+                            <li><a href="funciones-ejecutivas.html">Funciones Ejecutivas</a></li>
+                            <li><a href="area-linguistica.html">Área Lingüística</a></li>
+                            <li><a href="area-logico-matematica.html">Área lógico matemática</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">LIBROS</a>
+                        <ul class="dropdown sub-dropdown">
+                            <li><a href="album-ilustrado.html">Álbum ilustrado</a></li>
+                            <li><a href="#">Libros informativos</a></li>
+                            <li><a href="#">Lectura Fácil</a></li>
+                            <li><a href="#">Cómic</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Familia-escola</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="page-title-wrap">
+            <h1 class="page-title">Con ollos de admiración</h1>
+            <button type="button" class="btn-audio-lectura" id="btn-audio-lectura" aria-label="Reproducir lectura do texto Con ollos de admiración" title="Escoitar lectura"><img src="audio-icon.png" alt="" aria-hidden="true"></button>
+            <audio id="audio-lectura" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
+                <source src="calle-foxo-54.m4a" type="audio/mp4">
+                O teu navegador non soporta a reprodución de audio.
+            </audio>
+        </div>
+        <section class="explicacion-block" aria-label="Explicación">
+            <p class="explicacion-lema">Unha invitación a recoñecer que cada persoa ten algo valioso que ensinar.</p>
+            <p>Con Ollos de Admiración é o nome do Proxecto Documental Integrado no que este curso se atopa inmerso o centro educativo.</p>
+            <p>A súa finalidade é facer visibles e valorar os talentos e as vivencias presentes na nosa comunidade educativa e tamén fóra dela, creando espazos onde o alumnado poida ensinar as súas fortalezas e aprender das demáis persoas.</p>
+            <p>É unha invitación a mirar con ollos de admiración, recoñecendo que cada persoa ten algo valioso que achegar e que a diversidade de capacidades é a que impulsa o aprendizaxe compartido.</p>
+        </section>
+        <section class="actividades-section" aria-label="Actividades">
+            <h2 class="actividade-titulo">O MURO DA ADMIRACIÓN</h2>
+            <div class="actividade-item">
+                <div class="actividade-imaxe">
+                    <img src="PDI. 4ETNIA GITANA.png" alt="PDI 4 Etnia Gitana">
+                </div>
+                <div class="actividade-texto">
+                    <p>O muro da admiración é un espazo situado na biblioteca do centro que funcionará como un pequeno noticieiro da comunidade educativa.</p>
+                    <p>Neste taboleiro poderán compartirse diferentes novas relacionadas co talento e as experiencias das persoas do centro: traballos realizados polo alumnado, proxectos persoais, logros acadados, iniciativas destacadas ou mesmo figuras relevantes que se queiran dar a coñecer. Calquer membro da comunidade pode participar, facendo visible o talento presente na nosa comunidade.</p>
+                </div>
+            </div>
+            <h2 class="actividade-titulo">ENTREVISTAS CON ADMIRACIÓN</h2>
+            <div class="actividade-item">
+                <div class="actividade-imaxe vertical">
+                    <img src="ENTREVISTAS CON ADMIRACIÓN.png" alt="Entrevistas con Admiración">
+                </div>
+                <div class="actividade-texto">
+                    <p>Esta actividade, enmarcada no programa Biblioteca Creativa, busca fomentar a expresión oral, a escoita activa e a valoración das persoas que nos rodean. Ao longo do curso, o alumnado preparará e presentará entrevistas no seu grupo aula, ata que todo o alumnado teña compartido a súa.</p>
+                    <p>Cada entrevista seguirá un pequeno guión común (presentación, preguntas, realización e peche final) e poderá recollerse en distintos formatos: audio, vídeo, papel ou incluso en directo!</p>
+                </div>
+            </div>
+        </section>
+        <section class="ambitos-inclusivos-section" aria-label="Ámbitos de aprendizaxe inclusivos">
+            <h2 class="actividade-titulo">Ámbitos de aprendizaxe inclusivos</h2>
+            <p class="ambitos-intro">Dentro dos proxectos de cada curso desenvólvense as seguintes propostas en relación co PDI de centro:</p>
+            <h3 class="ambitos-subtitulo">Panel "Admiramos talentos"</h3>
+            <div class="actividade-item">
+                <div class="actividade-imaxe">
+                    <img src="panel-admiramos-talentos.png" alt="Panel Admiramos talentos">
+                </div>
+                <div class="actividade-texto">
+                    <p>No fondo de cada aula sitúase un panel cos diferentes talentos individuais do alumnado, no que aparece unha foto de cada estudante xunto cunha habilidade persoal. Este panel revísase ao inicio das sesións de proxectos para identificar se algún talento pode axudar na actividade proposta.</p>
+                    <p>Cando un talento está relacionado coa tarefa, a foto dese alumno/a colócase no panel Scrum como experto/a do día, permitindo que os compañeiros acudan a el ou a ela antes que ao mestro para resolver dúbidas durante as actividades. Deste modo promóvese a axuda entre iguais e o recoñecemento das fortalezas individuais.</p>
+                </div>
+            </div>
+            <h3 class="ambitos-subtitulo">Visitas con admiración</h3>
+            <div class="actividade-item">
+                <div class="actividade-imaxe">
+                    <img src="visitas-con-admiracion.png" alt="Visitas con admiración">
+                </div>
+                <div class="actividade-texto">
+                    <p>En cada proxecto realízase polo menos unha visita dun experto ou experta relacionada coa temática traballada. Sempre que sexa posible serán persoas da comunidade educativa ou da contorna próxima.</p>
+                    <p>Estas visitas permiten que o alumnado coñezan experiencias e profesións reais, favorecendo unha aprendizaxe real e significativa.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('active');
+        }
+        document.querySelectorAll('.menu-item').forEach(item => {
+            if (item.querySelector('.dropdown')) {
+                const link = item.querySelector(':scope > a');
+                if (link) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        document.querySelectorAll('.menu-item').forEach(otherItem => {
+                            if (otherItem !== item) otherItem.classList.remove('active');
+                        });
+                        item.classList.toggle('active');
+                    });
+                }
+            }
+        });
+        document.querySelectorAll('.has-submenu').forEach(item => {
+            const link = item.querySelector(':scope > a');
+            if (link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const parentDropdown = item.closest('.dropdown');
+                    if (parentDropdown) {
+                        parentDropdown.querySelectorAll('.has-submenu').forEach(otherItem => {
+                            if (otherItem !== item) otherItem.classList.remove('active');
+                        });
+                    }
+                    item.classList.toggle('active');
+                });
+            }
+        });
+        (function() {
+            var btn = document.getElementById('btn-audio-lectura');
+            var audio = document.getElementById('audio-lectura');
+            if (btn && audio) {
+                btn.addEventListener('click', function() {
+                    if (audio.paused) {
+                        audio.play();
+                        btn.setAttribute('aria-label', 'Pausar lectura');
+                    } else {
+                        audio.pause();
+                        btn.setAttribute('aria-label', 'Reproducir lectura do texto Con ollos de admiración');
+                    }
+                });
+                audio.addEventListener('ended', function() {
+                    btn.setAttribute('aria-label', 'Reproducir lectura do texto Con ollos de admiración');
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>PDI 3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Pompiere&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Pompiere', sans-serif;
+            background: #FBF7E9;
+            color: #5a6b5a;
+        }
+        h1, h2, .page-title, .section-title, .menu-item > a, .dropdown li a {
+            font-family: 'Amatic SC', cursive;
+        }
+        nav {
+            background: #c5e4dc;
+            padding: 1.3rem 2rem;
+            box-shadow: 0 3px 10px rgba(197,228,220,0.4);
+            position: relative;
+        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #4a7c6f;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .menu-item {
+            position: relative;
+        }
+        .menu-item > a {
+            text-decoration: none;
+            color: #4a7c6f;
+            padding: 0.6rem 1.2rem;
+            display: block;
+            transition: all 0.3s;
+            font-weight: 700;
+            font-size: 1.4rem;
+            border-radius: 5px;
+        }
+        .menu-item:hover > a {
+            background: #a8d5c8;
+            transform: translateY(-2px);
+        }
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #c5e4dc;
+            min-width: 170px;
+            box-shadow: 0 6px 20px rgba(197,228,220,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            list-style: none;
+            padding: 0.5rem 0;
+            border-radius: 0 0 10px 10px;
+            z-index: 1000;
+            margin-top: 5px;
+        }
+        .menu-item:hover .dropdown:not(.sub-dropdown),
+        .dropdown:not(.sub-dropdown):hover {
+            opacity: 1;
+            visibility: visible;
+        }
+        .menu-item.active .dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+        .dropdown li a {
+            display: block;
+            padding: 0.7rem 1.3rem;
+            color: #4a7c6f;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .dropdown li a:hover {
+            background: #a8d5c8;
+            padding-left: 1.8rem;
+        }
+        .dropdown li.has-submenu {
+            position: relative;
+        }
+        .dropdown li.has-submenu > a::after {
+            content: ' ▼';
+            font-size: 0.7em;
+            margin-left: 0.3rem;
+        }
+        .sub-dropdown {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            margin-top: 0;
+            margin-left: 0;
+            min-width: 220px;
+            border-radius: 0 10px 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+        }
+        .dropdown li.has-submenu.active .sub-dropdown {
+            opacity: 1;
+            visibility: visible;
+            display: block;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #5a8a7a;
+            margin-bottom: 2rem;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .menu {
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #c5e4dc;
+                box-shadow: 0 6px 20px rgba(197,228,220,0.5);
+                padding: 1rem 0;
+                z-index: 1000;
+            }
+            .menu.active {
+                display: flex;
+            }
+            .menu-item {
+                width: 100%;
+            }
+            .menu-item > a {
+                padding: 1rem 2rem;
+                border-radius: 0;
+                font-weight: 700;
+                font-size: 1.35rem;
+            }
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                box-shadow: none;
+                border-radius: 0;
+                background: #a8d5c8;
+                margin-left: 1rem;
+            }
+            .menu-item.active .dropdown {
+                display: block;
+            }
+            .has-submenu .sub-dropdown {
+                display: none;
+                position: static;
+                margin-left: 1rem;
+                opacity: 1;
+                visibility: visible;
+            }
+            .has-submenu.active .sub-dropdown {
+                display: block;
+            }
+            nav {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                padding: 1rem;
+            }
+            .container {
+                margin: 1.5rem auto;
+                padding: 0 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="menu" id="menu">
+            <li class="menu-item">
+                <a href="index.html">Inicio</a>
+            </li>
+            <li class="menu-item">
+                <a href="#">O centro</a>
+                <ul class="dropdown">
+                    <li><a href="con-ollos-admiracion.html">Con ollos de admiración</a></li>
+                    <li><a href="ambitos-aprendizaxe-inclusivos.html">Ámbitos de aprendizaxe inclusivos</a></li>
+                    <li><a href="aprendizaxe-cooperativo.html">Aprendizaxe cooperativa</a></li>
+                    <li><a href="practicas-restaurativas.html">Prácticas restaurativas</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="proxecto-de-centro.html">Proxecto de centro</a>
+            </li>
+            <li class="menu-item">
+                <a href="#">Programa de intervención</a>
+                <ul class="dropdown">
+                    <li><a href="pdi1.html">PDI 1</a></li>
+                    <li><a href="pdi2.html">PDI 2</a></li>
+                    <li><a href="pdi3.html">PDI 3</a></li>
+                    <li><a href="pdi4.html">PDI 4</a></li>
+                    <li><a href="pdi5.html">PDI 5</a></li>
+                    <li><a href="pdi6.html">PDI 6</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Evaluación</a>
+                <ul class="dropdown">
+                    <li><a href="#">Primero</a></li>
+                    <li><a href="#">Segundo</a></li>
+                    <li><a href="#">Tercero</a></li>
+                    <li><a href="#">Cuarto</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Recursos</a>
+                <ul class="dropdown">
+                    <li class="has-submenu">
+                        <a href="#">Ámbitos de traballo</a>
+                        <ul class="dropdown sub-dropdown">
+                            <li><a href="area-emocional.html">Área Emocional</a></li>
+                            <li><a href="funciones-ejecutivas.html">Funciones Ejecutivas</a></li>
+                            <li><a href="area-linguistica.html">Área Lingüística</a></li>
+                            <li><a href="area-logico-matematica.html">Área lógico matemática</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">LIBROS</a>
+                        <ul class="dropdown sub-dropdown">
+                            <li><a href="album-ilustrado.html">Álbum ilustrado</a></li>
+                            <li><a href="#">Libros informativos</a></li>
+                            <li><a href="#">Lectura Fácil</a></li>
+                            <li><a href="#">Cómic</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Familia-escola</a>
+                <ul class="dropdown">
+                    <li><a href="#">Primero</a></li>
+                    <li><a href="#">Segundo</a></li>
+                    <li><a href="#">Tercero</a></li>
+                    <li><a href="#">Cuarto</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>PDI 3</h1>
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+        
+        // Toggle dropdowns on click (both desktop and mobile)
+        document.querySelectorAll('.menu-item').forEach(item => {
+            if (item.querySelector('.dropdown')) {
+                const link = item.querySelector(':scope > a');
+                if (link) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        // Close other menu items
+                        document.querySelectorAll('.menu-item').forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
+                        item.classList.toggle('active');
+                    });
+                }
+            }
+        });
+        document.querySelectorAll('.has-submenu').forEach(item => {
+            const link = item.querySelector(':scope > a');
+            if (link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Close other submenus in the same dropdown
+                    const parentDropdown = item.closest('.dropdown');
+                    if (parentDropdown) {
+                        parentDropdown.querySelectorAll('.has-submenu').forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
+                    }
+                    item.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
