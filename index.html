@@ -15,7 +15,7 @@
             background: #FBF7E9;
             color: #5a6b5a;
         }
-        h1, h2, .page-title, .section-title, .menu-item > a, .dropdown li a {
+        h1, h2, .page-title, .section-title, .explicacion-lema, .menu-item > a, .dropdown li a {
             font-family: 'Amatic SC', cursive;
         }
         nav {
@@ -197,18 +197,15 @@
         }
         .explicacion-lema {
             text-align: center;
-            font-size: 1.35rem;
-            line-height: 1.5;
+            font-size: 1.75rem;
+            line-height: 1.55;
             color: #5a6b5a;
-            margin: 0 0 1.75rem 0;
+            margin: 0 auto 2rem;
             padding: 0;
+            max-width: 42rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
         }
-        .text-container h2 {
-            font-size: 3.2rem;
-            color: #5a8a7a;
-            margin-bottom: 1rem;
-        }
-        
         /* Responsive styles */
         @media (max-width: 768px) {
             .menu-toggle {
@@ -297,16 +294,9 @@
                 margin: 0 0 1.5rem 0;
             }
             .page-home .explicacion-lema {
-                font-size: 1rem;
-                line-height: 1.4;
-                margin: 0 0 0.35rem 0;
-            }
-            .text-container h2 {
-                font-size: 2rem;
-            }
-            .page-home .text-container h2 {
-                font-size: 1.5rem;
-                margin-bottom: 0;
+                font-size: 1.35rem;
+                line-height: 1.45;
+                margin: 0 auto 1.25rem;
             }
         }
     </style>
@@ -379,7 +369,6 @@
         <div class="content">
             <div class="text-container">
                 <p class="explicacion-lema">Unha invitación a recoñecer que cada persoa ten algo valioso que ensinar.</p>
-                <h2>Bienvenido</h2>
             </div>
         </div>
     </div>
