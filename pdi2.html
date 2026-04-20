@@ -91,6 +91,30 @@
             background: #a8d5c8;
             padding-left: 1.8rem;
         }
+        nav .dropdown a[href="pdi1.html"] {
+            background-color: #c7e2c0;
+        }
+        nav .dropdown a[href="pdi2.html"] {
+            background-color: #9ccfef;
+        }
+        body.page-pdi2 .page-title {
+            color: #0d5c8c;
+        }
+        /* Bocadillo na familia do azul da camiseta, lexible sobre #FBF7E9 */
+        body.page-pdi2 .intro-card {
+            background: linear-gradient(145deg, #f6fbff 0%, #eaf4fc 100%);
+            border-color: rgba(13, 92, 140, 0.32);
+            box-shadow: 0 14px 28px rgba(20, 80, 120, 0.11);
+        }
+        body.page-pdi2 .intro-card::before {
+            background: #f0f8fd;
+            border-right-color: rgba(13, 92, 140, 0.32);
+            border-top-color: rgba(13, 92, 140, 0.32);
+        }
+        body.page-pdi2 .intro-line {
+            color: #0a3d5c;
+            text-shadow: 0 0 1px rgba(255, 250, 245, 0.95);
+        }
         .dropdown li.has-submenu {
             position: relative;
         }
@@ -117,14 +141,86 @@
             display: block;
         }
         .container {
-            max-width: 1300px;
-            margin: 3rem auto;
+            max-width: 1400px;
+            margin: 0 auto 3rem;
             padding: 0 2rem;
         }
-        h1 {
+        .page-title {
+            text-align: center;
             font-size: 3rem;
             color: #5a8a7a;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.35rem;
+        }
+        .intro-hero {
+            width: 100%;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            gap: 0.45rem;
+            margin-bottom: 0;
+        }
+        .intro-card {
+            flex: 1 1 52%;
+            background: #f2faf5;
+            border: 2px solid #dcefe3;
+            border-radius: 24px;
+            box-shadow: 0 14px 30px rgba(84, 128, 108, 0.14);
+            padding: 1.8rem 1.9rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0;
+            position: relative;
+        }
+        .intro-card::before {
+            content: "";
+            position: absolute;
+            right: -16px;
+            top: 52%;
+            width: 24px;
+            height: 24px;
+            background: #f2faf5;
+            border-right: 2px solid #dcefe3;
+            border-top: 2px solid #dcefe3;
+            transform: translateY(-50%) rotate(45deg);
+        }
+        .intro-line {
+            font-family: 'Pompiere', sans-serif;
+            font-size: 1.3rem;
+            line-height: 1.5;
+            color: #4d6558;
+            letter-spacing: 0.01em;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 0;
+        }
+        .intro-photo-wrap {
+            flex: 1 1 48%;
+            min-height: 520px;
+            border-radius: 14px;
+            overflow: visible;
+            box-shadow: none;
+            background: transparent;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+        .intro-photo-wrap img {
+            width: auto;
+            max-width: 100%;
+            max-height: 580px;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            object-position: right bottom;
         }
         
         /* Responsive styles */
@@ -187,16 +283,59 @@
                 padding: 1rem;
             }
             .container {
-                margin: 1.5rem auto;
-                padding: 0 1rem;
+                margin-top: 0;
+                margin-bottom: 1.5rem;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 0 0.75rem;
+                padding-top: 0;
             }
-            h1 {
+            .content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.35rem;
+                margin-top: 0;
+                padding-top: 0;
+            }
+            .intro-hero {
+                flex-direction: row;
+                align-items: stretch;
+                gap: 0;
+                margin-bottom: 0;
+            }
+            .intro-card {
+                flex: 1 1 58%;
+                border-radius: 18px;
+                padding: 1.15rem 1rem 1.1rem;
+            }
+            .intro-card::before {
+                right: -10px;
+                width: 16px;
+                height: 16px;
+            }
+            .intro-photo-wrap {
+                flex: 1 1 42%;
+                min-height: 330px;
+                max-height: 450px;
+                border-radius: 10px;
+                margin-left: -8px;
+            }
+            .intro-photo-wrap img {
+                max-height: 440px;
+            }
+            .intro-line {
+                font-size: 1.03rem;
+                line-height: 1.38;
+            }
+            .page-title {
                 font-size: 2rem;
+                margin-top: 0;
+                margin-bottom: 1.5rem;
             }
         }
     </style>
 </head>
-<body>
+<body class="page-pdi2">
     <nav>
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         <ul class="menu" id="menu">
@@ -260,17 +399,21 @@
             </li>
             <li class="menu-item">
                 <a href="#">Familia-escola</a>
-                <ul class="dropdown">
-                    <li><a href="#">Primero</a></li>
-                    <li><a href="#">Segundo</a></li>
-                    <li><a href="#">Tercero</a></li>
-                    <li><a href="#">Cuarto</a></li>
-                </ul>
             </li>
         </ul>
     </nav>
     <div class="container">
-        <h1>PDI 2</h1>
+        <h1 class="page-title">PROGRAMA DE INTERVENCIÓN 2</h1>
+        <div class="content">
+            <section class="intro-hero" aria-label="Presentación de Pedro">
+                <article class="intro-card">
+                    <p class="intro-line">Ola!! Eu son Pedro, teño 9 anos e vou en 4ºEP.<br>Gústame moito ler e aprender cousas sobre monumentos e a súa historia… paréceme súper interesante!<br>Ás veces cústame seguir o ritmo da clase, sobre todo cando hai moito barullo ou teño que facer as cousas moi rápido… póñome un pouco nervioso e líome cos materiais.<br>Tamén hai días que non me apetece moito ir ao cole…<br>Aquí podes ver algunhas das cousas que fixen este curso… espero que che gusten!<br>Ata logo!!</p>
+                </article>
+                <figure class="intro-photo-wrap">
+                    <img src="PEDRO_02.png" alt="Pedro, alumno de 4ºEP" decoding="async">
+                </figure>
+            </section>
+        </div>
     </div>
     <script>
         function toggleMenu() {

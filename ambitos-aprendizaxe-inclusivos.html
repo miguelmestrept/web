@@ -15,7 +15,7 @@
             background: #FBF7E9;
             color: #5a6b5a;
         }
-        h1, h2, .section-title, .menu-item > a, .dropdown li a {
+        h1, h2, .page-title, .section-title, .menu-item > a, .dropdown li a {
             font-family: 'Amatic SC', cursive;
         }
         nav {
@@ -125,10 +125,10 @@
         /* Columna única centrada no viewport: imaxe + texto no mesmo eixo */
         .ambitos-main {
             width: 100%;
-            max-width: min(920px, calc(100% - 2.5rem));
+            max-width: min(920px, 100%);
             margin-left: auto;
             margin-right: auto;
-            padding-left: clamp(0.75rem, 3vw, 1.25rem);
+            padding-left: clamp(4rem, 22vw, 11rem);
             padding-right: 0;
             padding-top: 0;
             padding-bottom: 0;
@@ -151,6 +151,21 @@
             padding-left: 0;
             padding-right: 0;
         }
+        /* Título: mesmo tamaño/tipo ca «Con ollos de admiración» (.page-title) */
+        .ambitos-page-header {
+            width: 100%;
+            padding: 0.45rem clamp(1rem, 4vw, 2rem) 0;
+            text-align: center;
+            background: #FBF7E9;
+            margin-bottom: 2rem;
+        }
+        .ambitos-page-header .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #5a8a7a;
+            margin: 0;
+            font-weight: bold;
+        }
         .punto-partida-banner-full + .container {
             margin-top: 1.5rem;
         }
@@ -165,9 +180,9 @@
             isolation: isolate;
         }
         .ambitos-main .punto-partida-banner-full {
-            width: calc(100% + 3rem);
+            width: calc(100% + 9.5rem);
             max-width: none;
-            margin-right: -3rem;
+            margin-right: -9.5rem;
             box-sizing: border-box;
         }
         .punto-partida-media-shell {
@@ -232,19 +247,27 @@
             .container { margin: 1rem auto; padding: 0 1rem; }
             .ambitos-main .container { padding-left: 0; padding-right: 0; }
             .punto-partida-banner-full + .container { margin-top: 0.85rem; }
+            .ambitos-page-header {
+                padding: 0.35rem clamp(0.75rem, 3vw, 1.25rem) 0;
+                margin-bottom: 1rem;
+            }
+            .ambitos-page-header .page-title {
+                font-size: 1.4rem;
+                margin-bottom: 0;
+            }
             .punto-partida-banner-full {
                 padding: 0.5rem 0 1rem;
             }
             .ambitos-main {
                 max-width: 100%;
-                padding-left: clamp(0.5rem, 2.5vw, 1rem);
+                padding-left: clamp(2.25rem, 14vw, 5.5rem);
                 padding-right: 0;
                 padding-top: 0;
                 padding-bottom: 0;
             }
             .ambitos-main .punto-partida-banner-full {
-                width: calc(100% + min(1.75rem, 7vw));
-                margin-right: calc(-1 * min(1.75rem, 7vw));
+                width: calc(100% + min(4.5rem, 20vw));
+                margin-right: calc(-1 * min(4.5rem, 20vw));
             }
         }
     </style>
@@ -307,6 +330,9 @@
             </li>
         </ul>
     </nav>
+    <header class="ambitos-page-header">
+        <h1 class="page-title">Ámbitos de aprendizaxe inclusivos</h1>
+    </header>
     <main class="ambitos-main">
         <div class="punto-partida-banner-full">
             <figure class="punto-partida-media-shell">
