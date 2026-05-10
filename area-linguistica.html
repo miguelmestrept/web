@@ -57,7 +57,7 @@
             top: 100%;
             left: 0;
             background: #c5e4dc;
-            min-width: 170px;
+            min-width: 230px;
             box-shadow: 0 6px 20px rgba(197,228,220,0.5);
             opacity: 0;
             visibility: hidden;
@@ -88,6 +88,58 @@
             background: #a8d5c8;
             padding-left: 1.8rem;
         }
+        /* PDI: fondo verde do submenú (#c5e4dc); banda interior por programa */
+        nav .dropdown a[href="pdi3.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #b8860b;
+        }
+        nav .dropdown a[href="pdi4.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #c41e3a;
+        }
+        nav .dropdown a[href="pdi5.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #5c3d72;
+        }
+        nav .dropdown a[href="pdi2.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #3d6fa3;
+        }
+        nav .dropdown a[href="pdi1.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #2d6b4e;
+        }
+        nav .dropdown a[href="pdi6.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #ea6a18;
+        }
+        nav .dropdown a.pdi-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        nav .dropdown a.pdi-nav-link .pdi-nav-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 50% 9%;
+            flex-shrink: 0;
+            border: 2px solid rgba(74, 124, 111, 0.3);
+            box-sizing: border-box;
+        }
+        /* Encuadre da cara (ilustración corpo enteiro): axuste por nena/o */
+        nav .dropdown a[href="pdi3.html"] .pdi-nav-avatar { object-position: 50% 6%; }
+        nav .dropdown a[href="pdi4.html"] .pdi-nav-avatar { object-position: 58% 12%; }
+        nav .dropdown a[href="pdi5.html"] .pdi-nav-avatar { object-position: 50% 5%; }
+        nav .dropdown a[href="pdi2.html"] .pdi-nav-avatar { object-position: 52% 7%; }
+        nav .dropdown a[href="pdi1.html"] .pdi-nav-avatar { object-position: 50% 4%; }
+        nav .dropdown a[href="pdi6.html"] .pdi-nav-avatar {
+            object-position: 50% 11%;
+            transform: scale(0.8);
+            transform-origin: 50% 30%;
+        }
+        nav .dropdown a[href="pdi6.html"].pdi-nav-link { gap: 0.72rem; }
         .dropdown li.has-submenu {
             position: relative;
         }
@@ -127,38 +179,50 @@
         }
         .books-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 2rem 1.5rem;
             justify-items: center;
+            align-items: start;
             margin-top: 1rem;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .book-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            width: 100%;
             max-width: 200px;
             background: transparent;
         }
         .book-item img {
             width: 100%;
             max-width: 180px;
-            height: auto;
+            height: 210px;
+            object-fit: contain;
             border-radius: 12px;
             border: 2px solid #c5dce8;
             box-shadow: 0 6px 20px rgba(90,138,122,0.15);
-            object-fit: contain;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             background: transparent;
             mix-blend-mode: multiply;
             display: block;
+            flex-shrink: 0;
         }
         .book-item .book-title {
             font-size: 1.1rem;
             color: #4a7c6f;
             font-weight: 700;
-            line-height: 1.4;
-            margin-top: 0.5rem;
+            line-height: 1.35;
+            margin-top: 0;
+            width: 100%;
+            min-height: 2.75em;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            text-wrap: balance;
         }
 
         @media (max-width: 768px) {
@@ -211,7 +275,7 @@
                 gap: 0.75rem;
             }
             .book-item { max-width: 100%; }
-            .book-item img { max-width: 100px; }
+            .book-item img { max-width: 100px; height: 118px; }
             .book-item .book-title { font-size: 0.85rem; font-weight: 700; }
         }
     </style>
@@ -232,14 +296,14 @@
             </li>
             <li class="menu-item"><a href="proxecto-de-centro.html">Proxecto de centro</a></li>
             <li class="menu-item">
-                <a href="#">Programa de intervención</a>
+                <a href="#">Programas de intervención</a>
                 <ul class="dropdown">
-                    <li><a href="pdi1.html">PDI 1</a></li>
-                    <li><a href="pdi2.html">PDI 2</a></li>
-                    <li><a href="pdi3.html">PDI 3</a></li>
-                    <li><a href="pdi4.html">PDI 4</a></li>
-                    <li><a href="pdi5.html">PDI 5</a></li>
-                    <li><a href="pdi6.html">PDI 6</a></li>
+                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SARA_03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
+                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="JOSE_02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
+                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SAMIRA_02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
+                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="PEDRO_02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
+                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="RAUL_03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
+                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="MARTIN_02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -258,7 +322,7 @@
                         <a href="#">Ámbitos de traballo</a>
                         <ul class="dropdown sub-dropdown">
                             <li><a href="area-emocional.html">Área Emocional</a></li>
-                            <li><a href="funciones-ejecutivas.html">Funciones Ejecutivas</a></li>
+                            <li><a href="funciones-ejecutivas.html">Funcións executivas</a></li>
                             <li><a href="area-linguistica.html">Área Lingüística</a></li>
                             <li><a href="area-logico-matematica.html">Área lógico matemática</a></li>
                         </ul>
@@ -267,6 +331,7 @@
                         <a href="#">LIBROS</a>
                         <ul class="dropdown sub-dropdown">
                             <li><a href="album-ilustrado.html">Álbum ilustrado</a></li>
+                            <li><a href="contos.html">Contos</a></li>
                             <li><a href="#">Libros informativos</a></li>
                             <li><a href="#">Lectura Fácil</a></li>
                             <li><a href="#">Cómic</a></li>

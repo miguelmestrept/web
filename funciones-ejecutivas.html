@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Funciones Ejecutivas</title>
+    <title>Funcións executivas</title>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Pompiere&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -60,7 +60,7 @@
             top: 100%;
             left: 0;
             background: #c5e4dc;
-            min-width: 170px;
+            min-width: 230px;
             box-shadow: 0 6px 20px rgba(197,228,220,0.5);
             opacity: 0;
             visibility: hidden;
@@ -91,6 +91,58 @@
             background: #a8d5c8;
             padding-left: 1.8rem;
         }
+        /* PDI: fondo verde do submenú (#c5e4dc); banda interior por programa */
+        nav .dropdown a[href="pdi3.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #b8860b;
+        }
+        nav .dropdown a[href="pdi4.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #c41e3a;
+        }
+        nav .dropdown a[href="pdi5.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #5c3d72;
+        }
+        nav .dropdown a[href="pdi2.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #3d6fa3;
+        }
+        nav .dropdown a[href="pdi1.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #2d6b4e;
+        }
+        nav .dropdown a[href="pdi6.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #ea6a18;
+        }
+        nav .dropdown a.pdi-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        nav .dropdown a.pdi-nav-link .pdi-nav-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 50% 9%;
+            flex-shrink: 0;
+            border: 2px solid rgba(74, 124, 111, 0.3);
+            box-sizing: border-box;
+        }
+        /* Encuadre da cara (ilustración corpo enteiro): axuste por nena/o */
+        nav .dropdown a[href="pdi3.html"] .pdi-nav-avatar { object-position: 50% 6%; }
+        nav .dropdown a[href="pdi4.html"] .pdi-nav-avatar { object-position: 58% 12%; }
+        nav .dropdown a[href="pdi5.html"] .pdi-nav-avatar { object-position: 50% 5%; }
+        nav .dropdown a[href="pdi2.html"] .pdi-nav-avatar { object-position: 52% 7%; }
+        nav .dropdown a[href="pdi1.html"] .pdi-nav-avatar { object-position: 50% 4%; }
+        nav .dropdown a[href="pdi6.html"] .pdi-nav-avatar {
+            object-position: 50% 11%;
+            transform: scale(0.8);
+            transform-origin: 50% 30%;
+        }
+        nav .dropdown a[href="pdi6.html"].pdi-nav-link { gap: 0.72rem; }
         .dropdown li.has-submenu {
             position: relative;
         }
@@ -117,7 +169,7 @@
             display: block;
         }
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 3rem auto;
             padding: 0 2rem;
         }
@@ -142,6 +194,58 @@
             width: 64px;
             height: 4px;
             margin-top: 0.75rem;
+        }
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 2rem 1.5rem;
+            justify-items: center;
+            align-items: start;
+            margin-top: 0;
+            margin-bottom: 2.5rem;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .books-grid > .book-item:only-child {
+            grid-column: 1 / -1;
+            justify-self: center;
+        }
+        .book-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            max-width: 200px;
+            background: transparent;
+        }
+        .book-item img {
+            width: 100%;
+            max-width: 180px;
+            height: 210px;
+            object-fit: contain;
+            border-radius: 12px;
+            border: 2px solid #c5dce8;
+            box-shadow: 0 6px 20px rgba(90,138,122,0.15);
+            margin-bottom: 0.5rem;
+            background: transparent;
+            mix-blend-mode: multiply;
+            display: block;
+            flex-shrink: 0;
+        }
+        .book-item .book-title {
+            font-size: 1.1rem;
+            color: #4a7c6f;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-top: 0;
+            width: 100%;
+            min-height: 2.75em;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            text-wrap: balance;
         }
         .apartado-franja {
             background: linear-gradient(165deg, #e8f5f2 0%, #dceee9 100%);
@@ -254,6 +358,14 @@
             }
             .container { margin: 1rem auto; padding: 0 1rem; max-width: 100%; }
             .page-title { font-size: 1.4rem; margin-bottom: 0.75rem; line-height: 1.2; }
+            .books-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.75rem;
+                margin-bottom: 1.5rem;
+            }
+            .book-item { max-width: 100%; }
+            .book-item img { max-width: 100px; height: 118px; }
+            .book-item .book-title { font-size: 0.85rem; font-weight: 700; }
             .apartado-xogos { padding: 1.25rem 0; margin-bottom: 1rem; }
             .apartado-xogos .section-title { font-size: 1.6rem; letter-spacing: 0.05em; }
             .apartado-franja {
@@ -303,14 +415,14 @@
             </li>
             <li class="menu-item"><a href="proxecto-de-centro.html">Proxecto de centro</a></li>
             <li class="menu-item">
-                <a href="#">Programa de intervención</a>
+                <a href="#">Programas de intervención</a>
                 <ul class="dropdown">
-                    <li><a href="pdi1.html">PDI 1</a></li>
-                    <li><a href="pdi2.html">PDI 2</a></li>
-                    <li><a href="pdi3.html">PDI 3</a></li>
-                    <li><a href="pdi4.html">PDI 4</a></li>
-                    <li><a href="pdi5.html">PDI 5</a></li>
-                    <li><a href="pdi6.html">PDI 6</a></li>
+                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SARA_03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
+                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="JOSE_02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
+                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SAMIRA_02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
+                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="PEDRO_02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
+                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="RAUL_03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
+                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="MARTIN_02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -329,7 +441,7 @@
                         <a href="#">Ámbitos de traballo</a>
                         <ul class="dropdown sub-dropdown">
                             <li><a href="area-emocional.html">Área Emocional</a></li>
-                            <li><a href="funciones-ejecutivas.html">Funciones Ejecutivas</a></li>
+                            <li><a href="funciones-ejecutivas.html">Funcións executivas</a></li>
                             <li><a href="area-linguistica.html">Área Lingüística</a></li>
                             <li><a href="area-logico-matematica.html">Área lógico matemática</a></li>
                         </ul>
@@ -338,6 +450,7 @@
                         <a href="#">LIBROS</a>
                         <ul class="dropdown sub-dropdown">
                             <li><a href="album-ilustrado.html">Álbum ilustrado</a></li>
+                            <li><a href="contos.html">Contos</a></li>
                             <li><a href="#">Libros informativos</a></li>
                             <li><a href="#">Lectura Fácil</a></li>
                             <li><a href="#">Cómic</a></li>
@@ -351,26 +464,32 @@
         </ul>
     </nav>
     <div class="container">
-        <h1 class="page-title">Funciones Ejecutivas</h1>
+        <h1 class="page-title">Funcións executivas</h1>
+        <div class="books-grid">
+            <div class="book-item">
+                <img src="Captura%20de%20pantalla%202026-04-23%20a%20las%2021.50.09.png" alt="Tablero cheklist">
+                <div class="book-title">Tablero cheklist</div>
+            </div>
+        </div>
         <section class="apartado-xogos">
             <h2 class="section-title">Xogos</h2>
         <div class="apartado-franja">
             <h3 class="section-title">Atención y velocidad de procesamiento</h3>
             <div class="img-grid">
             <div class="img-item">
-                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.49.54.png" alt="Funciones ejecutivas 1">
+                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.49.54.png" alt="Funcións executivas 1">
             </div>
             <div class="img-item">
-                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.50.34.png" alt="Funciones ejecutivas 2">
+                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.50.34.png" alt="Funcións executivas 2">
             </div>
             <div class="img-item">
-                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.51.24.png" alt="Funciones ejecutivas 3">
+                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.51.24.png" alt="Funcións executivas 3">
             </div>
             <div class="img-item">
-                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.51.53.png" alt="Funciones ejecutivas 4">
+                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.51.53.png" alt="Funcións executivas 4">
             </div>
             <div class="img-item">
-                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.52.28.png" alt="Funciones ejecutivas 5">
+                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.52.28.png" alt="Funcións executivas 5">
             </div>
             </div>
         </div>

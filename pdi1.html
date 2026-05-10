@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>PDI 1</title>
+    <title>PDI 5</title>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Pompiere&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
@@ -61,7 +61,7 @@
             top: 100%;
             left: 0;
             background: #c5e4dc;
-            min-width: 170px;
+            min-width: 230px;
             box-shadow: 0 6px 20px rgba(197,228,220,0.5);
             opacity: 0;
             visibility: hidden;
@@ -92,12 +92,58 @@
             background: #a8d5c8;
             padding-left: 1.8rem;
         }
-        nav .dropdown a[href="pdi1.html"] {
-            background-color: #c7e2c0;
+        /* PDI: fondo verde do submenú (#c5e4dc); banda interior por programa */
+        nav .dropdown a[href="pdi3.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #b8860b;
+        }
+        nav .dropdown a[href="pdi4.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #c41e3a;
+        }
+        nav .dropdown a[href="pdi5.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #5c3d72;
         }
         nav .dropdown a[href="pdi2.html"] {
-            background-color: #A0B9DE;
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #3d6fa3;
         }
+        nav .dropdown a[href="pdi1.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #2d6b4e;
+        }
+        nav .dropdown a[href="pdi6.html"] {
+            background-color: #c5e4dc;
+            box-shadow: inset 5px 0 0 #ea6a18;
+        }
+        nav .dropdown a.pdi-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        nav .dropdown a.pdi-nav-link .pdi-nav-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 50% 9%;
+            flex-shrink: 0;
+            border: 2px solid rgba(74, 124, 111, 0.3);
+            box-sizing: border-box;
+        }
+        /* Encuadre da cara (ilustración corpo enteiro): axuste por nena/o */
+        nav .dropdown a[href="pdi3.html"] .pdi-nav-avatar { object-position: 50% 6%; }
+        nav .dropdown a[href="pdi4.html"] .pdi-nav-avatar { object-position: 58% 12%; }
+        nav .dropdown a[href="pdi5.html"] .pdi-nav-avatar { object-position: 50% 5%; }
+        nav .dropdown a[href="pdi2.html"] .pdi-nav-avatar { object-position: 52% 7%; }
+        nav .dropdown a[href="pdi1.html"] .pdi-nav-avatar { object-position: 50% 4%; }
+        nav .dropdown a[href="pdi6.html"] .pdi-nav-avatar {
+            object-position: 50% 11%;
+            transform: scale(0.8);
+            transform-origin: 50% 30%;
+        }
+        nav .dropdown a[href="pdi6.html"].pdi-nav-link { gap: 0.72rem; }
         body.page-pdi1 .page-title {
             color: #c7e2c0;
         }
@@ -147,13 +193,14 @@
         .intro-hero {
             width: 100%;
             display: flex;
-            align-items: flex-end;
+            align-items: stretch;
             justify-content: space-between;
             gap: 0.45rem;
             margin-bottom: 0;
         }
         .intro-card {
-            flex: 1 1 52%;
+            flex: 1 1 60%;
+            align-self: stretch;
             background: #f2faf5;
             border: 2px solid #dcefe3;
             border-radius: 24px;
@@ -180,7 +227,7 @@
         .intro-line {
             font-family: 'Pompiere', sans-serif;
             font-size: 1.3rem;
-            line-height: 1.5;
+            line-height: 1.82;
             color: #4d6558;
             letter-spacing: 0.01em;
             background: transparent;
@@ -189,9 +236,9 @@
             padding: 0;
         }
         .intro-photo-wrap {
-            flex: 1 1 48%;
-            min-height: 0;
-            align-self: flex-end;
+            flex: 1 1 38%;
+            min-height: 400px;
+            align-self: stretch;
             border-radius: 14px;
             overflow: visible;
             box-shadow: none;
@@ -203,7 +250,7 @@
         .intro-photo-wrap img {
             width: auto;
             max-width: 100%;
-            max-height: 580px;
+            max-height: 400px;
             height: auto;
             display: block;
             object-fit: contain;
@@ -470,7 +517,7 @@
             }
             .intro-hero {
                 flex-direction: row;
-                align-items: flex-end;
+                align-items: stretch;
                 gap: 0;
                 margin-bottom: 0;
             }
@@ -479,14 +526,14 @@
             }
             .intro-photo-wrap {
                 flex: 1 1 42%;
-                min-height: 0;
+                min-height: 280px;
                 max-height: none;
-                align-self: flex-end;
+                align-self: stretch;
                 border-radius: 10px;
                 margin-left: -8px;
             }
             .intro-photo-wrap img {
-                max-height: 440px;
+                max-height: 300px;
             }
             .intro-card {
                 border-radius: 18px;
@@ -499,7 +546,7 @@
             }
             .intro-line {
                 font-size: 1.03rem;
-                line-height: 1.38;
+                line-height: 1.62;
             }
             .page-title {
                 font-size: 2rem;
@@ -605,12 +652,12 @@
             <li class="menu-item">
                 <a href="#">Programas de intervención</a>
                 <ul class="dropdown">
-                    <li><a href="pdi1.html">PDI 1</a></li>
-                    <li><a href="pdi2.html">PDI 2</a></li>
-                    <li><a href="pdi3.html">PDI 3</a></li>
-                    <li><a href="pdi4.html">PDI 4</a></li>
-                    <li><a href="pdi5.html">PDI 5</a></li>
-                    <li><a href="pdi6.html">PDI 6</a></li>
+                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SARA_03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
+                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="JOSE_02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
+                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SAMIRA_02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
+                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="PEDRO_02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
+                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="RAUL_03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
+                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="MARTIN_02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -623,7 +670,7 @@
                         <a href="#">Ámbitos de traballo</a>
                         <ul class="dropdown sub-dropdown">
                             <li><a href="area-emocional.html">Área Emocional</a></li>
-                            <li><a href="funciones-ejecutivas.html">Funciones Ejecutivas</a></li>
+                            <li><a href="funciones-ejecutivas.html">Funcións executivas</a></li>
                             <li><a href="area-linguistica.html">Área Lingüística</a></li>
                             <li><a href="area-logico-matematica.html">Área lógico matemática</a></li>
                         </ul>
@@ -632,6 +679,7 @@
                         <a href="#">LIBROS</a>
                         <ul class="dropdown sub-dropdown">
                             <li><a href="album-ilustrado.html">Álbum ilustrado</a></li>
+                            <li><a href="contos.html">Contos</a></li>
                             <li><a href="#">Libros informativos</a></li>
                             <li><a href="#">Lectura Fácil</a></li>
                             <li><a href="#">Cómic</a></li>
@@ -645,17 +693,17 @@
         </ul>
     </nav>
     <div class="container">
-        <h1 class="page-title">PROGRAMA DE INTERVENCIÓN 1</h1>
+        <h1 class="page-title">PROGRAMA DE INTERVENCIÓN 5</h1>
         <div class="content">
             <section class="intro-hero" aria-label="Presentación de Raúl">
                 <article class="intro-card">
                     <p class="intro-line">Ola!! Eu son Raúl, teño 10 anos e vou na clase de 5ºEP.<br>Encántame a tecnoloxía!! Os videoxogos son o meu! Sobre todo o de Mario... son boísimo!<br>Os meus pais sempre din que teño mooooita enerxía! Demasiada quizás, non sei.<br>Por aquí podes ver un proxecto moi chulo que fixemos este curso. Ata logo!! Chao chaooooo</p>
                 </article>
                 <figure class="intro-photo-wrap">
-                    <img src="RAUL_03_sin_fondo.png" alt="Raúl, alumno de 5ºEP">
+                    <img src="RAUL_03-2.png?v=raul-20260509" alt="Raúl, alumno de 5ºEP">
                 </figure>
             </section>
-            <section class="presentation-section" aria-label="Presentación PDI 1">
+            <section class="presentation-section" aria-label="Presentación PDI 5">
                 <div class="presentation-carousel-stack">
                 <div class="swiper pdi-swiper">
                     <div class="swiper-wrapper">
