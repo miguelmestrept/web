@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Área lógico matemática</title>
+    <title>Área Lóxico matemática</title>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Pompiere&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -225,13 +225,14 @@
             width: 100%;
             max-width: 180px;
             height: 210px;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center;
             border-radius: 12px;
             border: 2px solid #c5dce8;
             box-shadow: 0 6px 20px rgba(90,138,122,0.15);
             margin-bottom: 0.5rem;
-            background: transparent;
-            mix-blend-mode: multiply;
+            background: #FBF7E9;
+            mix-blend-mode: normal;
             display: block;
             flex-shrink: 0;
         }
@@ -247,6 +248,17 @@
             align-items: flex-start;
             justify-content: center;
             text-wrap: balance;
+        }
+        .books-grid--matematica-materiais {
+            padding: 1.25rem 1rem;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 12px;
+            border: 1px dashed rgba(197, 220, 232, 0.85);
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         @media (max-width: 768px) {
@@ -294,6 +306,7 @@
             }
             .container { margin: 1rem auto; padding: 0 1rem; max-width: 100%; }
             .page-title { font-size: 1.4rem; margin-bottom: 0.75rem; line-height: 1.2; }
+            .books-grid--matematica-materiais { padding: 1rem 0.65rem; margin-bottom: 1.25rem; }
             .apartado-xogos { padding: 1.25rem 0; margin-bottom: 1rem; }
             .apartado-xogos .section-title { font-size: 1.6rem; letter-spacing: 0.05em; }
             .books-grid {
@@ -301,7 +314,12 @@
                 gap: 0.75rem;
             }
             .book-item { max-width: 100%; }
-            .book-item img { max-width: 100px; height: 118px; }
+            .book-item img {
+                max-width: 100px;
+                height: 118px;
+                object-fit: cover;
+                object-position: center;
+            }
             .book-item .book-title { font-size: 0.85rem; font-weight: 700; }
         }
     </style>
@@ -320,7 +338,6 @@
                     <li><a href="practicas-restaurativas.html">Prácticas restaurativas</a></li>
                 </ul>
             </li>
-            <li class="menu-item"><a href="proxecto-de-centro.html">Proxecto de centro</a></li>
             <li class="menu-item">
                 <a href="#">Programas de intervención</a>
                 <ul class="dropdown">
@@ -333,36 +350,10 @@
                 </ul>
             </li>
             <li class="menu-item">
-                <a href="#">Evaluación</a>
-                <ul class="dropdown">
-                    <li><a href="#">Primero</a></li>
-                    <li><a href="#">Segundo</a></li>
-                    <li><a href="#">Tercero</a></li>
-                    <li><a href="#">Cuarto</a></li>
-                </ul>
-            </li>
-            <li class="menu-item">
                 <a href="#">Recursos</a>
                 <ul class="dropdown">
-                    <li class="has-submenu">
-                        <a href="#">Ámbitos de traballo</a>
-                        <ul class="dropdown sub-dropdown">
-                            <li><a href="area-emocional.html">Área Emocional</a></li>
-                            <li><a href="funciones-ejecutivas.html">Funcións executivas</a></li>
-                            <li><a href="area-linguistica.html">Área Lingüística</a></li>
-                            <li><a href="area-logico-matematica.html">Área lógico matemática</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="#">LIBROS</a>
-                        <ul class="dropdown sub-dropdown">
-                            <li><a href="album-ilustrado.html">Álbum ilustrado</a></li>
-                            <li><a href="contos.html">Contos</a></li>
-                            <li><a href="#">Libros informativos</a></li>
-                            <li><a href="#">Lectura Fácil</a></li>
-                            <li><a href="#">Cómic</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="ambitos-traballo.html">Ámbitos de traballo</a></li>
+                    <li><a href="contos.html">Contos</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -371,7 +362,21 @@
         </ul>
     </nav>
     <div class="container">
-        <h1 class="page-title">Área lógico matemática</h1>
+        <h1 class="page-title">Área Lóxico matemática</h1>
+        <div class="books-grid books-grid--matematica-materiais">
+            <div class="book-item">
+                <img src="regletas-cuisenaire.png" alt="Regletas Cuisenaire">
+                <div class="book-title">Regletas Cuisenaire</div>
+            </div>
+            <div class="book-item">
+                <img src="policubos.png" alt="Policubos">
+                <div class="book-title">Policubos</div>
+            </div>
+            <div class="book-item">
+                <img src="bloques-multibase.png" alt="Bloques multibase">
+                <div class="book-title">Bloques multibase</div>
+            </div>
+        </div>
         <section class="apartado-xogos">
             <h2 class="section-title">Xogos</h2>
         <div class="books-grid">
@@ -435,5 +440,6 @@
             }
         });
     </script>
+<script src="nav-reset.js" defer></script>
 </body>
 </html>

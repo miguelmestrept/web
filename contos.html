@@ -212,6 +212,18 @@
             margin-left: auto;
             margin-right: auto;
         }
+        /* Álbum ilustrado: filas centradas cando o número de ítems non enche a última fila */
+        .books-grid.books-grid--album {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem 1.5rem;
+        }
+        .books-grid.books-grid--album .book-item {
+            flex: 0 1 auto;
+            width: 100%;
+            max-width: 200px;
+        }
         .book-item {
             display: flex;
             flex-direction: column;
@@ -225,13 +237,14 @@
             width: 100%;
             max-width: 180px;
             height: 210px;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center;
             border-radius: 12px;
             border: 2px solid #c5dce8;
             box-shadow: 0 6px 20px rgba(90,138,122,0.15);
             margin-bottom: 0.5rem;
-            background: transparent;
-            mix-blend-mode: multiply;
+            background: #FBF7E9;
+            mix-blend-mode: normal;
             display: block;
             flex-shrink: 0;
         }
@@ -300,8 +313,21 @@
                 grid-template-columns: repeat(3, 1fr);
                 gap: 0.75rem;
             }
+            .books-grid.books-grid--album {
+                gap: 0.75rem;
+            }
+            .books-grid.books-grid--album .book-item {
+                flex: 1 1 calc((100% - 1.5rem) / 3);
+                max-width: calc((100% - 1.5rem) / 3);
+                min-width: 0;
+            }
             .book-item { max-width: 100%; }
-            .book-item img { max-width: 100px; height: 118px; }
+            .book-item img {
+                max-width: 100px;
+                height: 118px;
+                object-fit: cover;
+                object-position: center;
+            }
             .book-item .book-title { font-size: 0.85rem; font-weight: 700; }
         }
     </style>
@@ -320,7 +346,6 @@
                     <li><a href="practicas-restaurativas.html">Prácticas restaurativas</a></li>
                 </ul>
             </li>
-            <li class="menu-item"><a href="proxecto-de-centro.html">Proxecto de centro</a></li>
             <li class="menu-item">
                 <a href="#">Programas de intervención</a>
                 <ul class="dropdown">
@@ -333,36 +358,10 @@
                 </ul>
             </li>
             <li class="menu-item">
-                <a href="#">Evaluación</a>
-                <ul class="dropdown">
-                    <li><a href="#">Primero</a></li>
-                    <li><a href="#">Segundo</a></li>
-                    <li><a href="#">Tercero</a></li>
-                    <li><a href="#">Cuarto</a></li>
-                </ul>
-            </li>
-            <li class="menu-item">
                 <a href="#">Recursos</a>
                 <ul class="dropdown">
-                    <li class="has-submenu">
-                        <a href="#">Ámbitos de traballo</a>
-                        <ul class="dropdown sub-dropdown">
-                            <li><a href="area-emocional.html">Área Emocional</a></li>
-                            <li><a href="funciones-ejecutivas.html">Funcións executivas</a></li>
-                            <li><a href="area-linguistica.html">Área Lingüística</a></li>
-                            <li><a href="area-logico-matematica.html">Área lógico matemática</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="#">LIBROS</a>
-                        <ul class="dropdown sub-dropdown">
-                            <li><a href="album-ilustrado.html">Álbum ilustrado</a></li>
-                            <li><a href="contos.html">Contos</a></li>
-                            <li><a href="#">Libros informativos</a></li>
-                            <li><a href="#">Lectura Fácil</a></li>
-                            <li><a href="#">Cómic</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="ambitos-traballo.html">Ámbitos de traballo</a></li>
+                    <li><a href="contos.html">Contos</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -374,22 +373,10 @@
         <h1 class="page-title">Contos</h1>
         <section class="apartado-xogos">
             <h2 class="section-title">Álbum ilustrado</h2>
-            <div class="books-grid">
-            <div class="book-item">
-                <img src="BOB%20DYLAN.png" alt="Bob Dylan">
-                <div class="book-title">Bob Dylan</div>
-            </div>
-            <div class="book-item">
-                <img src="COMO%20ADESTRAR%20O%20TEU%20DRAGO%CC%81N.png" alt="Como adestrar o teu dragón">
-                <div class="book-title">Como adestrar o teu dragón</div>
-            </div>
+            <div class="books-grid books-grid--album">
             <div class="book-item">
                 <img src="DEL%20REVE%CC%81S.png" alt="Del revés">
                 <div class="book-title">Del revés</div>
-            </div>
-            <div class="book-item">
-                <img src="E.T.%20EL%20EXTRATERRESTRE.png" alt="E.T. El extraterrestre">
-                <div class="book-title">E.T. El extraterrestre</div>
             </div>
             <div class="book-item">
                 <img src="EL%20ARTISTA%20QUE%20PINTO%CC%81%20UN%20CABALLO%20AZUL.png" alt="El artista que pintó un caballo azul">
@@ -436,6 +423,39 @@
         <section class="apartado-xogos">
             <h2 class="section-title">Banda deseñada</h2>
             <div class="books-grid">
+            <div class="book-item">
+                <img src="Marcopola%20a%20illa%20remeira.png" alt="Marcopola a illa remeira">
+                <div class="book-title">Marcopola a illa remeira</div>
+            </div>
+            <div class="book-item">
+                <img src="Polic%C3%A1n.png" alt="Policán">
+                <div class="book-title">Policán</div>
+            </div>
+            </div>
+        </section>
+        <section class="apartado-xogos">
+            <h2 class="section-title">Recursos para acceder á lectura</h2>
+            <div class="books-grid">
+            <div class="book-item">
+                <img src="L%C3%A1piz%20lector.png" alt="Lápiz lector">
+                <div class="book-title">Lápiz lector</div>
+            </div>
+            <div class="book-item">
+                <img src="Fonoteca.png" alt="Fonoteca">
+                <div class="book-title">Fonoteca</div>
+            </div>
+            <div class="book-item">
+                <img src="Lecto%20app.png" alt="Lecto app">
+                <div class="book-title">Lecto app</div>
+            </div>
+            <div class="book-item">
+                <img src="Lectura%20f%C3%A1cil.png" alt="Lectura fácil">
+                <div class="book-title">Lectura fácil</div>
+            </div>
+            <div class="book-item">
+                <img src="Audiocontos.png" alt="Audiocontos">
+                <div class="book-title">Audiocontos</div>
+            </div>
             </div>
         </section>
     </div>
@@ -480,5 +500,6 @@
             }
         });
     </script>
+<script src="nav-reset.js" defer></script>
 </body>
 </html>

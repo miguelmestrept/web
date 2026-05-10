@@ -225,13 +225,14 @@
             width: 100%;
             max-width: 180px;
             height: 210px;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center;
             border-radius: 12px;
             border: 2px solid #c5dce8;
             box-shadow: 0 6px 20px rgba(90,138,122,0.15);
             margin-bottom: 0.5rem;
-            background: transparent;
-            mix-blend-mode: multiply;
+            background: #FBF7E9;
+            mix-blend-mode: normal;
             display: block;
             flex-shrink: 0;
         }
@@ -270,11 +271,14 @@
         .marionetas-item img {
             width: 100%;
             max-width: 160px;
-            height: auto;
+            height: 160px;
             border-radius: 12px;
             border: 2px solid #c5dce8;
             box-shadow: 0 6px 20px rgba(90,138,122,0.15);
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center;
+            background: #FBF7E9;
+            mix-blend-mode: normal;
         }
         .marionetas-item .marionetas-caption {
             font-family: 'Amatic SC', cursive;
@@ -334,7 +338,12 @@
             .page-title { font-size: 1.4rem; margin-bottom: 0.75rem; line-height: 1.2; }
             .marionetas-block { margin-bottom: 1.5rem; }
             .marionetas-grid { gap: 0.75rem; }
-            .marionetas-item img { max-width: 100px; }
+            .marionetas-item img {
+                max-width: 100px;
+                height: 100px;
+                object-fit: cover;
+                object-position: center;
+            }
             .marionetas-item .marionetas-caption { font-size: 0.95rem; max-width: 100px; }
             .apartado-xogos { padding: 1.25rem 0; margin-bottom: 1rem; }
             .apartado-xogos .section-title { font-size: 1.6rem; letter-spacing: 0.05em; }
@@ -343,7 +352,12 @@
                 gap: 0.75rem;
             }
             .book-item { max-width: 100%; }
-            .book-item img { max-width: 100px; height: 118px; }
+            .book-item img {
+                max-width: 100px;
+                height: 118px;
+                object-fit: cover;
+                object-position: center;
+            }
             .book-item .book-title { font-size: 0.85rem; font-weight: 700; }
         }
     </style>
@@ -362,7 +376,6 @@
                     <li><a href="practicas-restaurativas.html">Prácticas restaurativas</a></li>
                 </ul>
             </li>
-            <li class="menu-item"><a href="proxecto-de-centro.html">Proxecto de centro</a></li>
             <li class="menu-item">
                 <a href="#">Programas de intervención</a>
                 <ul class="dropdown">
@@ -375,36 +388,10 @@
                 </ul>
             </li>
             <li class="menu-item">
-                <a href="#">Evaluación</a>
-                <ul class="dropdown">
-                    <li><a href="#">Primero</a></li>
-                    <li><a href="#">Segundo</a></li>
-                    <li><a href="#">Tercero</a></li>
-                    <li><a href="#">Cuarto</a></li>
-                </ul>
-            </li>
-            <li class="menu-item">
                 <a href="#">Recursos</a>
                 <ul class="dropdown">
-                    <li class="has-submenu">
-                        <a href="#">Ámbitos de traballo</a>
-                        <ul class="dropdown sub-dropdown">
-                            <li><a href="area-emocional.html">Área Emocional</a></li>
-                            <li><a href="funciones-ejecutivas.html">Funcións executivas</a></li>
-                            <li><a href="area-linguistica.html">Área Lingüística</a></li>
-                            <li><a href="area-logico-matematica.html">Área lógico matemática</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="#">LIBROS</a>
-                        <ul class="dropdown sub-dropdown">
-                            <li><a href="album-ilustrado.html">Álbum ilustrado</a></li>
-                            <li><a href="contos.html">Contos</a></li>
-                            <li><a href="#">Libros informativos</a></li>
-                            <li><a href="#">Lectura Fácil</a></li>
-                            <li><a href="#">Cómic</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="ambitos-traballo.html">Ámbitos de traballo</a></li>
+                    <li><a href="contos.html">Contos</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -485,5 +472,6 @@
             }
         });
     </script>
+<script src="nav-reset.js" defer></script>
 </body>
 </html>

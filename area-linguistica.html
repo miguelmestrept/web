@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Área Lingüística</title>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Pompiere&display=swap" rel="stylesheet">
     <style>
@@ -201,13 +204,14 @@
             width: 100%;
             max-width: 180px;
             height: 210px;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center;
             border-radius: 12px;
             border: 2px solid #c5dce8;
             box-shadow: 0 6px 20px rgba(90,138,122,0.15);
             margin-bottom: 0.5rem;
-            background: transparent;
-            mix-blend-mode: multiply;
+            background: #FBF7E9;
+            mix-blend-mode: normal;
             display: block;
             flex-shrink: 0;
         }
@@ -224,7 +228,38 @@
             justify-content: center;
             text-wrap: balance;
         }
-
+        .books-grid--linguistica-materiais {
+            padding: 1.25rem 1rem;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 12px;
+            border: 1px dashed rgba(197, 220, 232, 0.85);
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .apartado-xogos {
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .apartado-xogos .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #4a7c6f;
+            margin-bottom: 1.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+        .apartado-xogos .section-title::after {
+            content: '';
+            display: block;
+            width: 64px;
+            height: 4px;
+            background: linear-gradient(90deg, #5a8a7a, #a8d5c8);
+            margin: 0.75rem auto 0;
+            border-radius: 2px;
+        }
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
             .menu {
@@ -270,12 +305,20 @@
             }
             .container { margin: 1rem auto; padding: 0 1rem; max-width: 100%; }
             .page-title { font-size: 1.4rem; margin-bottom: 0.75rem; line-height: 1.2; }
+            .books-grid--linguistica-materiais { padding: 1rem 0.65rem; margin-bottom: 1.25rem; }
+            .apartado-xogos { padding: 1.25rem 0; margin-bottom: 1rem; }
+            .apartado-xogos .section-title { font-size: 1.6rem; letter-spacing: 0.05em; }
             .books-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 0.75rem;
             }
             .book-item { max-width: 100%; }
-            .book-item img { max-width: 100px; height: 118px; }
+            .book-item img {
+                max-width: 100px;
+                height: 118px;
+                object-fit: cover;
+                object-position: center;
+            }
             .book-item .book-title { font-size: 0.85rem; font-weight: 700; }
         }
     </style>
@@ -294,7 +337,6 @@
                     <li><a href="practicas-restaurativas.html">Prácticas restaurativas</a></li>
                 </ul>
             </li>
-            <li class="menu-item"><a href="proxecto-de-centro.html">Proxecto de centro</a></li>
             <li class="menu-item">
                 <a href="#">Programas de intervención</a>
                 <ul class="dropdown">
@@ -307,36 +349,10 @@
                 </ul>
             </li>
             <li class="menu-item">
-                <a href="#">Evaluación</a>
-                <ul class="dropdown">
-                    <li><a href="#">Primero</a></li>
-                    <li><a href="#">Segundo</a></li>
-                    <li><a href="#">Tercero</a></li>
-                    <li><a href="#">Cuarto</a></li>
-                </ul>
-            </li>
-            <li class="menu-item">
                 <a href="#">Recursos</a>
                 <ul class="dropdown">
-                    <li class="has-submenu">
-                        <a href="#">Ámbitos de traballo</a>
-                        <ul class="dropdown sub-dropdown">
-                            <li><a href="area-emocional.html">Área Emocional</a></li>
-                            <li><a href="funciones-ejecutivas.html">Funcións executivas</a></li>
-                            <li><a href="area-linguistica.html">Área Lingüística</a></li>
-                            <li><a href="area-logico-matematica.html">Área lógico matemática</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="#">LIBROS</a>
-                        <ul class="dropdown sub-dropdown">
-                            <li><a href="album-ilustrado.html">Álbum ilustrado</a></li>
-                            <li><a href="contos.html">Contos</a></li>
-                            <li><a href="#">Libros informativos</a></li>
-                            <li><a href="#">Lectura Fácil</a></li>
-                            <li><a href="#">Cómic</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="ambitos-traballo.html">Ámbitos de traballo</a></li>
+                    <li><a href="contos.html">Contos</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -346,7 +362,27 @@
     </nav>
     <div class="container">
         <h1 class="page-title">Área Lingüística</h1>
-        <div class="books-grid">
+        <div class="books-grid books-grid--linguistica-materiais">
+            <div class="book-item">
+                <img src="Letras-mobiles.png" alt="Letras móbiles">
+                <div class="book-title">Letras móbiles</div>
+            </div>
+            <div class="book-item">
+                <img src="Simbolos-gramaticales-Montessori.png" alt="Símbolos gramaticais Montessori">
+                <div class="book-title">Símbolos gramaticais Montessori</div>
+            </div>
+            <div class="book-item">
+                <img src="Articulemas.png" alt="Articulemas">
+                <div class="book-title">Articulemas</div>
+            </div>
+            <div class="book-item">
+                <img src="Dados-vocabulario.png" alt="Dados vocabulario">
+                <div class="book-title">Dados vocabulario</div>
+            </div>
+        </div>
+        <section class="apartado-xogos">
+            <h2 class="section-title">Xogos</h2>
+            <div class="books-grid">
             <div class="book-item">
                 <img src="La%20fiesta%20de%20las%20letras.png" alt="La fiesta de las letras">
                 <div class="book-title">La fiesta de las letras</div>
@@ -360,10 +396,11 @@
                 <div class="book-title">Eszi</div>
             </div>
             <div class="book-item">
-                <img src="Carrera%20de%20las%20letras.png" alt="Carrera de las letras">
+                <img src="Carrera%20de%20letras.png" alt="Carrera de las letras">
                 <div class="book-title">Carrera de las letras</div>
             </div>
-        </div>
+            </div>
+        </section>
     </div>
     <script>
         function toggleMenu() {
@@ -406,5 +443,6 @@
             }
         });
     </script>
+<script src="nav-reset.js" defer></script>
 </body>
 </html>

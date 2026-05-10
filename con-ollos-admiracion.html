@@ -435,30 +435,10 @@
                 </ul>
             </li>
             <li class="menu-item">
-                <a href="#">Avaliación</a>
-            </li>
-            <li class="menu-item">
                 <a href="#">Recursos</a>
                 <ul class="dropdown">
-                    <li class="has-submenu">
-                        <a href="#">Ámbitos de traballo</a>
-                        <ul class="dropdown sub-dropdown">
-                            <li><a href="area-emocional.html">Área Emocional</a></li>
-                            <li><a href="funciones-ejecutivas.html">Funcións executivas</a></li>
-                            <li><a href="area-linguistica.html">Área Lingüística</a></li>
-                            <li><a href="area-logico-matematica.html">Área lógico matemática</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="#">LIBROS</a>
-                        <ul class="dropdown sub-dropdown">
-                            <li><a href="album-ilustrado.html">Álbum ilustrado</a></li>
-                            <li><a href="contos.html">Contos</a></li>
-                            <li><a href="#">Libros informativos</a></li>
-                            <li><a href="#">Lectura Fácil</a></li>
-                            <li><a href="#">Cómic</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="ambitos-traballo.html">Ámbitos de traballo</a></li>
+                    <li><a href="contos.html">Contos</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -544,7 +524,14 @@
                     <p>Cando un talento está relacionado coa tarefa, a foto dese alumno/a colócase no panel Scrum como experto/a do día, permitindo que os compañeiros acudan a el ou a ela antes que ao mestro para resolver dúbidas durante as actividades. Deste modo promóvese a axuda entre iguais e o recoñecemento das fortalezas individuais.</p>
                 </div>
             </div>
-            <h3 class="ambitos-subtitulo">Visitas con admiración</h3>
+            <div class="ambitos-subtitulo-wrap">
+                <h3 class="ambitos-subtitulo">Visitas con admiración</h3>
+                <button type="button" class="btn-audio-lectura" id="btn-audio-visitas-admiracion" aria-label="Reproducir lectura do texto Visitas con admiración" title="Escoitar lectura"><img src="audio-icon.png" alt="" aria-hidden="true"></button>
+                <audio id="audio-visitas-admiracion" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
+                    <source src="Visitas con admiración.m4a" type="audio/mp4">
+                    O teu navegador non soporta a reprodución de audio.
+                </audio>
+            </div>
             <div class="actividade-item">
                 <div class="actividade-imaxe">
                     <img src="visitas-con-admiracion.png" alt="Visitas con admiración">
@@ -595,6 +582,7 @@
                 { btnId: 'btn-audio-muro', audioId: 'audio-muro', labelPaused: 'Reproducir lectura do texto O muro da admiración' },
                 { btnId: 'btn-audio-entrevistas', audioId: 'audio-entrevistas', labelPaused: 'Reproducir lectura do texto Entrevistas con admiración' },
                 { btnId: 'btn-audio-panel-talentos', audioId: 'audio-panel-talentos', labelPaused: 'Reproducir lectura do texto Panel Admiramos talentos' },
+                { btnId: 'btn-audio-visitas-admiracion', audioId: 'audio-visitas-admiracion', labelPaused: 'Reproducir lectura do texto Visitas con admiración' },
                 { btnId: 'btn-audio-ambitos-inclusivos', audioId: 'audio-ambitos-inclusivos', labelPaused: 'Reproducir lectura do texto Ámbitos de aprendizaxe inclusivos' }
             ];
             var allAudios = [];
@@ -636,5 +624,6 @@
             });
         })();
     </script>
+<script src="nav-reset.js" defer></script>
 </body>
 </html>

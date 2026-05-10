@@ -373,74 +373,161 @@
             display: block;
             border: 0;
         }
-        .recursos-proxecto-details {
+        .avaliacion-section {
             width: 100%;
-            max-width: 900px;
-            margin: 2rem auto 0;
+            margin-top: 1.75rem;
+            padding: 0;
+        }
+        .avaliacion-grid-hint {
+            font-family: 'Pompiere', sans-serif;
+            font-size: 0.92rem;
+            color: #7a8f7a;
+            text-align: center;
+            margin: 0 0 0.25rem;
+            line-height: 1.35;
+        }
+        .avaliacion-files-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+            width: 100%;
+        }
+        .avaliacion-file-card {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            text-decoration: none;
+            color: #3d5c4a;
             border: 2px solid #dcefe3;
-            border-radius: 16px;
-            background: #f8fdf9;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 14px rgba(84, 128, 108, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            -webkit-tap-highlight-color: rgba(74, 124, 111, 0.15);
+        }
+        .avaliacion-file-card:hover,
+        .avaliacion-file-card:focus-visible {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(84, 128, 108, 0.14);
+            outline: none;
+        }
+        .avaliacion-file-preview {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            background: linear-gradient(145deg, #eef6f1 0%, #e4efe8 100%);
             overflow: hidden;
         }
-        .recursos-proxecto-summary {
-            font-family: 'Amatic SC', cursive;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #4a7c6f;
-            padding: 1rem 1.25rem;
-            cursor: pointer;
-            list-style: none;
-            user-select: none;
+        .avaliacion-file-preview--image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .avaliacion-file-preview--contain img {
+            object-fit: contain;
+            background: #fafdfc;
+        }
+        .avaliacion-file-preview--pdf iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            pointer-events: none;
+            transform: scale(1.02);
+            transform-origin: top center;
+        }
+        .avaliacion-file-preview--generic {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 0.75rem;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.35rem;
+            padding: 0.5rem;
         }
-        .recursos-proxecto-summary::-webkit-details-marker {
-            display: none;
+        .avaliacion-file-ext {
+            font-family: 'Amatic SC', cursive;
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #5a8a7a;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }
-        .recursos-proxecto-summary::marker {
-            content: '';
-        }
-        .recursos-proxecto-summary::after {
-            content: '▸';
-            font-size: 1.1rem;
-            opacity: 0.75;
-            transition: transform 0.2s ease;
-        }
-        .recursos-proxecto-details[open] .recursos-proxecto-summary::after {
-            transform: rotate(90deg);
-        }
-        .recursos-proxecto-panel-inner {
-            padding: 0 1.25rem 1.25rem;
-            border-top: 1px solid #dcefe3;
-        }
-        .recursos-proxecto-list {
-            list-style: none;
-            margin: 0;
-            padding: 0.85rem 0 0;
-        }
-        .recursos-proxecto-list li {
-            margin: 0.55rem 0;
-            text-align: left;
-        }
-        .recursos-proxecto-list a {
-            color: #3d6b5e;
-            font-size: 1.12rem;
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            word-break: break-word;
-        }
-        .recursos-proxecto-list a:hover {
-            color: #2d5548;
-        }
-        .recursos-proxecto-hint {
-            font-size: 0.9rem;
+        .avaliacion-file-icon-hint {
+            font-family: 'Pompiere', sans-serif;
+            font-size: 0.72rem;
             color: #7a8f7a;
-            margin-top: 0.65rem;
-            text-align: left;
+            text-align: center;
+            line-height: 1.2;
+            max-width: 100%;
+            padding: 0 0.25rem;
         }
-        
+        .avaliacion-file-name {
+            font-family: 'Pompiere', sans-serif;
+            font-size: 0.88rem;
+            padding: 0.55rem 0.65rem;
+            line-height: 1.25;
+            text-align: center;
+            word-break: break-word;
+            border-top: 1px solid rgba(220, 239, 227, 0.9);
+            background: #fafdfc;
+            text-transform: uppercase;
+        }
+        /* Recursos proxecto: miniaturas circulares */
+        .recursos-proxecto-section .avaliacion-files-grid {
+            justify-items: center;
+            grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+            gap: 1.35rem 1rem;
+        }
+        .recursos-proxecto-section .avaliacion-file-card {
+            align-items: center;
+            max-width: 176px;
+            width: 100%;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+            overflow: visible;
+            padding: 0 0.35rem 0.35rem;
+        }
+        .recursos-proxecto-section .avaliacion-file-card:hover,
+        .recursos-proxecto-section .avaliacion-file-card:focus-visible {
+            transform: none;
+            box-shadow: none;
+        }
+        .recursos-proxecto-section .avaliacion-file-preview {
+            width: min(100%, 172px);
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            border: 3px solid #dcefe3;
+            box-shadow: 0 6px 22px rgba(84, 128, 108, 0.14);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+        }
+        .recursos-proxecto-section .avaliacion-file-card:hover .avaliacion-file-preview,
+        .recursos-proxecto-section .avaliacion-file-card:focus-visible .avaliacion-file-preview {
+            transform: scale(1.045);
+            box-shadow: 0 12px 32px rgba(84, 128, 108, 0.2);
+            border-color: #b5dcc8;
+        }
+        .recursos-proxecto-section .avaliacion-file-card:focus-visible .avaliacion-file-preview {
+            outline: 3px solid #4a7c6f;
+            outline-offset: 4px;
+        }
+        .recursos-proxecto-section .avaliacion-file-name {
+            border-top: none;
+            background: transparent;
+            padding: 0.65rem 0.35rem 0;
+            font-size: 0.82rem;
+        }
+        /* Palabras comodín: miniatura PNG (evita franxas do visor PDF incrustado) */
+        .recursos-proxecto-section .recursos-preview-palabras {
+            background: #fff;
+        }
+        .recursos-proxecto-section .recursos-preview-palabras img {
+            object-fit: contain;
+        }
         /* Responsive styles */
         @media (max-width: 768px) {
             .menu-toggle {
@@ -616,19 +703,35 @@
             .economia-fichas-section {
                 margin-top: 1.25rem;
             }
+            .avaliacion-section {
+                margin-top: 1.25rem;
+            }
+            .avaliacion-grid-hint {
+                font-size: 0.82rem;
+                padding: 0 0.25rem;
+            }
+            .avaliacion-files-grid {
+                grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+                gap: 0.75rem;
+                margin-top: 0.85rem;
+            }
+            .avaliacion-file-name {
+                font-size: 0.8rem;
+                padding: 0.45rem 0.5rem;
+            }
+            .avaliacion-file-ext {
+                font-size: 1.5rem;
+            }
             .economia-fichas-heading {
                 font-size: 1.75rem;
                 margin-bottom: 0.75rem;
             }
-            .recursos-proxecto-summary {
-                font-size: 1.65rem;
-                padding: 0.85rem 1rem;
+            .recursos-proxecto-section .avaliacion-files-grid {
+                grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+                gap: 1.1rem 0.65rem;
             }
-            .recursos-proxecto-panel-inner {
-                padding: 0 1rem 1rem;
-            }
-            .recursos-proxecto-list a {
-                font-size: 1rem;
+            .recursos-proxecto-section .avaliacion-file-preview {
+                width: min(100%, 148px);
             }
         }
     </style>
@@ -661,30 +764,10 @@
                 </ul>
             </li>
             <li class="menu-item">
-                <a href="#">Avaliación</a>
-            </li>
-            <li class="menu-item">
                 <a href="#">Recursos</a>
                 <ul class="dropdown">
-                    <li class="has-submenu">
-                        <a href="#">Ámbitos de traballo</a>
-                        <ul class="dropdown sub-dropdown">
-                            <li><a href="area-emocional.html">Área Emocional</a></li>
-                            <li><a href="funciones-ejecutivas.html">Funcións executivas</a></li>
-                            <li><a href="area-linguistica.html">Área Lingüística</a></li>
-                            <li><a href="area-logico-matematica.html">Área lógico matemática</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="#">LIBROS</a>
-                        <ul class="dropdown sub-dropdown">
-                            <li><a href="album-ilustrado.html">Álbum ilustrado</a></li>
-                            <li><a href="contos.html">Contos</a></li>
-                            <li><a href="#">Libros informativos</a></li>
-                            <li><a href="#">Lectura Fácil</a></li>
-                            <li><a href="#">Cómic</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="ambitos-traballo.html">Ámbitos de traballo</a></li>
+                    <li><a href="contos.html">Contos</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -703,7 +786,8 @@
                     <img src="RAUL_03-2.png?v=raul-20260509" alt="Raúl, alumno de 5ºEP">
                 </figure>
             </section>
-            <section class="presentation-section" aria-label="Presentación PDI 5">
+            <section class="presentation-section" aria-labelledby="scratch-actividades-heading">
+                <h2 id="scratch-actividades-heading" class="economia-fichas-heading">Algunhas actividades do Proxecto Scratch.</h2>
                 <div class="presentation-carousel-stack">
                 <div class="swiper pdi-swiper">
                     <div class="swiper-wrapper">
@@ -742,20 +826,104 @@
                     <img class="economia-fichas-img" src="ECONOM%C3%8DA%20DE%20FICHAS.png" alt="Economía de fichas" width="14033" height="9916" decoding="async" loading="lazy">
                 </div>
             </section>
+            <section class="avaliacion-section" aria-labelledby="avaliacion-heading">
+                <h2 id="avaliacion-heading" class="economia-fichas-heading">Avaliación</h2>
+                <p class="avaliacion-grid-hint">Preme un cadro para abrir o arquivo.</p>
+                <div class="avaliacion-files-grid" aria-label="Arquivos de avaliación">
+                    <a href="PDI%205.%20RAU%CC%81L%20%28LISTO%29.png" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer" aria-label="Abrir Rúbrica PDI do alumno">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--image avaliacion-file-preview--contain">
+                            <img src="PDI%205.%20RAU%CC%81L%20%28LISTO%29.png" alt="Vista previa: Rúbrica PDI do alumno" loading="lazy" decoding="async">
+                        </div>
+                        <span class="avaliacion-file-name">Rúbrica PDI do alumno</span>
+                    </a>
+                    <a href="LISTA%20DE%20COTEXO%20PRA%CC%81CTICA%20DOCENTE.png" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer" aria-label="Abrir Lista de cotexto - Práctica docente">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--image avaliacion-file-preview--contain">
+                            <img src="LISTA%20DE%20COTEXO%20PRA%CC%81CTICA%20DOCENTE.png" alt="Vista previa: Lista de cotexto - Práctica docente" loading="lazy" decoding="async">
+                        </div>
+                        <span class="avaliacion-file-name">Lista de cotexto - Práctica docente</span>
+                    </a>
+                    <a href="Avaliacio%CC%81n%20equipo.pdf" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer" aria-label="Abrir Coavaliación - traballo en equipo">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
+                            <iframe src="Avaliacio%CC%81n%20equipo.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                        </div>
+                        <span class="avaliacion-file-name">Coavaliación - traballo en equipo</span>
+                    </a>
+                    <!--
+                      Como engadir un arquivo:
+                      IMXE (miniatura = propia imaxe): copia o bloque «modelo-imaxe» e cambia rutas/nome.
+                      PDF (vista previa incrustada): copia «modelo-pdf». Se non se ve a miniatura, o cadro segue abrindo o PDF.
+                      Outro tipo: copia «modelo-xenerico» e pon extensión + nome de ficheiro.
+                    -->
+                    <!-- modelo-imaxe:
+                    <a href="NOME.png" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--image">
+                            <img src="NOME.png" alt="" loading="lazy" decoding="async">
+                        </div>
+                        <span class="avaliacion-file-name">NOME.png</span>
+                    </a>
+                    -->
+                    <!-- modelo-pdf:
+                    <a href="NOME.pdf" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
+                            <iframe src="NOME.pdf#toolbar=0&view=FitH" title="" aria-hidden="true"></iframe>
+                        </div>
+                        <span class="avaliacion-file-name">NOME.pdf</span>
+                    </a>
+                    -->
+                    <!-- modelo-xenerico:
+                    <a href="NOME.ext" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--generic">
+                            <span class="avaliacion-file-ext">ext</span>
+                            <span class="avaliacion-file-icon-hint">Preme para abrir</span>
+                        </div>
+                        <span class="avaliacion-file-name">NOME.ext</span>
+                    </a>
+                    -->
+                </div>
+            </section>
+            <section class="avaliacion-section recursos-proxecto-section" aria-labelledby="recursos-proxecto-heading">
+                <h2 id="recursos-proxecto-heading" class="economia-fichas-heading">Recursos proxecto</h2>
+                <p class="avaliacion-grid-hint">Preme nun círculo para abrir o arquivo.</p>
+                <div class="avaliacion-files-grid" aria-label="Recursos do proxecto">
+                    <a href="PDI%20TDAH%20%2B%20TGC-2.pdf" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer" aria-label="Abrir Proxecto Scratch">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
+                            <iframe src="PDI%20TDAH%20%2B%20TGC-2.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                        </div>
+                        <span class="avaliacion-file-name">Proxecto scratch</span>
+                    </a>
+                    <a href="Storyboard.pdf" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer" aria-label="Abrir Storyboard">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
+                            <iframe src="Storyboard.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                        </div>
+                        <span class="avaliacion-file-name">Storyboard</span>
+                    </a>
+                    <a href="Programar.pdf" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer" aria-label="Abrir Programar">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
+                            <iframe src="Programar.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                        </div>
+                        <span class="avaliacion-file-name">Programar</span>
+                    </a>
+                    <a href="PALABRAS%20COMODI%CC%81N.png.pdf" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer" aria-label="Abrir Palabras comodín">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--image avaliacion-file-preview--contain recursos-preview-palabras">
+                            <img src="PALABRAS-COMODIN-preview.png" alt="" loading="lazy" decoding="async" width="360" height="255">
+                        </div>
+                        <span class="avaliacion-file-name">Palabras comodín</span>
+                    </a>
+                    <a href="Manejo%20Scratch.pdf" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer" aria-label="Abrir Manexo Scratch">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
+                            <iframe src="Manejo%20Scratch.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                        </div>
+                        <span class="avaliacion-file-name">Manexo Scratch</span>
+                    </a>
+                    <a href="Factura%20Luz%20%2B%20%20Soportes.pdf" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer" aria-label="Abrir Factura Luz e soportes">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
+                            <iframe src="Factura%20Luz%20%2B%20%20Soportes.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                        </div>
+                        <span class="avaliacion-file-name">Factura Luz +  Soportes</span>
+                    </a>
+                </div>
+            </section>
         </div>
-        <details class="recursos-proxecto-details">
-            <summary class="recursos-proxecto-summary">Recursos proxecto</summary>
-            <div class="recursos-proxecto-panel-inner">
-                <ul class="recursos-proxecto-list">
-                    <li><a href="Storyboard.pdf" target="_blank" rel="noopener noreferrer">Storyboard</a></li>
-                    <li><a href="Programar.pdf" target="_blank" rel="noopener noreferrer">Programar</a></li>
-                    <li><a href="PALABRAS%20COMOD%C3%8DN.png.pdf" target="_blank" rel="noopener noreferrer">Palabras comodín.png</a></li>
-                    <li><a href="Manejo%20Scratch.pdf" target="_blank" rel="noopener noreferrer">Manexo Scratch</a></li>
-                    <li><a href="Factura%20Luz%20%2B%20%20Soportes.pdf" target="_blank" rel="noopener noreferrer">Factura Luz +  Soportes</a></li>
-                </ul>
-                <p class="recursos-proxecto-hint">Preme en cada ligazón para ver.</p>
-            </div>
-        </details>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
@@ -816,5 +984,6 @@
             }
         });
     </script>
+<script src="nav-reset.js" defer></script>
 </body>
 </html>
