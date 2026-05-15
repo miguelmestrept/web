@@ -8,6 +8,7 @@
     <meta http-equiv="Expires" content="0">
     <title>PDI 4</title>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Pompiere&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -268,6 +269,316 @@
             object-fit: contain;
             object-position: right bottom;
         }
+        .presentation-section {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background: #FBF7E9;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+        }
+        .presentation-carousel-stack {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: stretch;
+            gap: 0;
+            line-height: 0;
+        }
+        .presentation-carousel-stack .swiper {
+            line-height: normal;
+        }
+        .presentation-section .swiper {
+            width: 100%;
+            height: 90vh;
+            min-height: 400px;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .presentation-section .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #FBF7E9;
+            padding: 0;
+        }
+        .slide-card {
+            width: 100%;
+            max-width: 1000px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .slide-card .slide-image {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(90, 107, 90, 0.15);
+            display: block;
+        }
+        .presentation-section .swiper-pagination {
+            bottom: 1.5rem;
+        }
+        .presentation-section .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: #5a8a7a;
+            opacity: 0.4;
+            transition: opacity 0.3s;
+        }
+        .presentation-section .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: #4a7c6f;
+        }
+        .presentation-section .swiper-button-prev,
+        .presentation-section .swiper-button-next {
+            color: #4a7c6f;
+        }
+        .presentation-section .swiper-button-prev::after,
+        .presentation-section .swiper-button-next::after {
+            font-size: 1.8rem;
+        }
+        .carousel-swipe-hint {
+            display: block;
+            text-align: center;
+            font-family: 'Pompiere', sans-serif;
+            font-size: 0.95rem;
+            color: #7a8f7a;
+            margin: 0;
+            padding: 0 0.5rem;
+            line-height: 1.3;
+        }
+        .economia-fichas-heading {
+            font-family: 'Amatic SC', cursive;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #5a8a7a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .avaliacion-section {
+            width: 100%;
+            margin-top: 1.75rem;
+            padding: 0;
+        }
+        .avaliacion-intro-row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem 1.15rem;
+            margin: 0.15rem 0 0.95rem;
+            padding: 0;
+            background: none;
+            border: none;
+            box-shadow: none;
+        }
+        .avaliacion-intro-figure {
+            flex: 0 0 auto;
+            width: 108px;
+            height: 108px;
+            max-width: 108px;
+            margin: 0;
+            padding: 0;
+            background: none;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: none;
+        }
+        .avaliacion-intro-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+        .avaliacion-quote {
+            flex: 1 1 auto;
+            min-width: 0;
+            margin: 0;
+            padding: 0;
+            background: none;
+            border: none;
+            font-family: 'Pompiere', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.55;
+            color: #4d6558;
+            font-style: italic;
+            text-align: left;
+        }
+        .avaliacion-quote p {
+            margin: 0;
+        }
+        .avaliacion-quote-ref {
+            font-style: normal;
+        }
+        .avaliacion-grid-hint {
+            font-family: 'Pompiere', sans-serif;
+            font-size: 0.92rem;
+            color: #7a8f7a;
+            text-align: center;
+            margin: 0 0 0.25rem;
+            line-height: 1.35;
+        }
+        .avaliacion-files-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+            width: 100%;
+        }
+        .avaliacion-file-card {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            text-decoration: none;
+            color: #3d5c4a;
+            border: 2px solid #dcefe3;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 14px rgba(84, 128, 108, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            -webkit-tap-highlight-color: rgba(74, 124, 111, 0.15);
+        }
+        .avaliacion-file-card:hover,
+        .avaliacion-file-card:focus-visible {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(84, 128, 108, 0.14);
+            outline: none;
+        }
+        .avaliacion-file-preview {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            background: linear-gradient(145deg, #eef6f1 0%, #e4efe8 100%);
+            overflow: hidden;
+        }
+        .avaliacion-file-preview--image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .avaliacion-file-preview--contain img {
+            object-fit: contain;
+            background: #fafdfc;
+        }
+        .avaliacion-file-preview--lista-cotexo-zoom img {
+            object-fit: cover;
+            object-position: left top;
+            width: 100%;
+            height: 100%;
+            min-width: 100%;
+            min-height: 100%;
+        }
+        .avaliacion-file-preview--pdf iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            pointer-events: none;
+            transform: scale(1.02);
+            transform-origin: top center;
+        }
+        .avaliacion-file-preview--generic {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.35rem;
+            padding: 0.5rem;
+        }
+        .avaliacion-file-ext {
+            font-family: 'Amatic SC', cursive;
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #5a8a7a;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .avaliacion-file-icon-hint {
+            font-family: 'Pompiere', sans-serif;
+            font-size: 0.72rem;
+            color: #7a8f7a;
+            text-align: center;
+            line-height: 1.2;
+            max-width: 100%;
+            padding: 0 0.25rem;
+        }
+        .avaliacion-file-name {
+            font-family: 'Pompiere', sans-serif;
+            font-size: 0.88rem;
+            padding: 0.55rem 0.65rem;
+            line-height: 1.25;
+            text-align: center;
+            word-break: break-word;
+            border-top: 1px solid rgba(220, 239, 227, 0.9);
+            background: #fafdfc;
+            text-transform: uppercase;
+        }
+        /* Recursos proxecto: miniaturas circulares */
+        .recursos-proxecto-section .avaliacion-files-grid {
+            justify-items: center;
+            grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+            gap: 1.35rem 1rem;
+        }
+        .recursos-proxecto-section .avaliacion-file-card {
+            align-items: center;
+            max-width: 176px;
+            width: 100%;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+            overflow: visible;
+            padding: 0 0.35rem 0.35rem;
+        }
+        .recursos-proxecto-section .avaliacion-file-card:hover,
+        .recursos-proxecto-section .avaliacion-file-card:focus-visible {
+            transform: none;
+            box-shadow: none;
+        }
+        .recursos-proxecto-section .avaliacion-file-preview {
+            width: min(100%, 172px);
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            border: 3px solid #dcefe3;
+            box-shadow: 0 6px 22px rgba(84, 128, 108, 0.14);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+        }
+        .recursos-proxecto-section .avaliacion-file-card:hover .avaliacion-file-preview,
+        .recursos-proxecto-section .avaliacion-file-card:focus-visible .avaliacion-file-preview {
+            transform: scale(1.045);
+            box-shadow: 0 12px 32px rgba(84, 128, 108, 0.2);
+            border-color: #b5dcc8;
+        }
+        .recursos-proxecto-section .avaliacion-file-card:focus-visible .avaliacion-file-preview {
+            outline: 3px solid #4a7c6f;
+            outline-offset: 4px;
+        }
+        .recursos-proxecto-section .avaliacion-file-name {
+            border-top: none;
+            background: transparent;
+            padding: 0.65rem 0.35rem 0;
+            font-size: 0.82rem;
+        }
+        .recursos-proxecto-section .recursos-preview-caderno {
+            background: #fff;
+        }
+        .recursos-proxecto-section .recursos-preview-caderno img {
+            object-fit: cover;
+            object-position: center top;
+        }
         
         /* Responsive styles */
         @media (max-width: 768px) {
@@ -376,7 +687,114 @@
             .page-title {
                 font-size: 2rem;
                 margin-top: 0;
-                margin-bottom: 1.5rem;
+                margin-bottom: 0.85rem;
+            }
+            .presentation-section {
+                margin-top: 0;
+                padding-top: 0;
+                align-self: stretch;
+                width: 100%;
+                max-width: 100%;
+            }
+            .presentation-carousel-stack {
+                gap: 0;
+            }
+            .presentation-section .swiper {
+                height: min(72vh, 560px);
+                min-height: 300px;
+                padding: 0;
+            }
+            .presentation-section .swiper-slide {
+                padding: 0;
+            }
+            .slide-card {
+                padding: 0;
+            }
+            .slide-card .slide-image {
+                border-radius: 10px;
+                box-shadow: 0 2px 16px rgba(90, 107, 90, 0.14);
+            }
+            .presentation-section .swiper-pagination {
+                display: none !important;
+            }
+            .presentation-section .swiper-button-prev,
+            .presentation-section .swiper-button-next {
+                width: 36px;
+                height: 36px;
+                opacity: 0.65;
+                margin-top: -18px;
+            }
+            .presentation-section .swiper-button-prev::after,
+            .presentation-section .swiper-button-next::after {
+                font-size: 1rem;
+            }
+            .presentation-section .swiper-button-prev {
+                left: 4px;
+            }
+            .presentation-section .swiper-button-next {
+                right: 4px;
+            }
+            .carousel-swipe-hint {
+                display: block;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+                font-family: 'Pompiere', sans-serif;
+                font-size: 0.82rem;
+                color: #7a8f7a;
+                margin: 0;
+                padding: 0 0.5rem;
+                line-height: 1.3;
+                flex-shrink: 0;
+                order: 2;
+            }
+            .avaliacion-section {
+                margin-top: 1.25rem;
+            }
+            .avaliacion-intro-row {
+                flex-wrap: nowrap;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 0.75rem 0.85rem;
+                margin: 0 0 0.75rem;
+            }
+            .avaliacion-intro-figure {
+                width: 84px;
+                height: 84px;
+                max-width: 84px;
+            }
+            .avaliacion-quote {
+                text-align: left;
+                font-size: 0.9rem;
+                line-height: 1.48;
+            }
+            .avaliacion-grid-hint {
+                font-size: 0.82rem;
+                padding: 0 0.25rem;
+            }
+            .avaliacion-files-grid {
+                grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+                gap: 0.75rem;
+                margin-top: 0.85rem;
+            }
+            .avaliacion-file-name {
+                font-size: 0.8rem;
+                padding: 0.45rem 0.5rem;
+            }
+            .avaliacion-file-ext {
+                font-size: 1.5rem;
+            }
+            .economia-fichas-heading {
+                font-size: 1.75rem;
+                margin-bottom: 0.75rem;
+            }
+            .recursos-proxecto-section .avaliacion-files-grid {
+                grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+                gap: 1.1rem 0.65rem;
+            }
+            .recursos-proxecto-section .avaliacion-file-preview {
+                width: min(100%, 148px);
             }
         }
     </style>
@@ -431,8 +849,114 @@
                     <img src="PEDRO_02.png" alt="Pedro, alumno de 4ºEP" decoding="async">
                 </figure>
             </section>
+            <section class="presentation-section" aria-labelledby="proxecto-pedro-heading">
+                <h2 id="proxecto-pedro-heading" class="economia-fichas-heading">Algunhas actividades do proxecto.</h2>
+                <div class="presentation-carousel-stack">
+                <div class="swiper pdi-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro1.png?v=pdi2-20260515" alt="Diapositiva 1" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro2.png?v=pdi2-20260515" alt="Diapositiva 2" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro3.png?v=pdi2-20260515" alt="Diapositiva 3" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro4.png?v=pdi2-20260515" alt="Diapositiva 4" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro5.png?v=pdi2-20260515" alt="Diapositiva 5" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro6.png?v=pdi2-20260515" alt="Diapositiva 6" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro7.png?v=pdi2-20260515" alt="Diapositiva 7" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro8.png?v=pdi2-20260515" alt="Diapositiva 8" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro9.png?v=pdi2-20260515" alt="Diapositiva 9" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro10.png?v=pdi2-20260515" alt="Diapositiva 10" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro11.png?v=pdi2-20260515" alt="Diapositiva 11" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro12.png?v=pdi2-20260515" alt="Diapositiva 12" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro13.png?v=pdi2-20260515" alt="Diapositiva 13" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro14.png?v=pdi2-20260515" alt="Diapositiva 14" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro15.png?v=pdi2-20260515" alt="Diapositiva 15" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro16.png?v=pdi2-20260515" alt="Diapositiva 16" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro17.png?v=pdi2-20260515" alt="Diapositiva 17" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro18.png?v=pdi2-20260515" alt="Diapositiva 18" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro19.png?v=pdi2-20260515" alt="Diapositiva 19" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro20.png?v=pdi2-20260515" alt="Diapositiva 20" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro21.png?v=pdi2-20260515" alt="Diapositiva 21" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="Pedro22.png?v=pdi2-20260515" alt="Diapositiva 22" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="23.png?v=pdi2-20260515" alt="Diapositiva 23" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="24.png?v=pdi2-20260515" alt="Diapositiva 24" class="slide-image"></div></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev" aria-label="Diapositiva anterior"></div>
+                    <div class="swiper-button-next" aria-label="Diapositiva seguinte"></div>
+                </div>
+                <p class="carousel-swipe-hint">Desliza para ver as diapositivas</p>
+                </div>
+            </section>
+            <section class="avaliacion-section" aria-labelledby="avaliacion-heading">
+                <h2 id="avaliacion-heading" class="economia-fichas-heading">Avaliación</h2>
+                <div class="avaliacion-intro-row">
+                    <figure class="avaliacion-intro-figure">
+                        <img class="avaliacion-intro-img" src="Captura%20de%20pantalla%202026-05-15%20a%20las%2017.30.45.png" alt="" width="690" height="610" decoding="async" loading="lazy">
+                    </figure>
+                    <blockquote class="avaliacion-quote" lang="es" cite="Sanmartí, 2007">
+                        <p>“La finalidad de la evaluación es la regulación tanto de la enseñanza como del aprendizaje” <span class="avaliacion-quote-ref">(Sanmartí, 2007).</span></p>
+                    </blockquote>
+                </div>
+                <p class="avaliacion-grid-hint">Preme un cadro para abrir o arquivo.</p>
+                <div class="avaliacion-files-grid" aria-label="Arquivos de avaliación">
+                    <a href="PDI%204.%20PEDRO%20LISTO.png" class="avaliacion-file-card" download="Rúbrica PDI do alumno.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir Rúbrica PDI do alumno">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--image avaliacion-file-preview--contain">
+                            <img src="PDI%204.%20PEDRO%20LISTO.png" alt="Vista previa: Rúbrica PDI do alumno" loading="lazy" decoding="async">
+                        </div>
+                        <span class="avaliacion-file-name">Rúbrica PDI do alumno</span>
+                    </a>
+                    <a href="LISTA%20DE%20COTEXO%20PRA%CC%81CTICA%20DOCENTE.png" class="avaliacion-file-card" download="Lista de cotexto - Práctica docente.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir Lista de cotexto - Práctica docente">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--image avaliacion-file-preview--lista-cotexo-zoom">
+                            <img src="LISTA%20DE%20COTEXO%20PRA%CC%81CTICA%20DOCENTE.png" alt="Vista previa: Lista de cotexto - Práctica docente" loading="lazy" decoding="async">
+                        </div>
+                        <span class="avaliacion-file-name">Lista de cotexto - Práctica docente</span>
+                    </a>
+                    <a href="Avaliacio%CC%81n%20equipo.pdf" class="avaliacion-file-card" download="Coavaliación - traballo en equipo.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Coavaliación - traballo en equipo">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
+                            <iframe src="Avaliacio%CC%81n%20equipo.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                        </div>
+                        <span class="avaliacion-file-name">Coavaliación - traballo en equipo</span>
+                    </a>
+                    <a href="Coavaliaci%C3%B3n%20-%20docencia%20compartida.pdf" class="avaliacion-file-card" download="Coavaliación - docencia compartida.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Coavaliación - docencia compartida">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
+                            <iframe src="Coavaliaci%C3%B3n%20-%20docencia%20compartida.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                        </div>
+                        <span class="avaliacion-file-name">Coavaliación - docencia compartida</span>
+                    </a>
+                    <a href="TICKETS%20DE%20SAI%CC%81DA.pdf" class="avaliacion-file-card" download="Autoavaliación - tickets de saída.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Autoavaliación - tickets de saída">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
+                            <iframe src="TICKETS%20DE%20SAI%CC%81DA.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                        </div>
+                        <span class="avaliacion-file-name">Autoavaliación - tickets de saída</span>
+                    </a>
+                </div>
+            </section>
+            <section class="avaliacion-section recursos-proxecto-section" aria-labelledby="recursos-proxecto-heading">
+                <h2 id="recursos-proxecto-heading" class="economia-fichas-heading">Recursos proxecto</h2>
+                <p class="avaliacion-grid-hint">Preme nun círculo para abrir o arquivo.</p>
+                <div class="avaliacion-files-grid" aria-label="Recursos do proxecto">
+                    <a href="Caderno%20da%20Aula.png" class="avaliacion-file-card" download="Caderno da Aula.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir Caderno da Aula">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--image recursos-preview-caderno">
+                            <img src="Caderno%20da%20Aula-preview.png" alt="" loading="lazy" decoding="async">
+                        </div>
+                        <span class="avaliacion-file-name">Caderno da Aula</span>
+                    </a>
+                    <a href="Bubble%20maps%20esculturas.pdf" class="avaliacion-file-card" download="Bubble maps esculturas.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Bubble maps esculturas">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
+                            <iframe src="Bubble%20maps%20esculturas.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                        </div>
+                        <span class="avaliacion-file-name">Bubble maps esculturas</span>
+                    </a>
+                    <a href="ESCALETA.pdf" class="avaliacion-file-card" download="ESCALETA.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Escaleta">
+                        <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
+                            <iframe src="ESCALETA.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                        </div>
+                        <span class="avaliacion-file-name">ESCALETA</span>
+                    </a>
+                </div>
+            </section>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
@@ -473,6 +997,28 @@
                     }
                     item.classList.toggle('active');
                 });
+            }
+        });
+
+        new Swiper('.pdi-swiper', {
+            slidesPerView: 1.08,
+            spaceBetween: 8,
+            speed: 400,
+            grabCursor: true,
+            keyboard: { enabled: true },
+            mousewheel: { forceToAxis: true },
+            pagination: { el: '.presentation-section .swiper-pagination', clickable: true },
+            navigation: {
+                nextEl: '.presentation-section .swiper-button-next',
+                prevEl: '.presentation-section .swiper-button-prev'
+            },
+            touchRatio: 1,
+            resistanceRatio: 0.85,
+            breakpoints: {
+                769: {
+                    slidesPerView: 1,
+                    spaceBetween: 0
+                }
             }
         });
     </script>
