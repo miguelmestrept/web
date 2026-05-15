@@ -600,7 +600,10 @@
                 padding: 1rem 2rem;
                 border-radius: 0;
                 font-weight: 700;
-                font-size: 1.35rem;
+                font-size: 1.7rem;
+            }
+            .dropdown li a {
+                font-size: 1.5rem;
             }
             .dropdown {
                 position: static;
@@ -789,6 +792,32 @@
                 width: min(100%, 148px);
             }
         }
+
+        /* Larger readable text inside page sections */
+        section,
+        section p,
+        section li,
+        section a,
+        section figcaption,
+        section .actividade-texto p,
+        section .ambitos-intro,
+        section .avaliacion-quote p,
+        section .avaliacion-grid-hint,
+        section .avaliacion-file-card .avaliacion-file-name,
+        section .book-item .book-title,
+        section .marionetas-item .marionetas-caption,
+        section .carousel-swipe-hint,
+        .content-section,
+        .content-section p,
+        .content-section li,
+        .content-section a,
+        .content-section .ruleta-texto,
+        .content-section .caderno-equipo-lista,
+        .content-section .cohesion-mundo-texto,
+        .content-section .estrutura-texto,
+        .content-section .lapis-centro-frase {
+            font-size: 1.45rem;
+        }
     </style>
 </head>
 <body class="page-pdi5">
@@ -810,12 +839,12 @@
             <li class="menu-item">
                 <a href="#">Programas de intervención</a>
                 <ul class="dropdown">
-                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SARA_03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
-                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="JOSE_02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
-                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SAMIRA_02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
-                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="PEDRO_02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
-                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="RAUL_03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
-                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="MARTIN_02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
+                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/sara-03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
+                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/jose-02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
+                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/samira-02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
+                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/pedro-02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
+                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/raul-03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
+                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/martin-02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -838,7 +867,7 @@
                     <p class="intro-line">Ola, son Samira. Teño 8 anos e estou en 3º de Primaria. Vivo coa miña familia, que é moi importante para min, e gústame pasar tempo con eles porque compartimos moitas tradicións.<br>Levo audífonos porque non escoito igual ca os demais, aínda que ás veces non me gusta usalos.<br>Hai días nos que non quero ir á escola porque sinto que as tarefas son difíciles para min.<br>Neste proxecto vou ensinarvos unha parte moi importante de min: a cultura xitana, as súas tradicións, a música, as historias… e moito máis.<br>Chao chao!!</p>
                 </article>
                 <figure class="intro-photo-wrap">
-                    <img src="SAMIRA_02.png?v=samira-20260509" alt="Samira, alumna de 3º de Primaria" decoding="async">
+                    <img src="assets/images/avatars/samira-02.png?v=samira-20260509" alt="Samira, alumna de 3º de Primaria" decoding="async">
                 </figure>
             </section>
             <section class="presentation-section" aria-labelledby="proxecto-samira-heading">
@@ -846,22 +875,22 @@
                 <div class="presentation-carousel-stack">
                 <div class="swiper pdi-swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira1.png?v=pdi5-20260515" alt="Diapositiva 1" class="slide-image"></div></div>
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira2.png?v=pdi5-20260515" alt="Diapositiva 2" class="slide-image"></div></div>
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira3.png?v=pdi5-20260515" alt="Diapositiva 3" class="slide-image"></div></div>
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira4.png?v=pdi5-20260515" alt="Diapositiva 4" class="slide-image"></div></div>
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira5.png?v=pdi5-20260515" alt="Diapositiva 5" class="slide-image"></div></div>
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira6.png?v=pdi5-20260515" alt="Diapositiva 6" class="slide-image"></div></div>
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira7.png?v=pdi5-20260515" alt="Diapositiva 7" class="slide-image"></div></div>
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira8.png?v=pdi5-20260515" alt="Diapositiva 8" class="slide-image"></div></div>
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira9.png?v=pdi5-20260515" alt="Diapositiva 9" class="slide-image"></div></div>
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira10.png?v=pdi5-20260515" alt="Diapositiva 10" class="slide-image"></div></div>
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira11.png?v=pdi5-20260515" alt="Diapositiva 11" class="slide-image"></div></div>
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira12.png?v=pdi5-20260515" alt="Diapositiva 12" class="slide-image"></div></div>
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira13.png?v=pdi5-20260515" alt="Diapositiva 13" class="slide-image"></div></div>
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira14.png?v=pdi5-20260515" alt="Diapositiva 14" class="slide-image"></div></div>
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira15.png?v=pdi5-20260515" alt="Diapositiva 15" class="slide-image"></div></div>
-                        <div class="swiper-slide"><div class="slide-card"><img src="Samira16.png?v=pdi5-20260515" alt="Diapositiva 16" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-01.png?v=pdi5-20260515" alt="Diapositiva 1" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-02.png?v=pdi5-20260515" alt="Diapositiva 2" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-03.png?v=pdi5-20260515" alt="Diapositiva 3" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-04.png?v=pdi5-20260515" alt="Diapositiva 4" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-05.png?v=pdi5-20260515" alt="Diapositiva 5" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-06.png?v=pdi5-20260515" alt="Diapositiva 6" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-07.png?v=pdi5-20260515" alt="Diapositiva 7" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-08.png?v=pdi5-20260515" alt="Diapositiva 8" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-09.png?v=pdi5-20260515" alt="Diapositiva 9" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-10.png?v=pdi5-20260515" alt="Diapositiva 10" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-11.png?v=pdi5-20260515" alt="Diapositiva 11" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-12.png?v=pdi5-20260515" alt="Diapositiva 12" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-13.png?v=pdi5-20260515" alt="Diapositiva 13" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-14.png?v=pdi5-20260515" alt="Diapositiva 14" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-15.png?v=pdi5-20260515" alt="Diapositiva 15" class="slide-image"></div></div>
+                        <div class="swiper-slide"><div class="slide-card"><img src="assets/images/pdi-slides/samira/samira-slide-16.png?v=pdi5-20260515" alt="Diapositiva 16" class="slide-image"></div></div>
                     </div>
                     <div class="swiper-pagination"></div>
                     <div class="swiper-button-prev" aria-label="Diapositiva anterior"></div>
@@ -874,7 +903,7 @@
                 <h2 id="avaliacion-heading" class="economia-fichas-heading">Avaliación</h2>
                 <div class="avaliacion-intro-row">
                     <figure class="avaliacion-intro-figure">
-                        <img class="avaliacion-intro-img" src="Captura%20de%20pantalla%202026-05-15%20a%20las%2017.30.45.png" alt="" width="690" height="610" decoding="async" loading="lazy">
+                        <img class="avaliacion-intro-img" src="assets/images/screenshots/captura-de-pantalla-2026-05-15-a-las-17-30-45.png" alt="" width="690" height="610" decoding="async" loading="lazy">
                     </figure>
                     <blockquote class="avaliacion-quote" lang="es" cite="Sanmartí, 2007">
                         <p>“La finalidad de la evaluación es la regulación tanto de la enseñanza como del aprendizaje” <span class="avaliacion-quote-ref">(Sanmartí, 2007).</span></p>
@@ -882,31 +911,31 @@
                 </div>
                 <p class="avaliacion-grid-hint">Preme un cadro para abrir o arquivo.</p>
                 <div class="avaliacion-files-grid" aria-label="Arquivos de avaliación">
-                    <a href="PDI%203.%20SAMIRA%20LISTO.png" class="avaliacion-file-card" download="Rúbrica PDI da alumna.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir Rúbrica PDI da alumna">
+                    <a href="assets/images/pdi-docs/pdi-3-samira-listo.png" class="avaliacion-file-card" download="Rúbrica PDI da alumna.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir Rúbrica PDI da alumna">
                         <div class="avaliacion-file-preview avaliacion-file-preview--image avaliacion-file-preview--contain">
-                            <img src="PDI%203.%20SAMIRA%20LISTO.png" alt="Vista previa: Rúbrica PDI da alumna" loading="lazy" decoding="async">
+                            <img src="assets/images/pdi-docs/pdi-3-samira-listo.png" alt="Vista previa: Rúbrica PDI da alumna" loading="lazy" decoding="async">
                         </div>
                         <span class="avaliacion-file-name">Rúbrica PDI da alumna</span>
                     </a>
-                    <a href="LISTA%20DE%20COTEXO%20PRA%CC%81CTICA%20DOCENTE.png" class="avaliacion-file-card" download="Lista de cotexto - Práctica docente.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir Lista de cotexto - Práctica docente">
+                    <a href="assets/images/resources/lista-de-cotexo-practica-docente.png" class="avaliacion-file-card" download="Lista de cotexto - Práctica docente.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir Lista de cotexto - Práctica docente">
                         <div class="avaliacion-file-preview avaliacion-file-preview--image avaliacion-file-preview--lista-cotexo-zoom">
-                            <img src="LISTA%20DE%20COTEXO%20PRA%CC%81CTICA%20DOCENTE.png" alt="Vista previa: Lista de cotexto - Práctica docente" loading="lazy" decoding="async">
+                            <img src="assets/images/resources/lista-de-cotexo-practica-docente.png" alt="Vista previa: Lista de cotexto - Práctica docente" loading="lazy" decoding="async">
                         </div>
                         <span class="avaliacion-file-name">Lista de cotexto - Práctica docente</span>
                     </a>
-                    <a href="Avaliacio%CC%81n%20equipo.pdf" class="avaliacion-file-card" download="Coavaliación - traballo en equipo.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Coavaliación - traballo en equipo">
+                    <a href="assets/documents/avaliacion-equipo.pdf" class="avaliacion-file-card" download="Coavaliación - traballo en equipo.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Coavaliación - traballo en equipo">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
                             <iframe src="Avaliacio%CC%81n%20equipo.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">Coavaliación - traballo en equipo</span>
                     </a>
-                    <a href="Coavaliaci%C3%B3n%20-%20docencia%20compartida.pdf" class="avaliacion-file-card" download="Coavaliación - docencia compartida.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Coavaliación - docencia compartida">
+                    <a href="assets/documents/coavaliacion-docencia-compartida.pdf" class="avaliacion-file-card" download="Coavaliación - docencia compartida.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Coavaliación - docencia compartida">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
                             <iframe src="Coavaliaci%C3%B3n%20-%20docencia%20compartida.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">Coavaliación - docencia compartida</span>
                     </a>
-                    <a href="TICKETS%20DE%20SAI%CC%81DA.pdf" class="avaliacion-file-card" download="Autoavaliación - tickets de saída.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Autoavaliación - tickets de saída">
+                    <a href="assets/documents/tickets-de-saida.pdf" class="avaliacion-file-card" download="Autoavaliación - tickets de saída.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Autoavaliación - tickets de saída">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
                             <iframe src="TICKETS%20DE%20SAI%CC%81DA.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
                         </div>
@@ -918,7 +947,7 @@
                 <h2 id="recursos-proxecto-heading" class="economia-fichas-heading">Recursos proxecto</h2>
                 <p class="avaliacion-grid-hint">Preme nun círculo para abrir o arquivo.</p>
                 <div class="avaliacion-files-grid" aria-label="Recursos do proxecto">
-                    <a href="Lectura%20compartida.pdf" class="avaliacion-file-card" download="Lectura compartida.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Lectura compartida">
+                    <a href="assets/documents/lectura-compartida.pdf" class="avaliacion-file-card" download="Lectura compartida.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Lectura compartida">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
                             <iframe src="Lectura%20compartida.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
                         </div>

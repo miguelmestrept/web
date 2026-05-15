@@ -257,7 +257,8 @@
             }
             .menu.active { display: flex; }
             .menu-item { width: 100%; }
-            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.35rem; }
+            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.7rem; }
+            .dropdown li a { font-size: 1.5rem; }
             .dropdown {
                 position: static;
                 opacity: 1;
@@ -306,6 +307,32 @@
             }
             .book-item .book-title { font-size: 0.85rem; font-weight: 700; }
         }
+
+        /* Larger readable text inside page sections */
+        section,
+        section p,
+        section li,
+        section a,
+        section figcaption,
+        section .actividade-texto p,
+        section .ambitos-intro,
+        section .avaliacion-quote p,
+        section .avaliacion-grid-hint,
+        section .avaliacion-file-card .avaliacion-file-name,
+        section .book-item .book-title,
+        section .marionetas-item .marionetas-caption,
+        section .carousel-swipe-hint,
+        .content-section,
+        .content-section p,
+        .content-section li,
+        .content-section a,
+        .content-section .ruleta-texto,
+        .content-section .caderno-equipo-lista,
+        .content-section .cohesion-mundo-texto,
+        .content-section .estrutura-texto,
+        .content-section .lapis-centro-frase {
+            font-size: 1.45rem;
+        }
     </style>
 </head>
 <body>
@@ -325,12 +352,12 @@
             <li class="menu-item">
                 <a href="#">Programas de intervención</a>
                 <ul class="dropdown">
-                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SARA_03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
-                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="JOSE_02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
-                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SAMIRA_02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
-                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="PEDRO_02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
-                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="RAUL_03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
-                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="MARTIN_02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
+                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/sara-03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
+                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/jose-02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
+                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/samira-02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
+                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/pedro-02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
+                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/raul-03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
+                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/martin-02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -349,47 +376,47 @@
         <h1 class="page-title">Álbum ilustrado</h1>
         <div class="books-grid books-grid--album">
             <div class="book-item">
-                <img src="DEL%20REVE%CC%81S.png" alt="Del revés">
+                <img src="assets/images/books/del-reves.png" alt="Del revés">
                 <div class="book-title">Del revés</div>
             </div>
             <div class="book-item">
-                <img src="EL%20ARTISTA%20QUE%20PINTO%CC%81%20UN%20CABALLO%20AZUL.png" alt="El artista que pintó un caballo azul">
+                <img src="assets/images/books/el-artista-que-pinto-un-caballo-azul.png" alt="El artista que pintó un caballo azul">
                 <div class="book-title">El artista que pintó un caballo azul</div>
             </div>
             <div class="book-item">
-                <img src="EL%20PEQUEN%CC%83O%20CONEJO%20BLANCO.png" alt="El pequeño conejo blanco">
+                <img src="assets/images/books/el-pequeno-conejo-blanco.png" alt="El pequeño conejo blanco">
                 <div class="book-title">El pequeño conejo blanco</div>
             </div>
             <div class="book-item">
-                <img src="EL%20PUNTO.png" alt="El punto">
+                <img src="assets/images/books/el-punto.png" alt="El punto">
                 <div class="book-title">El punto</div>
             </div>
             <div class="book-item">
-                <img src="ENCANTO.png" alt="Encanto">
+                <img src="assets/images/books/encanto.png" alt="Encanto">
                 <div class="book-title">Encanto</div>
             </div>
             <div class="book-item">
-                <img src="LA%20REVOLUCIO%CC%81N%20DE%20LOS%20ANIMALES%20FEOSS.png" alt="La revolución de los animales feos">
+                <img src="assets/images/books/la-revolucion-de-los-animales-feoss.png" alt="La revolución de los animales feos">
                 <div class="book-title">La revolución de los animales feos</div>
             </div>
             <div class="book-item">
-                <img src="LA%20VACA%20QUE%20SE%20SUBIO%CC%81%20A%20UN%20A%CC%81RBOL.png" alt="La vaca que se subió a un árbol">
+                <img src="assets/images/books/la-vaca-que-se-subio-a-un-arbol.png" alt="La vaca que se subió a un árbol">
                 <div class="book-title">La vaca que se subió a un árbol</div>
             </div>
             <div class="book-item">
-                <img src="O%20POLO%20PEPE.png" alt="O polo Pepe">
+                <img src="assets/images/books/o-polo-pepe.png" alt="O polo Pepe">
                 <div class="book-title">O polo Pepe</div>
             </div>
             <div class="book-item">
-                <img src="POR%20CUATRO%20ESQUINITAS%20DE%20NADA.png" alt="Por cuatro esquinitas de nada">
+                <img src="assets/images/books/por-cuatro-esquinitas-de-nada.png" alt="Por cuatro esquinitas de nada">
                 <div class="book-title">Por cuatro esquinitas de nada</div>
             </div>
             <div class="book-item">
-                <img src="SALVAJE.png" alt="Salvaje">
+                <img src="assets/images/books/salvaje.png" alt="Salvaje">
                 <div class="book-title">Salvaje</div>
             </div>
             <div class="book-item">
-                <img src="UN%20ELEFANTE%20ROSA.png" alt="Un elefante rosa">
+                <img src="assets/images/books/un-elefante-rosa.png" alt="Un elefante rosa">
                 <div class="book-title">Un elefante rosa</div>
             </div>
         </div>

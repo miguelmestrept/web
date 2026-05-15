@@ -94,7 +94,8 @@
             .menu { display: none; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: #c5e4dc; box-shadow: 0 6px 20px rgba(197,228,220,0.5); padding: 1rem 0; z-index: 1000; }
             .menu.active { display: flex; }
             .menu-item { width: 100%; }
-            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.35rem; }
+            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.7rem; }
+            .dropdown li a { font-size: 1.5rem; }
             .dropdown { position: static; opacity: 1; visibility: visible; display: none; box-shadow: none; border-radius: 0; background: #a8d5c8; margin-left: 1rem; }
             .menu-item.active .dropdown { display: block; }
             .has-submenu .sub-dropdown { display: none; position: static; margin-left: 1rem; opacity: 1; visibility: visible; }
@@ -111,6 +112,32 @@
             .caderno-equipo-block { grid-template-columns: 140px 1fr; gap: 1rem; }
             .caderno-equipo-block .caderno-equipo-imaxe { width: 140px; }
             .equipos-heteroxeneos-block .equipos-heteroxeneos-imaxe { max-width: 100%; margin-top: 0.15rem; }
+        }
+
+        /* Larger readable text inside page sections */
+        section,
+        section p,
+        section li,
+        section a,
+        section figcaption,
+        section .actividade-texto p,
+        section .ambitos-intro,
+        section .avaliacion-quote p,
+        section .avaliacion-grid-hint,
+        section .avaliacion-file-card .avaliacion-file-name,
+        section .book-item .book-title,
+        section .marionetas-item .marionetas-caption,
+        section .carousel-swipe-hint,
+        .content-section,
+        .content-section p,
+        .content-section li,
+        .content-section a,
+        .content-section .ruleta-texto,
+        .content-section .caderno-equipo-lista,
+        .content-section .cohesion-mundo-texto,
+        .content-section .estrutura-texto,
+        .content-section .lapis-centro-frase {
+            font-size: 1.45rem;
         }
     </style>
 </head>
@@ -131,12 +158,12 @@
             <li class="menu-item">
                 <a href="#">Programas de intervención</a>
                 <ul class="dropdown">
-                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SARA_03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
-                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="JOSE_02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
-                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SAMIRA_02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
-                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="PEDRO_02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
-                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="RAUL_03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
-                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="MARTIN_02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
+                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/sara-03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
+                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/jose-02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
+                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/samira-02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
+                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/pedro-02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
+                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/raul-03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
+                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/martin-02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -155,7 +182,7 @@
         <div class="content-section">
             <div class="ruleta-block">
                 <div class="ruleta-imaxe">
-                    <img src="Ruleta cooperativo.png" alt="Ruleta da cooperación">
+                    <img src="assets/images/resources/ruleta-cooperativo.png" alt="Ruleta da cooperación">
                 </div>
                 <div class="ruleta-texto">
                     <p>A nivel centro seguimos o Manual <em>Cooperar para Aprender / Aprender a Cooperar</em> de Pere Pujolàs e José Ramón Lago (2011), aplicando os tres ámbitos da ruleta da cooperación para estructurar o traballo en equipo na aula.</p>
@@ -164,11 +191,11 @@
             </div>
             <div class="ambito">
                 <h2 class="ambito-titulo">Ámbito A: Cohesión dos equipos</h2>
-                <p>Antes de aprender en equipo é necesario construir cohesión de grupo. É importante que o alumnado confíe e se sinta parte do grupo para logo axudarse e aprender xuntos. <img src="icono-aprender-xuntos.png" alt="" class="icono-aprender-xuntos" aria-hidden="true"></p>
+                <p>Antes de aprender en equipo é necesario construir cohesión de grupo. É importante que o alumnado confíe e se sinta parte do grupo para logo axudarse e aprender xuntos. <img src="assets/images/resources/icono-aprender-xuntos.png" alt="" class="icono-aprender-xuntos" aria-hidden="true"></p>
                 <p>No noso centro, a cohesión realízase no mes de setembro onde dedicamos as horas de proxectos a realizar dinámicas de cohesión.</p>
                 <div class="cohesion-mundo-block">
                     <div class="cohesion-mundo-imaxe">
-                        <img src="mundo-das-cores.png" alt="Mundo das Cores">
+                        <img src="assets/images/resources/mundo-das-cores.png" alt="Mundo das Cores">
                     </div>
                     <div class="cohesion-mundo-texto">
                         <p>Un exemplo é <strong>Mundo das Cores</strong>, unha dinámica que axuda ao alumnado a reflexionar e empatizar sobre como se sente unha persoa cando non é aceptada nun grupo.</p>
@@ -184,7 +211,7 @@
                 <div class="estrutura-bloco">
                     <h3>Folio xiratorio</h3>
                     <div class="estrutura-imaxe">
-                        <img src="folio-xiratorio.png" alt="Folio xiratorio">
+                        <img src="assets/images/resources/folio-xiratorio.png" alt="Folio xiratorio">
                     </div>
                     <div class="estrutura-texto">
                         <p>O equipo constrúe unha resposta nun mesmo folio por quendas: cada persoa achega unha parte e pásao á seguinte ata completar a tarefa.</p>
@@ -193,7 +220,7 @@
                 <div class="estrutura-bloco">
                     <h3>Lápis ó centro</h3>
                     <div class="estrutura-imaxe">
-                        <img src="lapis-centro.png" alt="Lápis ó centro">
+                        <img src="assets/images/resources/lapis-centro.png" alt="Lápis ó centro">
                     </div>
                     <div class="estrutura-texto">
                         <div class="lapis-centro-frase">
@@ -205,7 +232,7 @@
                 <div class="estrutura-bloco">
                     <h3>1-2-4</h3>
                     <div class="estrutura-imaxe">
-                        <img src="estrutura-1-2-4.png" alt="1-2-4">
+                        <img src="assets/images/resources/estrutura-1-2-4.png" alt="1-2-4">
                     </div>
                     <div class="estrutura-texto">
                         <p><strong>Organización da tarefa en 3 momentos:</strong></p>
@@ -217,7 +244,7 @@
                 <div class="estrutura-bloco">
                     <h3>Lectura compartida</h3>
                     <div class="estrutura-imaxe">
-                        <img src="lectura-compartida.png" alt="Lectura compartida">
+                        <img src="assets/images/resources/lectura-compartida.png" alt="Lectura compartida">
                     </div>
                     <div class="estrutura-texto">
                         <p>Repártese a carga cognitiva que supón a comprensión lectora da seguinte maneira:</p>
@@ -229,11 +256,11 @@
                     <div class="estrutura-texto" style="margin-left: 0;">
                         <p class="estrutura-pergunta"><strong>Por que estas estruturas forman parte da miña intervención como PT?</strong></p>
                         <ul>
-                            <li>Aseguramos a participación de todo o alumnado. <img src="mans-equipo.png" class="lista-icon" alt="Equipo" role="img"></li>
+                            <li>Aseguramos a participación de todo o alumnado. <img src="assets/images/resources/mans-equipo.png" class="lista-icon" alt="Equipo" role="img"></li>
                             <li>Fomenta a interdependencia positiva: o resultado final é do equipo.</li>
-                            <li>Axuda a organizar ideas, obtendo moitos puntos de vista. <img src="vista-icon.png" class="lista-icon lista-icon--cerca" alt="Puntos de vista" role="img"></li>
-                            <li>Cada quen contribúe de distintas maneiras (unha palabra, unha frase, unha idea, un exemplo, unha revisión, un debuxo…). <img src="debuxo-icon.png" class="lista-icon lista-icon--cerca lista-icon--maior" alt="Debuxo" role="img"></li>
-                            <li>Accesibilidade comunicativa: permitimos ditar a un compañeiro, sinalar opción, usar teclado, comunicador… <img src="equipo-icon.png" class="lista-icon lista-icon--cerca" alt="Accesibilidade" role="img"></li>
+                            <li>Axuda a organizar ideas, obtendo moitos puntos de vista. <img src="assets/images/resources/vista-icon.png" class="lista-icon lista-icon--cerca" alt="Puntos de vista" role="img"></li>
+                            <li>Cada quen contribúe de distintas maneiras (unha palabra, unha frase, unha idea, un exemplo, unha revisión, un debuxo…). <img src="assets/images/resources/debuxo-icon.png" class="lista-icon lista-icon--cerca lista-icon--maior" alt="Debuxo" role="img"></li>
+                            <li>Accesibilidade comunicativa: permitimos ditar a un compañeiro, sinalar opción, usar teclado, comunicador… <img src="assets/images/resources/equipo-icon.png" class="lista-icon lista-icon--cerca" alt="Accesibilidade" role="img"></li>
                         </ul>
                     </div>
                 </div>
@@ -245,7 +272,7 @@
                 <div class="equipos-heteroxeneos-block">
                     <p>En traballo cooperativo coa tutora da aula, como PT participo creando os equipos de maneira heteroxénea.</p>
                     <div class="equipos-heteroxeneos-imaxe">
-                        <img src="equipos-heteroxeneos.png" alt="Diagrama de formación de equipos heteroxéneos: os máis capaces de dar axuda, o resto do grupo e os máis necesitados de axuda">
+                        <img src="assets/images/resources/equipos-heteroxeneos.png" alt="Diagrama de formación de equipos heteroxéneos: os máis capaces de dar axuda, o resto do grupo e os máis necesitados de axuda">
                     </div>
                 </div>
                 <h3>Caderno de equipo</h3>
@@ -253,8 +280,8 @@
                 <p style="margin-bottom: 0.5rem;">Un caderno de equipo en cada trimestre, coas seguintes partes:</p>
                 <div class="caderno-equipo-block" style="margin-top: 0.5rem;">
                     <div class="caderno-equipo-imaxe">
-                        <img src="cuaderno-equipo.png" alt="Caderno de equipo">
-                        <a href="Caderno de equipo.pdf" class="caderno-equipo-enlace" target="_blank" rel="noopener">Caderno de equipo completo</a>
+                        <img src="assets/images/resources/cuaderno-equipo.png" alt="Caderno de equipo">
+                        <a href="assets/documents/caderno-de-equipo.pdf" class="caderno-equipo-enlace" target="_blank" rel="noopener">Caderno de equipo completo</a>
                     </div>
                     <div class="caderno-equipo-lista">
                         <ol>

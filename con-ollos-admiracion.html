@@ -371,7 +371,8 @@
             }
             .menu.active { display: flex; }
             .menu-item { width: 100%; }
-            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.35rem; }
+            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.7rem; }
+            .dropdown li a { font-size: 1.5rem; }
             .dropdown {
                 position: static;
                 opacity: 1;
@@ -405,6 +406,32 @@
             .actividade-imaxe { float: left; width: 140px; margin-right: 1rem; margin-bottom: 0.5rem; }
             .actividade-imaxe.vertical { width: 110px; }
         }
+
+        /* Larger readable text inside page sections */
+        section,
+        section p,
+        section li,
+        section a,
+        section figcaption,
+        section .actividade-texto p,
+        section .ambitos-intro,
+        section .avaliacion-quote p,
+        section .avaliacion-grid-hint,
+        section .avaliacion-file-card .avaliacion-file-name,
+        section .book-item .book-title,
+        section .marionetas-item .marionetas-caption,
+        section .carousel-swipe-hint,
+        .content-section,
+        .content-section p,
+        .content-section li,
+        .content-section a,
+        .content-section .ruleta-texto,
+        .content-section .caderno-equipo-lista,
+        .content-section .cohesion-mundo-texto,
+        .content-section .estrutura-texto,
+        .content-section .lapis-centro-frase {
+            font-size: 1.45rem;
+        }
     </style>
 </head>
 <body>
@@ -426,12 +453,12 @@
             <li class="menu-item">
                 <a href="#">Programas de intervención</a>
                 <ul class="dropdown">
-                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SARA_03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
-                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="JOSE_02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
-                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SAMIRA_02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
-                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="PEDRO_02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
-                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="RAUL_03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
-                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="MARTIN_02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
+                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/sara-03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
+                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/jose-02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
+                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/samira-02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
+                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/pedro-02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
+                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/raul-03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
+                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/martin-02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -449,9 +476,9 @@
     <div class="container">
         <div class="page-title-wrap">
             <h1 class="page-title">Con ollos de admiración</h1>
-            <button type="button" class="btn-audio-lectura" id="btn-audio-lectura" aria-label="Reproducir lectura do texto Con ollos de admiración" title="Escoitar lectura"><img src="audio-icon.png" alt="" aria-hidden="true"></button>
+            <button type="button" class="btn-audio-lectura" id="btn-audio-lectura" aria-label="Reproducir lectura do texto Con ollos de admiración" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
             <audio id="audio-lectura" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
-                <source src="calle-foxo-54.m4a" type="audio/mp4">
+                <source src="assets/audio/calle-foxo-54.m4a" type="audio/mp4">
                 O teu navegador non soporta a reprodución de audio.
             </audio>
         </div>
@@ -464,15 +491,15 @@
         <section class="actividades-section" aria-label="Actividades">
             <div class="actividade-titulo-wrap">
                 <h2 class="actividade-titulo">O MURO DA ADMIRACIÓN</h2>
-                <button type="button" class="btn-audio-lectura" id="btn-audio-muro" aria-label="Reproducir lectura do texto O muro da admiración" title="Escoitar lectura"><img src="audio-icon.png" alt="" aria-hidden="true"></button>
+                <button type="button" class="btn-audio-lectura" id="btn-audio-muro" aria-label="Reproducir lectura do texto O muro da admiración" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
                 <audio id="audio-muro" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
-                    <source src="O muro da admiración.m4a" type="audio/mp4">
+                    <source src="assets/audio/o-muro-da-admiracion.m4a" type="audio/mp4">
                     O teu navegador non soporta a reprodución de audio.
                 </audio>
             </div>
             <div class="actividade-item">
                 <div class="actividade-imaxe">
-                    <img src="PDI. 4ETNIA GITANA.png" alt="PDI 4 Etnia Gitana">
+                    <img src="assets/images/resources/pdi-4etnia-gitana.png" alt="PDI 4 Etnia Gitana">
                 </div>
                 <div class="actividade-texto">
                     <p>O muro da admiración é un espazo situado na biblioteca do centro que funcionará como un pequeno noticieiro da comunidade educativa.</p>
@@ -481,15 +508,15 @@
             </div>
             <div class="actividade-titulo-wrap">
                 <h2 class="actividade-titulo">ENTREVISTAS CON ADMIRACIÓN</h2>
-                <button type="button" class="btn-audio-lectura" id="btn-audio-entrevistas" aria-label="Reproducir lectura do texto Entrevistas con admiración" title="Escoitar lectura"><img src="audio-icon.png" alt="" aria-hidden="true"></button>
+                <button type="button" class="btn-audio-lectura" id="btn-audio-entrevistas" aria-label="Reproducir lectura do texto Entrevistas con admiración" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
                 <audio id="audio-entrevistas" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
-                    <source src="Entrevistas con admiración.m4a" type="audio/mp4">
+                    <source src="assets/audio/entrevistas-con-admiracion.m4a" type="audio/mp4">
                     O teu navegador non soporta a reprodución de audio.
                 </audio>
             </div>
             <div class="actividade-item">
                 <div class="actividade-imaxe vertical">
-                    <img src="ENTREVISTAS CON ADMIRACION.png" alt="Entrevistas con Admiración">
+                    <img src="assets/images/resources/entrevistas-con-admiracion.png" alt="Entrevistas con Admiración">
                 </div>
                 <div class="actividade-texto">
                     <p>Esta actividade, enmarcada no programa Biblioteca Creativa, busca fomentar a expresión oral, a escoita activa e a valoración das persoas que nos rodean. Ao longo do curso, o alumnado preparará e presentará entrevistas no seu grupo aula, ata que todo o alumnado teña compartido a súa.</p>
@@ -500,24 +527,24 @@
         <section class="ambitos-inclusivos-section" aria-label="Ámbitos de aprendizaxe inclusivos">
             <div class="actividade-titulo-wrap">
                 <h2 class="actividade-titulo">Ámbitos de aprendizaxe inclusivos</h2>
-                <button type="button" class="btn-audio-lectura" id="btn-audio-ambitos-inclusivos" aria-label="Reproducir lectura do texto Ámbitos de aprendizaxe inclusivos" title="Escoitar lectura"><img src="audio-icon.png" alt="" aria-hidden="true"></button>
+                <button type="button" class="btn-audio-lectura" id="btn-audio-ambitos-inclusivos" aria-label="Reproducir lectura do texto Ámbitos de aprendizaxe inclusivos" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
                 <audio id="audio-ambitos-inclusivos" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
-                    <source src="Ámbitos de aprendizaxe inclusivos.m4a" type="audio/mp4">
+                    <source src="assets/audio/ambitos-de-aprendizaxe-inclusivos.m4a" type="audio/mp4">
                     O teu navegador non soporta a reprodución de audio.
                 </audio>
             </div>
             <p class="ambitos-intro">Dentro dos proxectos de cada curso desenvólvense as seguintes propostas en relación co PDI de centro:</p>
             <div class="ambitos-subtitulo-wrap">
                 <h3 class="ambitos-subtitulo">Panel "Admiramos talentos"</h3>
-                <button type="button" class="btn-audio-lectura" id="btn-audio-panel-talentos" aria-label="Reproducir lectura do texto Panel Admiramos talentos" title="Escoitar lectura"><img src="audio-icon.png" alt="" aria-hidden="true"></button>
+                <button type="button" class="btn-audio-lectura" id="btn-audio-panel-talentos" aria-label="Reproducir lectura do texto Panel Admiramos talentos" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
                 <audio id="audio-panel-talentos" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
-                    <source src="Panel admiramos talentos.m4a" type="audio/mp4">
+                    <source src="assets/audio/panel-admiramos-talentos.m4a" type="audio/mp4">
                     O teu navegador non soporta a reprodución de audio.
                 </audio>
             </div>
             <div class="actividade-item">
                 <div class="actividade-imaxe">
-                    <img src="panel-admiramos-talentos.png" alt="Panel Admiramos talentos">
+                    <img src="assets/images/site/panel-admiramos-talentos.png" alt="Panel Admiramos talentos">
                 </div>
                 <div class="actividade-texto">
                     <p>No fondo de cada aula sitúase un panel cos diferentes talentos individuais do alumnado, no que aparece unha foto de cada estudante xunto cunha habilidade persoal. Este panel revísase ao inicio das sesións de proxectos para identificar se algún talento pode axudar na actividade proposta.</p>
@@ -526,15 +553,15 @@
             </div>
             <div class="ambitos-subtitulo-wrap">
                 <h3 class="ambitos-subtitulo">Visitas con admiración</h3>
-                <button type="button" class="btn-audio-lectura" id="btn-audio-visitas-admiracion" aria-label="Reproducir lectura do texto Visitas con admiración" title="Escoitar lectura"><img src="audio-icon.png" alt="" aria-hidden="true"></button>
+                <button type="button" class="btn-audio-lectura" id="btn-audio-visitas-admiracion" aria-label="Reproducir lectura do texto Visitas con admiración" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
                 <audio id="audio-visitas-admiracion" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
-                    <source src="Visitas con admiración.m4a" type="audio/mp4">
+                    <source src="assets/audio/visitas-con-admiracion.m4a" type="audio/mp4">
                     O teu navegador non soporta a reprodución de audio.
                 </audio>
             </div>
             <div class="actividade-item">
                 <div class="actividade-imaxe">
-                    <img src="visitas-con-admiracion.png" alt="Visitas con admiración">
+                    <img src="assets/images/site/visitas-con-admiracion.png" alt="Visitas con admiración">
                 </div>
                 <div class="actividade-texto">
                     <p>En cada proxecto realízase polo menos unha visita dun experto ou experta relacionada coa temática traballada. Sempre que sexa posible serán persoas da comunidade educativa ou da contorna próxima.</p>

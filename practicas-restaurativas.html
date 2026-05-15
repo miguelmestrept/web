@@ -77,7 +77,8 @@
             .menu { display: none; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: #c5e4dc; box-shadow: 0 6px 20px rgba(197,228,220,0.5); padding: 1rem 0; z-index: 1000; }
             .menu.active { display: flex; }
             .menu-item { width: 100%; }
-            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.35rem; }
+            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.7rem; }
+            .dropdown li a { font-size: 1.5rem; }
             .dropdown { position: static; opacity: 1; visibility: visible; display: none; box-shadow: none; border-radius: 0; background: #a8d5c8; margin-left: 1rem; }
             .menu-item.active .dropdown { display: block; }
             .has-submenu .sub-dropdown { display: none; position: static; margin-left: 1rem; opacity: 1; visibility: visible; }
@@ -89,6 +90,32 @@
             .btn-audio-lectura { width: 2rem; height: 2rem; }
             .btn-audio-lectura img { width: 24px; height: 24px; }
             .practicas-subtitulo-wrap { gap: 0.5rem; }
+        }
+
+        /* Larger readable text inside page sections */
+        section,
+        section p,
+        section li,
+        section a,
+        section figcaption,
+        section .actividade-texto p,
+        section .ambitos-intro,
+        section .avaliacion-quote p,
+        section .avaliacion-grid-hint,
+        section .avaliacion-file-card .avaliacion-file-name,
+        section .book-item .book-title,
+        section .marionetas-item .marionetas-caption,
+        section .carousel-swipe-hint,
+        .content-section,
+        .content-section p,
+        .content-section li,
+        .content-section a,
+        .content-section .ruleta-texto,
+        .content-section .caderno-equipo-lista,
+        .content-section .cohesion-mundo-texto,
+        .content-section .estrutura-texto,
+        .content-section .lapis-centro-frase {
+            font-size: 1.45rem;
         }
     </style>
 </head>
@@ -109,12 +136,12 @@
             <li class="menu-item">
                 <a href="#">Programas de intervención</a>
                 <ul class="dropdown">
-                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SARA_03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
-                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="JOSE_02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
-                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SAMIRA_02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
-                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="PEDRO_02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
-                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="RAUL_03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
-                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="MARTIN_02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
+                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/sara-03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
+                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/jose-02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
+                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/samira-02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
+                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/pedro-02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
+                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/raul-03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
+                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/martin-02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -130,46 +157,46 @@
     <div class="container">
         <div class="page-title-wrap">
             <h1 class="page-title">Prácticas restaurativas</h1>
-            <button type="button" class="btn-audio-lectura" id="btn-audio-practicas" aria-label="Reproducir lectura do texto Prácticas restaurativas" title="Escoitar lectura"><img src="audio-icon.png" alt="" aria-hidden="true"></button>
+            <button type="button" class="btn-audio-lectura" id="btn-audio-practicas" aria-label="Reproducir lectura do texto Prácticas restaurativas" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
             <audio id="audio-practicas" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
-                <source src="Practicas restaurativas.m4a" type="audio/mp4">
+                <source src="assets/audio/practicas-restaurativas.m4a" type="audio/mp4">
                 O teu navegador non soporta a reprodución de audio.
             </audio>
         </div>
         <div class="content">
             <div class="content-section">
                 <div class="practicas-imaxe">
-                    <img src="practicas-restaurativas.png" alt="Prácticas restaurativas: espectro de informal a formal, prevención e restauración" class="practicas-imaxe-verde">
+                    <img src="assets/images/site/practicas-restaurativas-dup.png" alt="Prácticas restaurativas: espectro de informal a formal, prevención e restauración" class="practicas-imaxe-verde">
                 </div>
                 <div class="practicas-subtitulo-wrap">
                     <h2 class="practicas-subtitulo">Círculos proactivos</h2>
-                    <button type="button" class="btn-audio-lectura" id="btn-audio-circulos-proactivos" aria-label="Reproducir lectura do texto Círculos proactivos" title="Escoitar lectura"><img src="audio-icon.png" alt="" aria-hidden="true"></button>
+                    <button type="button" class="btn-audio-lectura" id="btn-audio-circulos-proactivos" aria-label="Reproducir lectura do texto Círculos proactivos" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
                     <audio id="audio-circulos-proactivos" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
-                        <source src="Círculos proactivos.m4a" type="audio/mp4">
+                        <source src="assets/audio/circulos-proactivos.m4a" type="audio/mp4">
                         O teu navegador non soporta a reprodución de audio.
                     </audio>
                 </div>
                 <div class="circulos-texto-block">
                     <div class="circulos-imaxe">
-                        <img src="circulos-nenos.png" alt="Nenos en círculo">
+                        <img src="assets/images/site/circulos-nenos.png" alt="Nenos en círculo">
                     </div>
                     <div class="circulos-texto">
                         <p>Realízanse ao comezo de cada sesión de proxectos nos que se formulan preguntas restaurativas que favorecen a cohesión do grupo.</p>
-                        <p>Lévase a cabo en círculos secuenciais, empregando un obxecto da palabra como recurso que favorece a regulación para os turnos. Só pode falar o que ten o obxecto da palabra<img src="obxecto-palabra.png" alt="" class="obxecto-palabra-icon" aria-hidden="true">.</p>
-                        <p style="margin-top: 0.5rem;"><a href="Preguntas%20para%20c%C3%ADrculos.pdf" class="doc-link" target="_blank" rel="noopener">Abrir: Preguntas para círculos (PDF)</a></p>
+                        <p>Lévase a cabo en círculos secuenciais, empregando un obxecto da palabra como recurso que favorece a regulación para os turnos. Só pode falar o que ten o obxecto da palabra<img src="assets/images/resources/obxecto-palabra.png" alt="" class="obxecto-palabra-icon" aria-hidden="true">.</p>
+                        <p style="margin-top: 0.5rem;"><a href="assets/documents/preguntas-para-circulos.pdf" class="doc-link" target="_blank" rel="noopener">Abrir: Preguntas para círculos (PDF)</a></p>
                     </div>
                 </div>
                 <div class="practicas-subtitulo-wrap">
                     <h2 class="practicas-subtitulo">Pequena reunión espontánea</h2>
-                    <button type="button" class="btn-audio-lectura" id="btn-audio-pequena-reunion-espontanea" aria-label="Reproducir lectura do texto Pequena reunión espontánea" title="Escoitar lectura"><img src="audio-icon.png" alt="" aria-hidden="true"></button>
+                    <button type="button" class="btn-audio-lectura" id="btn-audio-pequena-reunion-espontanea" aria-label="Reproducir lectura do texto Pequena reunión espontánea" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
                     <audio id="audio-pequena-reunion-espontanea" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
-                        <source src="Pequeña reunión espontánea.m4a" type="audio/mp4">
+                        <source src="assets/audio/pequena-reunion-espontanea.m4a" type="audio/mp4">
                         O teu navegador non soporta a reprodución de audio.
                     </audio>
                 </div>
                 <div class="reunion-espontanea-block">
                     <div class="reunion-imaxe">
-                        <img src="boca-orella.png" alt="Zona Orella-Boca">
+                        <img src="assets/images/resources/boca-orella.png" alt="Zona Orella-Boca">
                     </div>
                     <div class="reunion-texto">
                         <p>No noso centro materialízase na zona Orella-Boca incluida no recuncho da calma. Este é un espazo do aula para practicar escoitar e falar con calma. Inclúe apoios visuais (turnos, volume, «escoítote / agora&nbsp;falo»).</p>
@@ -177,21 +204,21 @@
                 </div>
                 <div class="practicas-subtitulo-wrap">
                     <h2 class="practicas-subtitulo">Círculos restaurativos espontáneos</h2>
-                    <button type="button" class="btn-audio-lectura" id="btn-audio-circulos-restaurativos-espontaneos" aria-label="Reproducir lectura do texto Círculos restaurativos espontáneos" title="Escoitar lectura"><img src="audio-icon.png" alt="" aria-hidden="true"></button>
+                    <button type="button" class="btn-audio-lectura" id="btn-audio-circulos-restaurativos-espontaneos" aria-label="Reproducir lectura do texto Círculos restaurativos espontáneos" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
                     <audio id="audio-circulos-restaurativos-espontaneos" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
-                        <source src="Círculos restaurativos espontáneos.m4a" type="audio/mp4">
+                        <source src="assets/audio/circulos-restaurativos-espontaneos.m4a" type="audio/mp4">
                         O teu navegador non soporta a reprodución de audio.
                     </audio>
                 </div>
                 <p>Un espazo de diálogo que se realiza cando xorde un conflicto ou unha situación que afecta ao grupo. Participa todo o grupo aula nun círculo secuencial ou non secuencial utilizando o obxecto da palabra para expresar como se sente e escoitar aos demais.</p>
                 <h2 class="practicas-subtitulo">Reunións restaurativas organizadas</h2>
                 <div class="practicas-imaxe practicas-imaxe--proceso">
-                    <img src="reunion-restaurativa-organizada.png" alt="Proceso de reunión restaurativa organizada">
+                    <img src="assets/images/resources/reunion-restaurativa-organizada.png" alt="Proceso de reunión restaurativa organizada">
                 </div>
                 <h3 class="tanque-titulo">Tanque de peixes</h3>
                 <div class="circulos-texto-block">
                     <div class="circulos-imaxe" style="width: 200px;">
-                        <img src="tanque-peixes.png" alt="Tanque de peixes">
+                        <img src="assets/images/resources/tanque-peixes.png" alt="Tanque de peixes">
                     </div>
                     <div class="circulos-texto">
                         <p><strong>Unha persoa X comparte un problema</strong></p>

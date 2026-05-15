@@ -277,7 +277,8 @@
             }
             .menu.active { display: flex; }
             .menu-item { width: 100%; }
-            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.35rem; }
+            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.7rem; }
+            .dropdown li a { font-size: 1.5rem; }
             .dropdown {
                 position: static;
                 opacity: 1;
@@ -321,6 +322,32 @@
             }
             .book-item .book-title { font-size: 0.85rem; font-weight: 700; }
         }
+
+        /* Larger readable text inside page sections */
+        section,
+        section p,
+        section li,
+        section a,
+        section figcaption,
+        section .actividade-texto p,
+        section .ambitos-intro,
+        section .avaliacion-quote p,
+        section .avaliacion-grid-hint,
+        section .avaliacion-file-card .avaliacion-file-name,
+        section .book-item .book-title,
+        section .marionetas-item .marionetas-caption,
+        section .carousel-swipe-hint,
+        .content-section,
+        .content-section p,
+        .content-section li,
+        .content-section a,
+        .content-section .ruleta-texto,
+        .content-section .caderno-equipo-lista,
+        .content-section .cohesion-mundo-texto,
+        .content-section .estrutura-texto,
+        .content-section .lapis-centro-frase {
+            font-size: 1.45rem;
+        }
     </style>
 </head>
 <body>
@@ -340,12 +367,12 @@
             <li class="menu-item">
                 <a href="#">Programas de intervención</a>
                 <ul class="dropdown">
-                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SARA_03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
-                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="JOSE_02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
-                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SAMIRA_02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
-                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="PEDRO_02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
-                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="RAUL_03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
-                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="MARTIN_02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
+                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/sara-03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
+                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/jose-02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
+                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/samira-02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
+                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/pedro-02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
+                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/raul-03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
+                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/martin-02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -364,19 +391,19 @@
         <h1 class="page-title">Área Lingüística</h1>
         <div class="books-grid books-grid--linguistica-materiais">
             <div class="book-item">
-                <img src="Letras-mobiles.png" alt="Letras móbiles">
+                <img src="assets/images/resources/letras-mobiles.png" alt="Letras móbiles">
                 <div class="book-title">Letras móbiles</div>
             </div>
             <div class="book-item">
-                <img src="Simbolos-gramaticales-Montessori.png" alt="Símbolos gramaticais Montessori">
+                <img src="assets/images/resources/simbolos-gramaticales-montessori.png" alt="Símbolos gramaticais Montessori">
                 <div class="book-title">Símbolos gramaticais Montessori</div>
             </div>
             <div class="book-item">
-                <img src="Articulemas.png" alt="Articulemas">
+                <img src="assets/images/resources/articulemas.png" alt="Articulemas">
                 <div class="book-title">Articulemas</div>
             </div>
             <div class="book-item">
-                <img src="Dados-vocabulario.png" alt="Dados vocabulario">
+                <img src="assets/images/resources/dados-vocabulario.png" alt="Dados vocabulario">
                 <div class="book-title">Dados vocabulario</div>
             </div>
         </div>
@@ -384,19 +411,19 @@
             <h2 class="section-title">Xogos</h2>
             <div class="books-grid">
             <div class="book-item">
-                <img src="La%20fiesta%20de%20las%20letras.png" alt="La fiesta de las letras">
+                <img src="assets/images/books/la-fiesta-de-las-letras.png" alt="La fiesta de las letras">
                 <div class="book-title">La fiesta de las letras</div>
             </div>
             <div class="book-item">
-                <img src="Slapzi.png" alt="Slapzi">
+                <img src="assets/images/resources/slapzi.png" alt="Slapzi">
                 <div class="book-title">Slapzi</div>
             </div>
             <div class="book-item">
-                <img src="Eszi.png" alt="Eszi">
+                <img src="assets/images/resources/eszi.png" alt="Eszi">
                 <div class="book-title">Eszi</div>
             </div>
             <div class="book-item">
-                <img src="Carrera%20de%20letras.png" alt="Carrera de las letras">
+                <img src="assets/images/resources/carrera-de-letras.png" alt="Carrera de las letras">
                 <div class="book-title">Carrera de las letras</div>
             </div>
             </div>

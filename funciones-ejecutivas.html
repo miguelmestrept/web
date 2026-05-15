@@ -333,7 +333,8 @@
             }
             .menu.active { display: flex; }
             .menu-item { width: 100%; }
-            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.35rem; }
+            .menu-item > a { padding: 1rem 2rem; border-radius: 0; font-weight: 700; font-size: 1.7rem; }
+            .dropdown li a { font-size: 1.5rem; }
             .dropdown {
                 position: static;
                 opacity: 1;
@@ -408,6 +409,32 @@
                 border-radius: 10px;
             }
         }
+
+        /* Larger readable text inside page sections */
+        section,
+        section p,
+        section li,
+        section a,
+        section figcaption,
+        section .actividade-texto p,
+        section .ambitos-intro,
+        section .avaliacion-quote p,
+        section .avaliacion-grid-hint,
+        section .avaliacion-file-card .avaliacion-file-name,
+        section .book-item .book-title,
+        section .marionetas-item .marionetas-caption,
+        section .carousel-swipe-hint,
+        .content-section,
+        .content-section p,
+        .content-section li,
+        .content-section a,
+        .content-section .ruleta-texto,
+        .content-section .caderno-equipo-lista,
+        .content-section .cohesion-mundo-texto,
+        .content-section .estrutura-texto,
+        .content-section .lapis-centro-frase {
+            font-size: 1.45rem;
+        }
     </style>
 </head>
 <body>
@@ -427,12 +454,12 @@
             <li class="menu-item">
                 <a href="#">Programas de intervención</a>
                 <ul class="dropdown">
-                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SARA_03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
-                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="JOSE_02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
-                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="SAMIRA_02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
-                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="PEDRO_02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
-                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="RAUL_03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
-                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="MARTIN_02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
+                    <li><a href="pdi3.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/sara-03.png" alt="" width="28" height="28" decoding="async">PDI 1 · Sara</a></li>
+                    <li><a href="pdi4.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/jose-02.png" alt="" width="28" height="28" decoding="async">PDI 2 · José</a></li>
+                    <li><a href="pdi5.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/samira-02.png" alt="" width="28" height="28" decoding="async">PDI 3 · Samira</a></li>
+                    <li><a href="pdi2.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/pedro-02.png" alt="" width="28" height="28" decoding="async">PDI 4 · Pedro</a></li>
+                    <li><a href="pdi1.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/raul-03-2.png?v=raul-20260509" alt="" width="28" height="28" decoding="async">PDI 5 · Raúl</a></li>
+                    <li><a href="pdi6.html" class="pdi-nav-link"><img class="pdi-nav-avatar" src="assets/images/avatars/martin-02.png" alt="" width="28" height="28" decoding="async">PDI 6 · Martín</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -451,7 +478,7 @@
         <h1 class="page-title">Funcións executivas</h1>
         <div class="books-grid">
             <div class="book-item">
-                <img src="Captura%20de%20pantalla%202026-04-23%20a%20las%2021.50.09.png" alt="Tablero cheklist">
+                <img src="assets/images/screenshots/captura-de-pantalla-2026-04-23-a-las-21-50-09.png" alt="Tablero cheklist">
                 <div class="book-title">Tablero cheklist</div>
             </div>
         </div>
@@ -461,19 +488,19 @@
             <h3 class="section-title">Atención y velocidad de procesamiento</h3>
             <div class="img-grid">
             <div class="img-item">
-                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.49.54.png" alt="Funcións executivas 1">
+                <img src="assets/images/screenshots/captura-de-pantalla-2026-01-24-a-las-11-49-54.png" alt="Funcións executivas 1">
             </div>
             <div class="img-item">
-                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.50.34.png" alt="Funcións executivas 2">
+                <img src="assets/images/screenshots/captura-de-pantalla-2026-01-24-a-las-11-50-34.png" alt="Funcións executivas 2">
             </div>
             <div class="img-item">
-                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.51.24.png" alt="Funcións executivas 3">
+                <img src="assets/images/screenshots/captura-de-pantalla-2026-01-24-a-las-11-51-24.png" alt="Funcións executivas 3">
             </div>
             <div class="img-item">
-                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.51.53.png" alt="Funcións executivas 4">
+                <img src="assets/images/screenshots/captura-de-pantalla-2026-01-24-a-las-11-51-53.png" alt="Funcións executivas 4">
             </div>
             <div class="img-item">
-                <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.52.28.png" alt="Funcións executivas 5">
+                <img src="assets/images/screenshots/captura-de-pantalla-2026-01-24-a-las-11-52-28.png" alt="Funcións executivas 5">
             </div>
             </div>
         </div>
@@ -481,16 +508,16 @@
             <h3 class="section-title">Control Inhibitorio</h3>
             <div class="img-grid img-grid-4">
                 <div class="img-item">
-                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.56.29.png" alt="Control inhibitorio 1">
+                    <img src="assets/images/screenshots/captura-de-pantalla-2026-01-24-a-las-11-56-29.png" alt="Control inhibitorio 1">
                 </div>
                 <div class="img-item">
-                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.57.11.png" alt="Control inhibitorio 2">
+                    <img src="assets/images/screenshots/captura-de-pantalla-2026-01-24-a-las-11-57-11.png" alt="Control inhibitorio 2">
                 </div>
                 <div class="img-item">
-                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.57.39.png" alt="Control inhibitorio 3">
+                    <img src="assets/images/screenshots/captura-de-pantalla-2026-01-24-a-las-11-57-39.png" alt="Control inhibitorio 3">
                 </div>
                 <div class="img-item">
-                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2011.58.26.png" alt="Control inhibitorio 4">
+                    <img src="assets/images/screenshots/captura-de-pantalla-2026-01-24-a-las-11-58-26.png" alt="Control inhibitorio 4">
                 </div>
             </div>
         </div>
@@ -498,13 +525,13 @@
             <h3 class="section-title">Planificación</h3>
             <div class="img-grid img-grid-3">
                 <div class="img-item">
-                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2012.15.51.png" alt="Planificación 1">
+                    <img src="assets/images/screenshots/captura-de-pantalla-2026-01-24-a-las-12-15-51.png" alt="Planificación 1">
                 </div>
                 <div class="img-item">
-                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2012.16.54.png" alt="Planificación 2">
+                    <img src="assets/images/screenshots/captura-de-pantalla-2026-01-24-a-las-12-16-54.png" alt="Planificación 2">
                 </div>
                 <div class="img-item">
-                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2012.17.58.png" alt="Planificación 3">
+                    <img src="assets/images/screenshots/captura-de-pantalla-2026-01-24-a-las-12-17-58.png" alt="Planificación 3">
                 </div>
             </div>
         </div>
@@ -512,13 +539,13 @@
             <h3 class="section-title">Memoria</h3>
             <div class="img-grid img-grid-3">
                 <div class="img-item">
-                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2012.25.00.png" alt="Memoria 1">
+                    <img src="assets/images/screenshots/captura-de-pantalla-2026-01-24-a-las-12-25-00.png" alt="Memoria 1">
                 </div>
                 <div class="img-item">
-                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2012.25.51.png" alt="Memoria 2">
+                    <img src="assets/images/screenshots/captura-de-pantalla-2026-01-24-a-las-12-25-51.png" alt="Memoria 2">
                 </div>
                 <div class="img-item">
-                    <img src="Captura%20de%20pantalla%202026-01-24%20a%20las%2012.26.47.png" alt="Memoria 3">
+                    <img src="assets/images/screenshots/captura-de-pantalla-2026-01-24-a-las-12-26-47.png" alt="Memoria 3">
                 </div>
             </div>
         </div>
