@@ -36,6 +36,13 @@
         .sub-dropdown { position: absolute; left: 100%; top: 0; margin-top: 0; margin-left: 0; min-width: 220px; border-radius: 0 10px 10px 0; opacity: 0; visibility: hidden; display: none; }
         .dropdown li.has-submenu.active .sub-dropdown { opacity: 1; visibility: visible; display: block; }
         .container { max-width: 1200px; margin: 3rem auto; padding: 0 2rem; }
+        .practicas-page {
+            display: flex;
+            flex-direction: column;
+        }
+        .practicas-page .page-title-wrap { order: 1; }
+        .practicas-page .pilares-intro { order: 2; }
+        .practicas-page > .content { order: 3; }
         .page-title-wrap { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.75rem; margin-bottom: 2rem; }
         .page-title-wrap .page-title { margin-bottom: 0; }
         .page-title { text-align: center; font-size: 2.5rem; color: #5a8a7a; margin-bottom: 2rem; font-weight: bold; }
@@ -46,7 +53,135 @@
         .audio-lectura-hidden { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
         .content-section { max-width: 720px; margin: 0 auto; }
         .content-section p { line-height: 1.75; color: #4a5a4a; font-size: 1.05rem; margin-bottom: 1rem; text-align: justify; }
-        .content-section { max-width: 720px; margin: 0 auto; }
+
+        .pilares-intro {
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            padding: 0;
+        }
+        .pilares-intro-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem 1.25rem;
+            margin-bottom: 1.15rem;
+        }
+        .pilares-intro-imaxe {
+            flex: 0 0 auto;
+            width: auto;
+            max-width: 132px;
+            margin: 0;
+        }
+        .pilares-intro-imaxe img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 3px 12px rgba(45, 75, 60, 0.12);
+        }
+        .pilares-diagrama {
+            flex: 0 1 auto;
+            width: auto;
+            max-width: 20rem;
+            min-width: 0;
+        }
+        .pilares-visual {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            width: auto;
+        }
+        .pilares-visual-hub {
+            flex: 0 0 auto;
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 6.75rem;
+            height: 6.75rem;
+            padding: 0.45rem;
+            text-align: center;
+            border: 2.5px solid #5a8a7a;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #f4fbf8 0%, #e8f4f0 55%, #d4ebe4 100%);
+            font-family: 'Amatic SC', cursive;
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.05;
+            color: #2d5c4e;
+            box-shadow: 0 3px 12px rgba(45, 92, 78, 0.18);
+        }
+        .pilares-visual-hub strong {
+            display: block;
+            font-size: 1.85rem;
+            line-height: 0.95;
+            color: #4a7c6f;
+        }
+        .pilares-visual-hub em {
+            display: block;
+            font-size: 1.05rem;
+            font-style: normal;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            line-height: 1;
+        }
+        .pilares-visual-rama {
+            flex: 0 0 22px;
+            width: 22px;
+            align-self: center;
+            height: 5.25rem;
+            margin: 0 -2px;
+            color: #5a8a7a;
+        }
+        .pilares-visual-lista {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.4rem;
+            flex: 1 1 auto;
+            align-self: center;
+            min-width: 0;
+        }
+        .pilares-visual-lista li {
+            font-family: 'Amatic SC', cursive;
+            font-size: 1.55rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            padding: 0.25rem 0.7rem 0.25rem 0.55rem;
+            border-radius: 8px;
+            line-height: 1.15;
+            white-space: nowrap;
+        }
+        .pilares-visual-lista li:nth-child(1) {
+            color: #2d6b5a;
+            background: rgba(197, 228, 220, 0.75);
+        }
+        .pilares-visual-lista li:nth-child(2) {
+            color: #3d6b5f;
+            background: rgba(168, 213, 200, 0.55);
+        }
+        .pilares-visual-lista li:nth-child(3) {
+            color: #4a7c6f;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1.5px solid rgba(90, 138, 122, 0.35);
+        }
+        .pilares-intro-frase {
+            margin: 0;
+            padding: 0.85rem 1rem;
+            text-align: center;
+            font-size: 1.15rem;
+            line-height: 1.55;
+            color: #4a5a4a;
+            font-style: italic;
+            border-top: 1px solid rgba(90, 138, 122, 0.25);
+            background: rgba(197, 228, 220, 0.2);
+            border-radius: 0 0 10px 10px;
+        }
         .practicas-imaxe { width: 100%; max-width: 680px; margin: 0 auto 1rem; }
         .practicas-imaxe img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; object-fit: contain; }
         .practicas-imaxe img.practicas-imaxe-verde { filter: hue-rotate(133deg) saturate(0.22); }
@@ -90,6 +225,44 @@
             .btn-audio-lectura { width: 2rem; height: 2rem; }
             .btn-audio-lectura img { width: 24px; height: 24px; }
             .practicas-subtitulo-wrap { gap: 0.5rem; }
+            .practicas-page .pilares-intro { order: 1; margin-bottom: 0.5rem; }
+            .practicas-page .page-title-wrap { order: 2; margin-bottom: 1rem; }
+            .practicas-page > .content { order: 3; }
+            .pilares-intro-row {
+                justify-content: center;
+                gap: 0.5rem 0.55rem;
+                margin-bottom: 0.65rem;
+            }
+            .pilares-intro-imaxe {
+                max-width: 108px;
+            }
+            .pilares-diagrama {
+                max-width: none;
+            }
+            .pilares-visual-hub {
+                width: 5.5rem;
+                height: 5.5rem;
+                font-size: 0.85rem;
+                padding: 0.35rem;
+            }
+            .pilares-visual-hub strong { font-size: 1.4rem; }
+            .pilares-visual-hub em { font-size: 0.8rem; }
+            .pilares-visual-rama {
+                width: 14px;
+                flex-basis: 14px;
+                height: 4.5rem;
+            }
+            .pilares-visual-lista { gap: 0.3rem; }
+            .pilares-visual-lista li {
+                font-size: 1rem;
+                padding: 0.15rem 0.45rem 0.15rem 0.35rem;
+                white-space: normal;
+            }
+            .pilares-intro-frase {
+                font-size: 1.05rem;
+                padding: 0.65rem 0.75rem;
+                margin-bottom: 0;
+            }
         }
 
         /* Larger readable text inside page sections */
@@ -154,7 +327,7 @@
             <li class="menu-item"><a href="#">Familia-escola</a></li>
         </ul>
     </nav>
-    <div class="container">
+    <div class="container practicas-page">
         <div class="page-title-wrap">
             <h1 class="page-title">Prácticas restaurativas</h1>
             <button type="button" class="btn-audio-lectura" id="btn-audio-practicas" aria-label="Reproducir lectura do texto Prácticas restaurativas" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
@@ -163,6 +336,31 @@
                 O teu navegador non soporta a reprodución de audio.
             </audio>
         </div>
+        <section class="pilares-intro" aria-label="Tres piares fundamentais">
+            <div class="pilares-intro-row">
+                <figure class="pilares-intro-imaxe">
+                    <img src="assets/images/resources/guia-conduta-educativo.png" alt="Guía para a abordaxe dos problemas de conduta no ámbito educativo" loading="lazy" decoding="async">
+                </figure>
+                <div class="pilares-diagrama" role="group" aria-label="3 piares fundamentais: convivencia, participación e inclusión">
+                    <div class="pilares-visual">
+                        <div class="pilares-visual-hub">
+                            <strong>3</strong>
+                            <em>piares</em>
+                            fundamentais
+                        </div>
+                        <svg class="pilares-visual-rama" viewBox="0 0 22 88" preserveAspectRatio="none" aria-hidden="true">
+                            <path d="M0 44 H6 V14 H22 M6 44 H22 M6 44 V74 H22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <ul class="pilares-visual-lista">
+                            <li>Convivencia</li>
+                            <li>Participación</li>
+                            <li>Inclusión</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="pilares-intro-frase">A convivencia debe entenderse como un obxectivo en si mesma</p>
+        </section>
         <div class="content">
             <div class="content-section">
                 <div class="practicas-imaxe">
