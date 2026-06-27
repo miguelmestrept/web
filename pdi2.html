@@ -492,15 +492,22 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 135%;
-            height: 135%;
+            width: 220%;
+            height: 220%;
             border: 0;
             pointer-events: none;
             transform: translate(-50%, -50%);
+            background: white;
         }
         .recursos-proxecto-section .avaliacion-file-preview--pdf iframe {
-            width: 150%;
-            height: 150%;
+            width: 220%;
+            height: 220%;
+        }
+        .avaliacion-file-preview--pdf iframe[src*="avaliacion-equipo.pdf"],
+        .avaliacion-file-preview--pdf iframe[src*="coavaliacion-docencia-compartida.pdf"],
+        .avaliacion-file-preview--pdf iframe[src*="tickets-de-saida.pdf"] {
+            width: 160%;
+            height: 160%;
         }
         .avaliacion-file-preview--generic {
             display: flex;
@@ -810,6 +817,18 @@
             }
             .recursos-proxecto-section .avaliacion-file-preview {
                 width: min(100%, 148px);
+            }
+            .avaliacion-file-preview img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center center;
+                background: white;
+            }
+            .avaliacion-file-preview--pdf iframe {
+                width: 220%;
+                height: 220%;
+                transform: translate(-50%, -50%);
             }
         }
 
