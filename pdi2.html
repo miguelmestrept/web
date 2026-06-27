@@ -292,11 +292,10 @@
         }
         .presentation-section .swiper {
             width: 100%;
-            height: 90vh;
-            min-height: 400px;
+            height: auto;
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            overflow: visible;
         }
         .presentation-section .swiper-slide {
             display: flex;
@@ -308,7 +307,7 @@
         .slide-card {
             width: 100%;
             max-width: 1000px;
-            height: 100%;
+            height: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -345,6 +344,10 @@
         .presentation-section .swiper-button-prev::after,
         .presentation-section .swiper-button-next::after {
             font-size: 1.8rem;
+        }
+        .presentation-section .economia-fichas-heading {
+            margin-top: 0.8rem;
+            margin-bottom: 0.8rem;
         }
         .carousel-swipe-hint {
             display: block;
@@ -712,8 +715,8 @@
                 gap: 0;
             }
             .presentation-section .swiper {
-                height: min(72vh, 560px);
-                min-height: 300px;
+                height: auto;
+                min-height: 0;
                 padding: 0;
             }
             .presentation-section .swiper-slide {
