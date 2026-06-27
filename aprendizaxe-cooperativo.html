@@ -36,7 +36,47 @@
         .sub-dropdown { position: absolute; left: 100%; top: 0; margin-top: 0; margin-left: 0; min-width: 220px; border-radius: 0 10px 10px 0; opacity: 0; visibility: hidden; display: none; }
         .dropdown li.has-submenu.active .sub-dropdown { opacity: 1; visibility: visible; display: block; }
         .container { max-width: 1200px; margin: 3rem auto; padding: 0 2rem; }
+        .page-title-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        .page-title-wrap .page-title { margin-bottom: 0; }
         .page-title { text-align: center; font-size: 2.5rem; color: #5a8a7a; margin-bottom: 0.5rem; font-weight: bold; }
+        .btn-audio-lectura {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.25rem;
+            height: 2.25rem;
+            padding: 0;
+            border: 1px solid rgba(74, 124, 111, 0.4);
+            border-radius: 50%;
+            background: rgba(197, 228, 220, 0.5);
+            color: #5a8a7a;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            flex-shrink: 0;
+        }
+        .btn-audio-lectura img {
+            width: 28px;
+            height: 28px;
+            display: block;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+        .btn-audio-lectura:hover { background: rgba(168, 213, 200, 0.8); }
+        .btn-audio-lectura:active { transform: scale(0.95); }
+        .audio-lectura-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+        }
         .page-subtitle { text-align: center; font-size: 1.25rem; color: #5a6b5a; margin-bottom: 2rem; font-style: italic; }
         .ruleta-block { overflow: auto; margin-bottom: 2rem; }
         .ruleta-block .ruleta-imaxe { float: left; width: 220px; margin-left: -1rem; margin-right: 0.5rem; margin-bottom: 0.75rem; }
@@ -46,9 +86,20 @@
         .content-section h2 { font-size: 1.75rem; color: #5a8a7a; margin-bottom: 1rem; text-align: center; }
         .ambito { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(74, 124, 111, 0.2); }
         .ambito:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+        .ambito-titulo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
         .ambito-titulo { font-family: 'Amatic SC', cursive; font-size: 1.6rem; color: #5a8a7a; margin-bottom: 1rem; text-align: left; }
+        .ambito-titulo-wrap .ambito-titulo { margin-bottom: 0; }
         .ambito h3 { font-size: 1.35rem; color: #5a8a7a; margin: 1.25rem 0 0.5rem; }
         .ambito h3:first-of-type { margin-top: 0; }
+        .ambito h3.estrutura-nivel { font-family: 'Amatic SC', cursive; font-size: 1.5rem; }
+        .ambito-subtitulo-wrap { display: flex; align-items: center; gap: 0.5rem; margin: 1.25rem 0 0.5rem; }
+        .ambito-subtitulo-wrap:first-of-type { margin-top: 0; }
+        .ambito-subtitulo-wrap h3 { margin: 0; }
         .cohesion-mundo-block { overflow: auto; margin: 1rem 0; }
         .cohesion-mundo-imaxe { float: left; width: 95px; margin-right: 1rem; margin-bottom: 0.5rem; margin-top: -0.25rem; }
         .cohesion-mundo-imaxe img { width: 100%; height: auto; object-fit: contain; display: block; mix-blend-mode: multiply; }
@@ -74,11 +125,15 @@
         .estrutura-bloco { margin-bottom: 2rem; overflow: auto; }
         .estrutura-bloco:last-child { margin-bottom: 0; }
         .estrutura-bloco h3 { font-family: 'Amatic SC', cursive; font-size: 1.5rem; color: #5a8a7a; margin-bottom: 0.75rem; }
+        .estrutura-titulo-wrap { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+        .estrutura-titulo-wrap h3 { margin-bottom: 0; }
         .estrutura-imaxe { float: left; width: 160px; margin-right: 1.25rem; margin-bottom: 0.5rem; padding: 4px; box-sizing: border-box; }
         .estrutura-imaxe img { width: 100%; height: auto; border-radius: 0; box-shadow: 0 4px 16px rgba(74, 124, 111, 0.15); object-fit: contain; display: block; }
         .estrutura-texto { line-height: 1.7; color: #4a5a4a; font-size: 1.05rem; text-align: justify; }
         .estrutura-texto p { margin-bottom: 0.5rem; }
-        .estrutura-texto p.estrutura-pergunta { margin-top: 1.25rem; text-align: left; clear: left; font-weight: bold; font-size: 1.2rem; color: #4a6a5a; }
+        .estrutura-texto p.estrutura-pergunta { margin-top: 1.25rem; text-align: left; clear: left; font-weight: bold; font-size: 1.5rem; color: #4a6a5a; }
+        .estrutura-pergunta-wrap { display: flex; align-items: center; gap: 0.5rem; clear: left; margin-top: 1.25rem; }
+        .estrutura-pergunta-wrap .estrutura-pergunta { margin-top: 0; }
         .estrutura-texto .lista-icon { height: 1.7em; width: auto; vertical-align: -0.2em; display: inline; margin-left: 0.75rem; border-radius: 50%; object-fit: cover; }
         .estrutura-texto .lista-icon--cerca { margin-left: 0.35rem; }
         .estrutura-texto .lista-icon--maior { height: 1.95em; }
@@ -103,10 +158,13 @@
             nav { display: flex; justify-content: flex-end; align-items: center; padding: 0.75rem; }
             .container { margin: 1rem auto; padding: 0 1rem; }
             .page-title { font-size: 1.4rem; margin-bottom: 0.35rem; }
+            .btn-audio-lectura { width: 2rem; height: 2rem; }
+            .btn-audio-lectura img { width: 24px; height: 24px; }
             .page-subtitle { font-size: 1.05rem; margin-bottom: 1.25rem; }
             .estrutura-imaxe { width: 100px; margin-right: 1rem; padding: 3px; }
             .ruleta-block .ruleta-imaxe { width: 140px; margin-left: 0; margin-right: 0.5rem; }
             .ambito { margin-top: 2rem; padding-top: 1.25rem; }
+            .ambito-titulo-wrap { gap: 0.5rem; }
             .ambito-titulo { font-size: 1.4rem; }
             .cohesion-mundo-imaxe { width: 75px; margin-right: 0.75rem; margin-top: -0.2rem; }
             .caderno-equipo-block { grid-template-columns: 140px 1fr; gap: 1rem; }
@@ -177,7 +235,14 @@
         </ul>
     </nav>
     <div class="container">
-        <h1 class="page-title">A aprendizaxe cooperativa como recurso para a inclusión.</h1>
+        <div class="page-title-wrap">
+            <h1 class="page-title">A aprendizaxe cooperativa como recurso para a inclusión.</h1>
+            <button type="button" class="btn-audio-lectura" id="btn-audio-aprendizaxe-cooperativa" aria-label="Reproducir lectura do texto A aprendizaxe cooperativa como recurso para a inclusión" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
+            <audio id="audio-aprendizaxe-cooperativa" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
+                <source src="assets/audio/aprendizaxe-cooperativa.m4a" type="audio/mp4">
+                O teu navegador non soporta a reprodución de audio.
+            </audio>
+        </div>
         <p class="page-subtitle">O alumnado aprende CO seu equipo e DO seu equipo.</p>
         <div class="content-section">
             <div class="ruleta-block">
@@ -190,7 +255,14 @@
                 </div>
             </div>
             <div class="ambito">
-                <h2 class="ambito-titulo">Ámbito A: Cohesión dos equipos</h2>
+                <div class="ambito-titulo-wrap">
+                    <h2 class="ambito-titulo">Ámbito A: Cohesión dos equipos</h2>
+                    <button type="button" class="btn-audio-lectura" id="btn-audio-cohesion-equipos" aria-label="Reproducir lectura do texto Ámbito A: Cohesión dos equipos" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
+                    <audio id="audio-cohesion-equipos" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
+                        <source src="assets/audio/ambito-a-cohesion-equipos.m4a" type="audio/mp4">
+                        O teu navegador non soporta a reprodución de audio.
+                    </audio>
+                </div>
                 <p>Antes de aprender en equipo é necesario construir cohesión de grupo. É importante que o alumnado confíe e se sinta parte do grupo para logo axudarse e aprender xuntos. <img src="assets/images/resources/icono-aprender-xuntos.png" alt="" class="icono-aprender-xuntos" aria-hidden="true"></p>
                 <p>No noso centro, a cohesión realízase no mes de setembro onde dedicamos as horas de proxectos a realizar dinámicas de cohesión.</p>
                 <div class="cohesion-mundo-block">
@@ -204,12 +276,26 @@
                 <p>Ao longo do curso, a cohesión segue presente mediante os círculos da palabra ao inicio e final das sesións.</p>
             </div>
             <div class="ambito">
-                <h2 class="ambito-titulo">Ámbito B: Estructuras Cooperativas</h2>
+                <div class="ambito-titulo-wrap">
+                    <h2 class="ambito-titulo">Ámbito B: Estructuras Cooperativas</h2>
+                    <button type="button" class="btn-audio-lectura" id="btn-audio-estruturas-cooperativas" aria-label="Reproducir lectura do texto Ámbito B: Estructuras Cooperativas" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
+                    <audio id="audio-estruturas-cooperativas" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
+                        <source src="assets/audio/ambito-b-estruturas-cooperativas.m4a" type="audio/mp4">
+                        O teu navegador non soporta a reprodución de audio.
+                    </audio>
+                </div>
             <p>As estruturas cooperativas son un recurso para garantir a accesibilidade do alumnado, tendo en conta os diferentes ritmos e capacidades. Ao organizar a tarefa con estruturas claras, a actividade multinivélase, permitindo que todo o alumnado participe e acceda á aprendizaxe segundo as súas posibilidades.</p>
             <p>A continuación expoñemos as principais estructuras utilizadas dentro dos proxectos no meu centro educativo.</p>
             <div class="estruturas-list">
                 <div class="estrutura-bloco">
-                    <h3>Folio xiratorio</h3>
+                    <div class="estrutura-titulo-wrap">
+                        <h3>Folio xiratorio</h3>
+                        <button type="button" class="btn-audio-lectura" id="btn-audio-folio-xiratorio" aria-label="Reproducir lectura do texto Folio xiratorio" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
+                        <audio id="audio-folio-xiratorio" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
+                            <source src="assets/audio/folio-xiratorio.m4a" type="audio/mp4">
+                            O teu navegador non soporta a reprodución de audio.
+                        </audio>
+                    </div>
                     <div class="estrutura-imaxe">
                         <img src="assets/images/resources/folio-xiratorio.png" alt="Folio xiratorio">
                     </div>
@@ -218,7 +304,14 @@
                     </div>
                 </div>
                 <div class="estrutura-bloco">
-                    <h3>Lápis ó centro</h3>
+                    <div class="estrutura-titulo-wrap">
+                        <h3>Lápis ó centro</h3>
+                        <button type="button" class="btn-audio-lectura" id="btn-audio-lapis-centro" aria-label="Reproducir lectura do texto Lápis ó centro" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
+                        <audio id="audio-lapis-centro" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
+                            <source src="assets/audio/lapis-centro.m4a" type="audio/mp4">
+                            O teu navegador non soporta a reprodución de audio.
+                        </audio>
+                    </div>
                     <div class="estrutura-imaxe">
                         <img src="assets/images/resources/lapis-centro.png" alt="Lápis ó centro">
                     </div>
@@ -230,19 +323,33 @@
                     </div>
                 </div>
                 <div class="estrutura-bloco">
-                    <h3>1-2-4</h3>
+                    <div class="estrutura-titulo-wrap">
+                        <h3>1-2-4</h3>
+                        <button type="button" class="btn-audio-lectura" id="btn-audio-estrutura-1-2-4" aria-label="Reproducir lectura do texto 1-2-4" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
+                        <audio id="audio-estrutura-1-2-4" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
+                            <source src="assets/audio/estrutura-1-2-4.m4a" type="audio/mp4">
+                            O teu navegador non soporta a reprodución de audio.
+                        </audio>
+                    </div>
                     <div class="estrutura-imaxe">
                         <img src="assets/images/resources/estrutura-1-2-4.png" alt="1-2-4">
                     </div>
                     <div class="estrutura-texto">
                         <p><strong>Organización da tarefa en 3 momentos:</strong></p>
-                        <p><strong>Momento 1.</strong> Cada alumno reflexiona de maneira individual, e damos resposta de forma multimodal.</p>
+                        <p><strong>Momento 1.</strong> Cada participante reflexiona de maneira individual, e damos resposta de forma multimodal.</p>
                         <p><strong>Momento 2.</strong> Compartese a reflexión coa parella, chegando a un consenso.</p>
                         <p><strong>Momento 3.</strong> Ponse en común todas as respostas, constrúese unha resposta común.</p>
                     </div>
                 </div>
                 <div class="estrutura-bloco">
-                    <h3>Lectura compartida</h3>
+                    <div class="estrutura-titulo-wrap">
+                        <h3>Lectura compartida</h3>
+                        <button type="button" class="btn-audio-lectura" id="btn-audio-lectura-compartida" aria-label="Reproducir lectura do texto Lectura compartida" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
+                        <audio id="audio-lectura-compartida" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
+                            <source src="assets/audio/lectura-compartida.m4a" type="audio/mp4">
+                            O teu navegador non soporta a reprodución de audio.
+                        </audio>
+                    </div>
                     <div class="estrutura-imaxe">
                         <img src="assets/images/resources/lectura-compartida.png" alt="Lectura compartida">
                     </div>
@@ -254,7 +361,14 @@
                 </div>
                 <div class="estrutura-bloco">
                     <div class="estrutura-texto" style="margin-left: 0;">
-                        <p class="estrutura-pergunta"><strong>Por que estas estruturas forman parte da miña intervención como PT?</strong></p>
+                        <div class="estrutura-pergunta-wrap">
+                            <p class="estrutura-pergunta"><strong>Por que estas estruturas forman parte da miña intervención como PT?</strong></p>
+                            <button type="button" class="btn-audio-lectura" id="btn-audio-por-que-estruturas" aria-label="Reproducir lectura do texto Por que estas estruturas forman parte da miña intervención como PT" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
+                            <audio id="audio-por-que-estruturas" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
+                                <source src="assets/audio/por-que-estruturas-intervencion-pt.m4a" type="audio/mp4">
+                                O teu navegador non soporta a reprodución de audio.
+                            </audio>
+                        </div>
                         <ul>
                             <li>Aseguramos a participación de todo o alumnado. <img src="assets/images/resources/mans-equipo.png" class="lista-icon" alt="Equipo" role="img"></li>
                             <li>Fomenta a interdependencia positiva: o resultado final é do equipo.</li>
@@ -267,15 +381,36 @@
             </div>
             </div>
             <div class="ambito">
-                <h2 class="ambito-titulo">Ámbito C: Conciencia, Autoregulación e Avaliación</h2>
-                <h3>Equipos heteroxéneos</h3>
+                <div class="ambito-titulo-wrap">
+                    <h2 class="ambito-titulo">Ámbito C: Conciencia, Autoregulación e Avaliación</h2>
+                    <button type="button" class="btn-audio-lectura" id="btn-audio-ambito-c" aria-label="Reproducir lectura do texto Ámbito C: Conciencia, Autoregulación e Avaliación" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
+                    <audio id="audio-ambito-c" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
+                        <source src="assets/audio/ambito-c-conciencia-autoregulacion-avaliacion.m4a" type="audio/mp4">
+                        O teu navegador non soporta a reprodución de audio.
+                    </audio>
+                </div>
+                <div class="ambito-subtitulo-wrap">
+                    <h3 class="estrutura-nivel">Equipos heteroxéneos</h3>
+                    <button type="button" class="btn-audio-lectura" id="btn-audio-equipos-heteroxeneos" aria-label="Reproducir lectura do texto Equipos heteroxéneos" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
+                    <audio id="audio-equipos-heteroxeneos" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
+                        <source src="assets/audio/equipos-heteroxeneos.m4a" type="audio/mp4">
+                        O teu navegador non soporta a reprodución de audio.
+                    </audio>
+                </div>
                 <div class="equipos-heteroxeneos-block">
-                    <p>En traballo cooperativo coa tutora da aula, como PT participo creando os equipos de maneira heteroxénea.</p>
+                    <p>En traballo cooperativo coa persoa tutora da aula, como PT participo creando os equipos de maneira heteroxénea.</p>
                     <div class="equipos-heteroxeneos-imaxe">
                         <img src="assets/images/resources/equipos-heteroxeneos.png" alt="Diagrama de formación de equipos heteroxéneos: os máis capaces de dar axuda, o resto do grupo e os máis necesitados de axuda">
                     </div>
                 </div>
-                <h3>Caderno de equipo</h3>
+                <div class="ambito-subtitulo-wrap">
+                    <h3 class="estrutura-nivel">Caderno de equipo</h3>
+                    <button type="button" class="btn-audio-lectura" id="btn-audio-caderno-equipo" aria-label="Reproducir lectura do texto Caderno de equipo" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
+                    <audio id="audio-caderno-equipo" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
+                        <source src="assets/audio/caderno-de-equipo.m4a" type="audio/mp4">
+                        O teu navegador non soporta a reprodución de audio.
+                    </audio>
+                </div>
                 <p>Axuda ao alumnado a aprender a traballar en equipo de forma consciente e organizada.</p>
                 <p style="margin-bottom: 0.5rem;">Un caderno de equipo en cada trimestre, coas seguintes partes:</p>
                 <div class="caderno-equipo-block" style="margin-top: 0.5rem;">
@@ -310,6 +445,57 @@
             const link = item.querySelector(':scope > a');
             if (link) link.addEventListener('click', function(e) { e.preventDefault(); const parent = item.closest('.dropdown'); if (parent) parent.querySelectorAll('.has-submenu').forEach(o => { if (o !== item) o.classList.remove('active'); }); item.classList.toggle('active'); });
         });
+        (function() {
+            var pairs = [
+                { btnId: 'btn-audio-aprendizaxe-cooperativa', audioId: 'audio-aprendizaxe-cooperativa', labelPaused: 'Reproducir lectura do texto A aprendizaxe cooperativa como recurso para a inclusión' },
+                { btnId: 'btn-audio-cohesion-equipos', audioId: 'audio-cohesion-equipos', labelPaused: 'Reproducir lectura do texto Ámbito A: Cohesión dos equipos' },
+                { btnId: 'btn-audio-estruturas-cooperativas', audioId: 'audio-estruturas-cooperativas', labelPaused: 'Reproducir lectura do texto Ámbito B: Estructuras Cooperativas' },
+                { btnId: 'btn-audio-folio-xiratorio', audioId: 'audio-folio-xiratorio', labelPaused: 'Reproducir lectura do texto Folio xiratorio' },
+                { btnId: 'btn-audio-lapis-centro', audioId: 'audio-lapis-centro', labelPaused: 'Reproducir lectura do texto Lápis ó centro' },
+                { btnId: 'btn-audio-estrutura-1-2-4', audioId: 'audio-estrutura-1-2-4', labelPaused: 'Reproducir lectura do texto 1-2-4' },
+                { btnId: 'btn-audio-lectura-compartida', audioId: 'audio-lectura-compartida', labelPaused: 'Reproducir lectura do texto Lectura compartida' },
+                { btnId: 'btn-audio-por-que-estruturas', audioId: 'audio-por-que-estruturas', labelPaused: 'Reproducir lectura do texto Por que estas estruturas forman parte da miña intervención como PT' },
+                { btnId: 'btn-audio-ambito-c', audioId: 'audio-ambito-c', labelPaused: 'Reproducir lectura do texto Ámbito C: Conciencia, Autoregulación e Avaliación' },
+                { btnId: 'btn-audio-equipos-heteroxeneos', audioId: 'audio-equipos-heteroxeneos', labelPaused: 'Reproducir lectura do texto Equipos heteroxéneos' },
+                { btnId: 'btn-audio-caderno-equipo', audioId: 'audio-caderno-equipo', labelPaused: 'Reproducir lectura do texto Caderno de equipo' }
+            ];
+            var allAudios = [];
+            pairs.forEach(function(p) {
+                var audio = document.getElementById(p.audioId);
+                if (audio) allAudios.push(audio);
+            });
+            function pauseOthers(current) {
+                allAudios.forEach(function(audio) {
+                    if (audio !== current && !audio.paused) {
+                        audio.pause();
+                        pairs.forEach(function(p) {
+                            if (document.getElementById(p.audioId) === audio) {
+                                var btn = document.getElementById(p.btnId);
+                                if (btn) btn.setAttribute('aria-label', p.labelPaused);
+                            }
+                        });
+                    }
+                });
+            }
+            pairs.forEach(function(p) {
+                var btn = document.getElementById(p.btnId);
+                var audio = document.getElementById(p.audioId);
+                if (!btn || !audio) return;
+                btn.addEventListener('click', function() {
+                    if (audio.paused) {
+                        pauseOthers(audio);
+                        audio.play();
+                        btn.setAttribute('aria-label', 'Pausar lectura');
+                    } else {
+                        audio.pause();
+                        btn.setAttribute('aria-label', p.labelPaused);
+                    }
+                });
+                audio.addEventListener('ended', function() {
+                    btn.setAttribute('aria-label', p.labelPaused);
+                });
+            });
+        })();
     </script>
 <script src="nav-reset.js" defer></script>
 </body>

@@ -475,11 +475,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center top;
             display: block;
         }
         .avaliacion-file-preview--contain img {
-            object-fit: contain;
-            background: #fafdfc;
+            object-fit: cover;
+            object-position: center top;
+            background: #f5faf8;
         }
         .avaliacion-file-preview--lista-cotexo-zoom img {
             object-fit: cover;
@@ -489,15 +491,22 @@
             min-width: 100%;
             min-height: 100%;
         }
+        .avaliacion-file-preview--pdf {
+            background: #fff;
+        }
         .avaliacion-file-preview--pdf iframe {
             position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
+            top: 50%;
+            left: 50%;
+            width: 135%;
+            height: 135%;
             border: 0;
             pointer-events: none;
-            transform: scale(1.02);
-            transform-origin: top center;
+            transform: translate(-50%, -50%);
+        }
+        .recursos-proxecto-section .avaliacion-file-preview--pdf iframe {
+            width: 150%;
+            height: 150%;
         }
         .avaliacion-file-preview--generic {
             display: flex;
@@ -586,7 +595,8 @@
             background: #fff;
         }
         .recursos-proxecto-section .recursos-preview-palabras img {
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center top;
         }
         /* Responsive styles */
         @media (max-width: 768px) {
@@ -958,19 +968,19 @@
                     </a>
                     <a href="assets/documents/avaliacion-equipo.pdf" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer" aria-label="Abrir Coavaliación - traballo en equipo">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
-                            <iframe src="assets/documents/avaliacion-equipo.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                            <iframe src="assets/documents/avaliacion-equipo.pdf#toolbar=0&amp;view=Fit" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">Coavaliación - traballo en equipo</span>
                     </a>
                     <a href="assets/documents/coavaliacion-docencia-compartida.pdf" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer" aria-label="Abrir Coavaliación - docencia compartida">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
-                            <iframe src="assets/documents/coavaliacion-docencia-compartida.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                            <iframe src="assets/documents/coavaliacion-docencia-compartida.pdf#toolbar=0&amp;view=Fit" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">Coavaliación - docencia compartida</span>
                     </a>
                     <a href="assets/documents/tickets-de-saida.pdf" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer" aria-label="Abrir Autoavaliación - tickets de saída">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
-                            <iframe src="assets/documents/tickets-de-saida.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                            <iframe src="assets/documents/tickets-de-saida.pdf#toolbar=0&amp;view=Fit" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">Autoavaliación - tickets de saída</span>
                     </a>
@@ -982,19 +992,19 @@
                 <div class="avaliacion-files-grid" aria-label="Recursos do proxecto">
                     <a href="assets/documents/proxecto-scratch.pdf" class="avaliacion-file-card" download="Proxecto scratch.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Proxecto Scratch">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
-                            <iframe src="assets/documents/proxecto-scratch.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                            <iframe src="assets/documents/proxecto-scratch.pdf#toolbar=0&amp;view=Fit" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">Proxecto scratch</span>
                     </a>
                     <a href="assets/documents/storyboard.pdf" class="avaliacion-file-card" download="Storyboard.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Storyboard">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
-                            <iframe src="assets/documents/storyboard.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                            <iframe src="assets/documents/storyboard.pdf#toolbar=0&amp;view=Fit" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">Storyboard</span>
                     </a>
                     <a href="assets/documents/programar.pdf" class="avaliacion-file-card" download="programar.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir programar">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
-                            <iframe src="assets/documents/programar.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                            <iframe src="assets/documents/programar.pdf#toolbar=0&amp;view=Fit" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">programar</span>
                     </a>
@@ -1006,13 +1016,13 @@
                     </a>
                     <a href="assets/documents/manexo-scratch.pdf" class="avaliacion-file-card" download="Manexo Scratch.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Manexo Scratch">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
-                            <iframe src="assets/documents/manexo-scratch.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                            <iframe src="assets/documents/manexo-scratch.pdf#toolbar=0&amp;view=Fit" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">Manexo Scratch</span>
                     </a>
                     <a href="assets/documents/factura-luz-soportes.pdf" class="avaliacion-file-card" download="Factura luz + soportes.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Factura luz + soportes">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
-                            <iframe src="assets/documents/factura-luz-soportes.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                            <iframe src="assets/documents/factura-luz-soportes.pdf#toolbar=0&amp;view=Fit" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">Factura luz + soportes</span>
                     </a>

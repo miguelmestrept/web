@@ -409,11 +409,25 @@
                     </audio>
                 </div>
                 <p>Un espazo de diálogo que se realiza cando xorde un conflicto ou unha situación que afecta ao grupo. Participa todo o grupo aula nun círculo secuencial ou non secuencial utilizando o obxecto da palabra para expresar como se sente e escoitar aos demais.</p>
-                <h2 class="practicas-subtitulo">Reunións restaurativas organizadas</h2>
+                <div class="practicas-subtitulo-wrap">
+                    <h2 class="practicas-subtitulo">Reunións restaurativas organizadas</h2>
+                    <button type="button" class="btn-audio-lectura" id="btn-audio-reunions-restaurativas-organizadas" aria-label="Reproducir lectura do texto Reunións restaurativas organizadas" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
+                    <audio id="audio-reunions-restaurativas-organizadas" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
+                        <source src="assets/audio/reunions-restaurativas-organizadas.m4a" type="audio/mp4">
+                        O teu navegador non soporta a reprodución de audio.
+                    </audio>
+                </div>
                 <div class="practicas-imaxe practicas-imaxe--proceso">
                     <img src="assets/images/resources/reunion-restaurativa-organizada.png" alt="Proceso de reunión restaurativa organizada">
                 </div>
-                <h3 class="tanque-titulo">Tanque de peixes</h3>
+                <div class="practicas-subtitulo-wrap">
+                    <h3 class="tanque-titulo">Tanque de peixes</h3>
+                    <button type="button" class="btn-audio-lectura" id="btn-audio-tanque-peixes" aria-label="Reproducir lectura do texto Tanque de peixes" title="Escoitar lectura"><img src="assets/images/resources/audio-icon.png" alt="" aria-hidden="true"></button>
+                    <audio id="audio-tanque-peixes" class="audio-lectura-hidden" preload="metadata" aria-hidden="true">
+                        <source src="assets/audio/tanque-de-peixes.m4a" type="audio/mp4">
+                        O teu navegador non soporta a reprodución de audio.
+                    </audio>
+                </div>
                 <div class="circulos-texto-block">
                     <div class="circulos-imaxe" style="width: 200px;">
                         <img src="assets/images/resources/tanque-peixes.png" alt="Tanque de peixes">
@@ -448,7 +462,9 @@
                 { btnId: 'btn-audio-practicas', audioId: 'audio-practicas', labelPaused: 'Reproducir lectura do texto Prácticas restaurativas' },
                 { btnId: 'btn-audio-circulos-proactivos', audioId: 'audio-circulos-proactivos', labelPaused: 'Reproducir lectura do texto Círculos proactivos' },
                 { btnId: 'btn-audio-pequena-reunion-espontanea', audioId: 'audio-pequena-reunion-espontanea', labelPaused: 'Reproducir lectura do texto Pequena reunión espontánea' },
-                { btnId: 'btn-audio-circulos-restaurativos-espontaneos', audioId: 'audio-circulos-restaurativos-espontaneos', labelPaused: 'Reproducir lectura do texto Círculos restaurativos espontáneos' }
+                { btnId: 'btn-audio-circulos-restaurativos-espontaneos', audioId: 'audio-circulos-restaurativos-espontaneos', labelPaused: 'Reproducir lectura do texto Círculos restaurativos espontáneos' },
+                { btnId: 'btn-audio-reunions-restaurativas-organizadas', audioId: 'audio-reunions-restaurativas-organizadas', labelPaused: 'Reproducir lectura do texto Reunións restaurativas organizadas' },
+                { btnId: 'btn-audio-tanque-peixes', audioId: 'audio-tanque-peixes', labelPaused: 'Reproducir lectura do texto Tanque de peixes' }
             ];
             var allAudios = [];
             pairs.forEach(function(p) {

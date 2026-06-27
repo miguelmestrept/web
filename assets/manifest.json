@@ -109,6 +109,18 @@
       "to": "assets/images/resources/audiocontos.png"
     },
     {
+      "from": "Tiras lectura.png",
+      "to": "assets/images/resources/tiras-lectura.png"
+    },
+    {
+      "from": "Filtros de color.png",
+      "to": "assets/images/resources/filtros-de-color.png"
+    },
+    {
+      "from": "Lupa.png",
+      "to": "assets/images/resources/lupa.png"
+    },
+    {
       "from": "Autoavaliación Sara.png",
       "to": "assets/images/resources/autoavaliacion-sara.png"
     },

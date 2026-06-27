@@ -466,11 +466,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center top;
             display: block;
         }
         .avaliacion-file-preview--contain img {
-            object-fit: contain;
-            background: #fafdfc;
+            object-fit: cover;
+            object-position: center top;
+            background: #f5faf8;
         }
         .avaliacion-file-preview--lista-cotexo-zoom img {
             object-fit: cover;
@@ -480,15 +482,22 @@
             min-width: 100%;
             min-height: 100%;
         }
+        .avaliacion-file-preview--pdf {
+            background: #fff;
+        }
         .avaliacion-file-preview--pdf iframe {
             position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
+            top: 50%;
+            left: 50%;
+            width: 135%;
+            height: 135%;
             border: 0;
             pointer-events: none;
-            transform: scale(1.02);
-            transform-origin: top center;
+            transform: translate(-50%, -50%);
+        }
+        .recursos-proxecto-section .avaliacion-file-preview--pdf iframe {
+            width: 150%;
+            height: 150%;
         }
         .avaliacion-file-preview--generic {
             display: flex;
@@ -941,19 +950,19 @@
                     </a>
                     <a href="assets/documents/avaliacion-equipo.pdf" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer" aria-label="Abrir Coavaliación - traballo en equipo">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
-                            <iframe src="assets/documents/avaliacion-equipo.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                            <iframe src="assets/documents/avaliacion-equipo.pdf#toolbar=0&amp;view=Fit" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">Coavaliación - traballo en equipo</span>
                     </a>
                     <a href="assets/documents/coavaliacion-docencia-compartida.pdf" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer" aria-label="Abrir Coavaliación - docencia compartida">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
-                            <iframe src="assets/documents/coavaliacion-docencia-compartida.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                            <iframe src="assets/documents/coavaliacion-docencia-compartida.pdf#toolbar=0&amp;view=Fit" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">Coavaliación - docencia compartida</span>
                     </a>
                     <a href="assets/documents/tickets-de-saida.pdf" class="avaliacion-file-card" target="_blank" rel="noopener noreferrer" aria-label="Abrir Autoavaliación - tickets de saída">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
-                            <iframe src="assets/documents/tickets-de-saida.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                            <iframe src="assets/documents/tickets-de-saida.pdf#toolbar=0&amp;view=Fit" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">Autoavaliación - tickets de saída</span>
                     </a>
@@ -971,19 +980,19 @@
                     </a>
                     <a href="assets/documents/bubble-maps-esculturas.pdf" class="avaliacion-file-card" download="Bubble maps esculturas.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Bubble maps esculturas">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
-                            <iframe src="assets/documents/bubble-maps-esculturas.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                            <iframe src="assets/documents/bubble-maps-esculturas.pdf#toolbar=0&amp;view=Fit" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">Bubble maps esculturas</span>
                     </a>
                     <a href="assets/documents/escaleta.pdf" class="avaliacion-file-card" download="ESCALETA.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Escaleta">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
-                            <iframe src="assets/documents/escaleta.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                            <iframe src="assets/documents/escaleta.pdf#toolbar=0&amp;view=Fit" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">ESCALETA</span>
                     </a>
                     <a href="assets/documents/plantilla-notas-salida.pdf" class="avaliacion-file-card" download="Plantilla notas salida.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir Plantilla notas salida">
                         <div class="avaliacion-file-preview avaliacion-file-preview--pdf">
-                            <iframe src="assets/documents/plantilla-notas-salida.pdf#toolbar=0&amp;view=FitH" title="" aria-hidden="true"></iframe>
+                            <iframe src="assets/documents/plantilla-notas-salida.pdf#toolbar=0&amp;view=Fit" title="" aria-hidden="true"></iframe>
                         </div>
                         <span class="avaliacion-file-name">Plantilla notas salida</span>
                     </a>
