@@ -11,10 +11,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
         body {
             font-family: 'Pompiere', sans-serif;
             background: #FBF7E9;
             color: #5a6b5a;
+            position: relative;
         }
         h1, h2, .page-title, .section-title, .menu-item > a, .dropdown li a {
             font-family: 'Amatic SC', cursive;
@@ -770,6 +776,51 @@
             .economia-fichas-heading {
                 font-size: 1.75rem;
                 margin-bottom: 0.75rem;
+            }
+            .presentation-section {
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+            }
+            .presentation-section .economia-fichas-heading {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+            .carousel-swipe-hint {
+                margin-top: 0.6rem;
+                margin-bottom: 1.8rem;
+            }
+            .avaliacion-section {
+                margin-top: 2rem;
+            }
+            .avaliacion-intro-row {
+                margin-top: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            .avaliacion-grid-hint {
+                margin-top: 1rem;
+                margin-bottom: 1.2rem;
+            }
+            .container,
+            .content,
+            .presentation-section,
+            .presentation-carousel-stack,
+            .avaliacion-section,
+            .avaliacion-files-grid,
+            .recursos-proxecto-section {
+                width: 100%;
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+            .presentation-section .swiper {
+                width: 100%;
+                max-width: 100%;
+                overflow: hidden;
+            }
+            .swiper-wrapper {
+                max-width: 100%;
+            }
+            .swiper-slide {
+                max-width: 100%;
             }
         }
 
