@@ -121,6 +121,30 @@
       "to": "assets/images/resources/lupa.png"
     },
     {
+      "from": "Sara.png",
+      "to": "assets/images/familia-escola/sara.png"
+    },
+    {
+      "from": "José.png",
+      "to": "assets/images/familia-escola/jose.png"
+    },
+    {
+      "from": "Samira.png",
+      "to": "assets/images/familia-escola/samira.png"
+    },
+    {
+      "from": "Pedro.png",
+      "to": "assets/images/familia-escola/pedro.png"
+    },
+    {
+      "from": "Raúl.png",
+      "to": "assets/images/familia-escola/raul.png"
+    },
+    {
+      "from": "Martín.png",
+      "to": "assets/images/familia-escola/martin.png"
+    },
+    {
       "from": "Autoavaliación Sara.png",
       "to": "assets/images/resources/autoavaliacion-sara.png"
     },
@@ -255,6 +279,10 @@
     {
       "from": "Captura de pantalla 2026-04-23 a las 21.50.09.png",
       "to": "assets/images/screenshots/captura-de-pantalla-2026-04-23-a-las-21-50-09.png"
+    },
+    {
+      "from": "PDI TEA GRADO 2-2.png",
+      "to": "assets/images/resources/panel-de-turnos.png"
     },
     {
       "from": "Captura de pantalla 2026-05-10 a las 18.20.27.png",
@@ -755,6 +783,22 @@
     {
       "from": "Policán.png",
       "to": "assets/images/resources/polican.png"
+    },
+    {
+      "from": "Solos.JPG",
+      "to": "assets/images/resources/solos.jpg"
+    },
+    {
+      "from": "Narval.JPG",
+      "to": "assets/images/resources/narval.jpg"
+    },
+    {
+      "from": "Dila Crocodila.JPG",
+      "to": "assets/images/resources/dila-crocodila.jpg"
+    },
+    {
+      "from": "Super Pataca.JPG",
+      "to": "assets/images/resources/super-pataca.jpg"
     },
     {
       "from": "Post para Instagram de foto de fondo con bocadillo de mensaje frase amarillo y morado.png",
